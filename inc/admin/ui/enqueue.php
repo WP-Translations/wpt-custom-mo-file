@@ -17,7 +17,7 @@ function __wptcmf_load_admin_assets() {
 		WPTCMF_VERSION
 	);
 
-	if ( isset( $current_screen ) && 'settings_page_wpt-custom-mo-file' === $current_screen->base ) {
+	if ( isset( $current_screen ) && 'tools_page_wpt-custom-mo-file' === $current_screen->base ) {
 		wp_enqueue_style( 'wptcmf-admin-styles' );
 	}
 
