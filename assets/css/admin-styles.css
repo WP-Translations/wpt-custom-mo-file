@@ -1,0 +1,6 @@
+.wptcmf-rules-table th,
+.wptcmf-rules-table td {
+	width: auto;
+	border-bottom: 1px dashed #CCC;
+	font-size: .8em;
+}
