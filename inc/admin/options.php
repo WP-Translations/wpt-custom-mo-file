@@ -8,7 +8,7 @@ defined( 'ABSPATH' ) or die( 'Cheatin&#8217; uh?' );
  */
 add_action( 'admin_menu', 'wptcmf_admin_menu' );
 function wptcmf_admin_menu() {
-	add_options_page(
+	add_management_page(
 		WPTCMF_NICE_NAME,
 		WPTCMF_NICE_NAME,
 		'manage_options',
@@ -100,7 +100,7 @@ function wptcmf_options_validate( $input ) {
 		remove_filter( 'upload_dir', '__wpcmf_filter_upload_dir' );
 
 		if ( $mo_file && empty( $mo_file['error'] ) ) {
-			$new_rules = array (
+			$new_rules = array(
 				'mo_path' => $mo_file['file'],
 				'text_domain' => $_POST['wptcmf_text_domain'],
 				'activate' => 1,
