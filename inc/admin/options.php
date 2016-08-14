@@ -95,6 +95,7 @@ function wptcmf_options_validate( $input ) {
 	}
 
 	if ( isset( $_POST['wptcmf-add-rule'] ) ) {
+
 		add_filter( 'upload_dir', '__wpcmf_filter_upload_dir' );
 		$mo_file = wp_handle_upload( $_FILES['wptcmf_mo_file'], array( 'test_form' => false, 'mimes' => array( 'mo' => 'application/octet-stream' ) ) );
 		remove_filter( 'upload_dir', '__wpcmf_filter_upload_dir' );
@@ -106,9 +107,7 @@ function wptcmf_options_validate( $input ) {
 				'activate' => 1,
 			);
 			$options['rules'][ $_POST['wptcmf_text_domain'] ] = $new_rules;
-
 			add_settings_error( 'wptcmf_options', 'wptcmf-file-uploaded', esc_html__( 'Rule saved !', 'wpt-custom-mo-file' ), 'updated' );
-			return $options;
 
 		} else {
 			add_settings_error( 'wptcmf_options', 'wptcmf-file-missing', $mo_file['error'], 'error' );
@@ -117,7 +116,7 @@ function wptcmf_options_validate( $input ) {
 
 	if ( isset( $_POST['wptcmf-deactivate-rule'] ) ) {
 		$options['rules'][ $_POST['wptcmf-deactivate-rule'] ]['activate'] = 0;
-		add_settings_error( 'wptcmf_options', 'wptcmf-deactivate-rule', __( 'Rule successfull deactivated ', 'wpt-custom-mo-file' ), 'updated' );
+		add_settings_error( 'wptcmf_options', 'wptcmf-deactivate-rule', __( 'Rule successfull deactivated', 'wpt-custom-mo-file' ), 'updated' );
 	}
 
 	if ( isset( $_POST['wptcmf-activate-rule'] ) ) {

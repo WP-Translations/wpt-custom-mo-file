@@ -10,7 +10,7 @@ function plugin_options_page() {
 	?>
 	<div class="wrap">
 		<h2><?php esc_html_e( WPTCMF_NICE_NAME ); ?></h2>
-
+		<?php settings_errors(); ?>
 		<form action="options.php" method="post" enctype="multipart/form-data">
 			<?php settings_fields( 'wptcmf_options' ); ?>
 			<?php do_settings_sections( 'wptcmf_rules' ); ?>
