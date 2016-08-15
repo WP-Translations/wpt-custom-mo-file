@@ -6,18 +6,24 @@ defined( 'ABSPATH' ) or die( 'Cheatin&#8217; uh?' );
  *
  * @since 1.0.0
  */
-function plugin_options_page() {
-	?>
+function __wptcmf_tools_page() {
+	$count_domains = count( wptcmf_get_domains() ); ?>
+
 	<div class="wrap">
 		<h2><?php esc_html_e( WPTCMF_NICE_NAME ); ?></h2>
 		<?php settings_errors(); ?>
 		<form action="options.php" method="post" enctype="multipart/form-data">
 			<?php settings_fields( 'wptcmf_options' ); ?>
-			<?php do_settings_sections( 'wptcmf_rules' ); ?>
-			<?php submit_button( __( 'Add new rule', 'wpt-custom-mo-file' ), 'primary', 'wptcmf-add-rule' ); ?>
+			<?php if ( 0 < $count_domains ) : ?>
+				<?php do_settings_sections( 'wptcmf_rules' ); ?>
+				<?php submit_button( __( 'Add new rule', 'wpt-custom-mo-file' ), 'primary', 'wptcmf-add-rule' ); ?>
+			<?php else : ?>
+				<div class="settings-error notice notice-info is-dismissible"><p><strong><?php  esc_html_e( 'There is no textdomain or all available domains are already overwritten. ', 'wpt-custom-mo-file' ); ?></strong></p></div>
+			<?php endif; ?>
 			<?php do_settings_sections( 'wptcmf_table' ); ?>
 		</form>
 	</div>
+
 	<?php
 }
 
@@ -26,7 +32,7 @@ function plugin_options_page() {
  *
  * @since 1.0.0
  */
-function wptcmf_section_rules_text() {
+function __wptcmf_section_rules_text() {
 	?>
 	<p><?php esc_html_e( 'Create your own rules to override translation', 'wpt-custom-mo-file' ); ?></p>
 	<?php
@@ -37,7 +43,7 @@ function wptcmf_section_rules_text() {
  *
  * @since 1.0.0
  */
-function wptcmf_upload_mo_file_field() {
+function __wptcmf_upload_mo_file_field() {
 	?>
 	<input id="wptcmf-upload-mo-file" name="wptcmf_mo_file" type="file">
 	<?php
@@ -48,22 +54,8 @@ function wptcmf_upload_mo_file_field() {
  *
  * @since 1.0.0
  */
-function wptcmf_select_textdomain_field() {
-	global $l10n;
-	$rules = get_option( 'wptcmf_options' );
-	$domains = array_keys( (array) $l10n );
-	$domains_blacklist = array(
-		'default',
-	);
-
-	if ( isset ( $rules['rules'] ) && ! empty( $rules['rules'] ) ) {
-		$rules_exist = array_keys( $rules['rules'] );
-
-		if ( ! empty( $rules_exist ) ) {
-			$domains_blacklist = array_unique( array_merge( $domains_blacklist, $rules_exist ) );
-		}
-	}
-	$domains = array_diff( $domains, $domains_blacklist ); ?>
+function __wptcmf_select_textdomain_field() {
+	$domains = wptcmf_get_domains(); ?>
 
 	<select id="wptcmf-select-textdomain" name="wptcmf_text_domain">
 		<?php foreach ( $domains as $domain ) : ?>
@@ -79,7 +71,8 @@ function wptcmf_select_textdomain_field() {
  *
  * @since 1.0.0
  */
-function wptcmf_rules_table_field() {
+function __wptcmf_rules_table_field() {
+	global $l10n;
 	$rules = get_option( 'wptcmf_options' );
 	if ( isset ( $rules['rules'] ) && ! empty( $rules['rules'] ) ) : ?>
 
@@ -96,6 +89,7 @@ function wptcmf_rules_table_field() {
 					<tr>
 						<td><?php esc_attr_e( $rule['text_domain'] ); ?></td>
 						<td><?php esc_attr_e( $rule['mo_path'] ); ?></td>
+						<td><?php esc_attr_e( $rule['filename'] ); ?></td>
 						<td>
 							<?php if ( 1 === $rule['activate'] ) : ?>
 								<button class="button" type="submit" name="wptcmf-deactivate-rule" value="<?php esc_attr_e( $rule['text_domain'] ); ?>"><?php esc_html_e( 'Deactivate', 'wpt-custom-mo-file' ); ?></button>

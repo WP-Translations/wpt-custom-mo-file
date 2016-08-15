@@ -13,7 +13,7 @@ function wptcmf_admin_menu() {
 		WPTCMF_NICE_NAME,
 		'manage_options',
 		WPTCMF_SLUG,
-		'plugin_options_page'
+		'__wptcmf_tools_page'
 	);
 }
 
@@ -22,21 +22,21 @@ function wptcmf_admin_menu() {
  *
  * @since 1.0.0
  */
-add_action( 'admin_init', 'wptcmf_initialize_options' );
-function wptcmf_initialize_options() {
+add_action( 'admin_init', '__wptcmf_initialize_options' );
+function __wptcmf_initialize_options() {
 	$rules = get_option( 'wptcmf_options' );
 
 	add_settings_section(
 		'wptcmf_section_rules',
 		'',
-		'wptcmf_section_rules_text',
+		'__wptcmf_section_rules_text',
 		'wptcmf_rules'
 	);
 
 	add_settings_field(
 		'wptcmf-upload-mo-file',
 		__( 'Upload your .mo file', 'wpt-custom-mo-file' ),
-		'wptcmf_upload_mo_file_field',
+		'__wptcmf_upload_mo_file_field',
 		'wptcmf_rules',
 		'wptcmf_section_rules'
 	);
@@ -44,7 +44,7 @@ function wptcmf_initialize_options() {
 	add_settings_field(
 		'wptcmf-select-textdomain',
 		__( 'Select text domain', 'wpt-custom-mo-file' ),
-		'wptcmf_select_textdomain_field',
+		'__wptcmf_select_textdomain_field',
 		'wptcmf_rules',
 		'wptcmf_section_rules'
 	);
@@ -60,26 +60,13 @@ function wptcmf_initialize_options() {
 		add_settings_field(
 			'wptcmf-rules-table',
 			__( 'Rules', 'wpt-custom-mo-file' ),
-			'wptcmf_rules_table_field',
+			'__wptcmf_rules_table_field',
 			'wptcmf_table',
 			'wptcmf_section_table'
 		);
 	}
 
-	register_setting( 'wptcmf_options', 'wptcmf_options', 'wptcmf_options_validate' );
-}
-
-/**
- * Filter for upload_dir
- *
- * @since 1.0.0
- */
-function __wpcmf_filter_upload_dir( $dirs ) {
-		$dirs['subdir'] = '/wpt-custom-mo-file';
-		$dirs['path'] = $dirs['basedir'] . '/wpt-custom-mo-file';
-		$dirs['url'] = $dirs['baseurl'] . '/wpt-custom-mo-file';
-
-		return $dirs;
+	register_setting( 'wptcmf_options', 'wptcmf_options', '__wptcmf_options_validate' );
 }
 
 /**
@@ -87,7 +74,7 @@ function __wpcmf_filter_upload_dir( $dirs ) {
  *
  * @since 1.0.0
  */
-function wptcmf_options_validate( $input ) {
+function __wptcmf_options_validate( $input ) {
 	$options = get_option( 'wptcmf_options' );
 
 	if ( ! function_exists( 'wp_handle_upload' ) ) {
@@ -102,9 +89,11 @@ function wptcmf_options_validate( $input ) {
 
 		if ( $mo_file && empty( $mo_file['error'] ) ) {
 			$new_rules = array(
+				'filename' => $_FILES['wptcmf_mo_file']['name'],
 				'mo_path' => $mo_file['file'],
 				'text_domain' => $_POST['wptcmf_text_domain'],
 				'activate' => 1,
+				'debug' => $mo_file,
 			);
 			$options['rules'][ $_POST['wptcmf_text_domain'] ] = $new_rules;
 			add_settings_error( 'wptcmf_options', 'wptcmf-file-uploaded', esc_html__( 'Rule saved !', 'wpt-custom-mo-file' ), 'updated' );
