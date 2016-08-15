@@ -33,26 +33,29 @@ define( 'WPTCMF_PATH', 						realpath( plugin_dir_path( WPTCMF_FILE ) ) . '/' );
 define( 'WPTCMF_INC_PATH', 				realpath( WPTCMF_PATH . 'inc' ) . '/' );
 define( 'WPTCMF_ADMIN_PATH', 			realpath( WPTCMF_INC_PATH . 'admin' ) . '/' );
 define( 'WPTCMF_ADMIN_UI_PATH', 	realpath( WPTCMF_ADMIN_PATH . 'ui' ) . '/' );
+define( 'WPTCMF_FUNCTIONS_PATH', 	realpath( WPTCMF_INC_PATH . 'functions' ) . '/' );
 define( 'WPTCMF_URL_ASSETS',  		WPTCMF_URL . 'assets/' );
 define( 'WPTCMF_URL_ASSETS_CSS',	WPTCMF_URL_ASSETS . 'css/' );
+define( 'WPTCMF_OVERWRITE_DIR',		WP_CONTENT_DIR . '/uploads/wpt-custom-mo-file/' );
 
 /**
  * Tell WP what to do when plugin is loaded
  *
  * @since 1.0.0
  */
+add_action( 'plugins_loaded', 'wptcmf_init' );
 function wptcmf_init() {
 
 	load_plugin_textdomain( 'wpt-custom-mo-file', false, dirname( plugin_basename( __FILE__ ) ) . '/languages' );
 
 	if ( is_admin() ) {
 		require( WPTCMF_ADMIN_UI_PATH . 'enqueue.php' );
+		require( WPTCMF_FUNCTIONS_PATH . 'functions.php' );
 		require( WPTCMF_ADMIN_PATH . 'options.php' );
 		require( WPTCMF_ADMIN_UI_PATH . 'options.php' );
 	}
 
 }
-add_action( 'plugins_loaded', 'wptcmf_init' );
 
 /**
  * Tell WP what to do when plugin is activated
@@ -65,50 +68,19 @@ function wptcmf_activation() {
 }
 
 /**
- * Filters whether to override the .mo file loading.
+ * Load overwrites rules
  *
  * @since 1.0.0
- *
- * @param bool   $override Whether to override the .mo file loading. Default false.
- * @param string $domain   Text domain. Unique identifier for retrieving translated strings.
- * @param string $mofile   Path to the MO file.
  */
-add_filter( 'override_load_textdomain', 'wptcmf_override_default_language_files', 10, 3 );
-function wptcmf_override_default_language_files( $override, $domain, $mofile ) {
-	global $l10n, $l10n_unloaded;
+add_action( 'plugins_loaded', '__wptcmf_overwrite_domains', 0 );
+function __wptcmf_overwrite_domains() {
+	$options = get_option( 'wptcmf_options' );
 
-	do_action( 'load_textdomain', $domain, $mofile );
-	$mofile = apply_filters( 'load_textdomain_mofile', $mofile, $domain );
-	if ( ! is_readable( $mofile ) ) {
-		return false;
-	}
-
-	$mo = new MO();
-	if ( ! $mo->import_from_file( $mofile ) ) {
-		return false;
-	}
-	if ( isset( $l10n[ $domain ] ) ) {
-		$mo->merge_with( $l10n[ $domain ] );
-	}
-	unset( $l10n_unloaded[ $domain ] );
-	$l10n[ $domain ] = &$mo;
-	return true;
-}
-
-/**
- * Loop rules to setup override
- *
- * @since 1.0.0
- *
- */
-add_action( 'plugins_loaded', 'wptcmf_load_rules' );
-function wptcmf_load_rules() {
-	$rules = get_option( 'wptcmf_options' );
-
-	if ( isset ( $rules['rules'] ) && ! empty( $rules['rules'] ) ) {
-		foreach ( $rules['rules'] as $rule ) {
+	if ( isset ( $options['rules'] ) && ! empty( $options['rules'] ) ) {
+		foreach ( $options['rules'] as $rule ) {
 			if ( 1 === $rule['activate'] ) {
-				wptcmf_override_default_language_files( $override = true, $rule['text_domain'], $rule['mo_path'] );
+				unload_textdomain( $rule['text_domain'] );
+				load_textdomain( $rule['text_domain'], $rule['mo_path'] );
 			}
 		}
 	}
