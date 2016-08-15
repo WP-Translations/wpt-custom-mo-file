@@ -23,7 +23,7 @@ function wptcmf_get_domains() {
 	global $l10n;
 	$plugins = get_option( 'active_plugins' );
 	$rules = get_option( 'wptcmf_options' );
-	$domains_blacklist = array( 'default', 'debug-bar-localization', 'query-monitor', 'wpt-custom-mo-file', 'feedpress' );
+	$domains_blacklist = array( 'default' );
 
 	foreach ( $plugins as $plugin ) {
 		$plugin_data = get_plugin_data( trailingslashit( WP_PLUGIN_DIR ) . $plugin );
