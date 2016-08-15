@@ -49,7 +49,7 @@ function wptcmf_init() {
 	load_plugin_textdomain( 'wpt-custom-mo-file', false, dirname( plugin_basename( __FILE__ ) ) . '/languages' );
 
 	if ( is_admin() ) {
-		require( WPTCMF_ADMIN_UI_PATH . 'enqueue.php' );
+		require( WPTCMF_ADMIN_PATH . 'enqueue.php' );
 		require( WPTCMF_FUNCTIONS_PATH . 'functions.php' );
 		require( WPTCMF_ADMIN_PATH . 'options.php' );
 		require( WPTCMF_ADMIN_UI_PATH . 'options.php' );
