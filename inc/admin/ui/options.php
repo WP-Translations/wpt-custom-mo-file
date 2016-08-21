@@ -16,11 +16,11 @@ function __wptcmf_tools_page() {
 			<?php settings_fields( 'wptcmf_options' ); ?>
 			<?php if ( 0 < $count_domains ) : ?>
 				<?php do_settings_sections( 'wptcmf_rules' ); ?>
-				<?php submit_button( __( 'Add new rule', 'wpt-custom-mo-file' ), 'primary', 'wptcmf-add-rule' ); ?>
+				<?php submit_button( __( 'Add new rule', 'wpt-custom-mo-file' ), 'primary', 'wptcmf_options[wptcmf-add-rule]' ); ?>
 			<?php else : ?>
 				<div class="settings-error notice notice-info is-dismissible"><p><strong><?php  esc_html_e( 'There is no textdomain or all available domains are already overwritten. ', 'wpt-custom-mo-file' ); ?></strong></p></div>
 			<?php endif; ?>
-			<?php do_settings_sections( 'wptcmf_table' ); ?>
+			<?php do_settings_sections( 'wptcmf_rules_actions' ); ?>
 		</form>
 	</div>
 
@@ -45,7 +45,7 @@ function __wptcmf_section_rules_text() {
  */
 function __wptcmf_upload_mo_file_field() {
 	?>
-	<input id="wptcmf-upload-mo-file" name="wptcmf_mo_file" type="file">
+	<input id="wptcmf_upload_mo_file" name="wptcmf_mo_file" type="file">
 	<?php
 }
 
@@ -57,7 +57,7 @@ function __wptcmf_upload_mo_file_field() {
 function __wptcmf_select_textdomain_field() {
 	$domains = wptcmf_get_domains(); ?>
 
-	<select id="wptcmf-select-textdomain" name="wptcmf_text_domain">
+	<select id="wptcmf_select_textdomain" name="wptcmf_options[text_domain]">
 		<?php foreach ( $domains as $domain ) : ?>
 			<option value="<?php esc_attr_e( $domain ); ?>"><?php echo esc_attr_e( $domain ); ?></option>
 		<?php endforeach; ?>
@@ -80,7 +80,7 @@ function __wptcmf_rules_table_field() {
 			<thead>
 				<tr>
 					<th scope="col"><?php esc_html_e( 'Text domain', 'wpt-custom-mo-file' ); ?></th>
-					<th scope="col"><?php esc_html_e( 'File path', 'wpt-custom-mo-file' ); ?></th>
+					<th scope="col"><?php esc_html_e( 'Filename', 'wpt-custom-mo-file' ); ?></th>
 					<th scope="col"><?php esc_html_e( 'Actions', 'wpt-custom-mo-file' ); ?></th>
 				</tr>
 			</thead>
@@ -88,17 +88,15 @@ function __wptcmf_rules_table_field() {
 				<?php foreach ( $rules['rules'] as $rule ) : ?>
 					<tr>
 						<td><?php esc_attr_e( $rule['text_domain'] ); ?></td>
-						<td><?php esc_attr_e( $rule['mo_path'] ); ?></td>
 						<td><?php esc_attr_e( $rule['filename'] ); ?></td>
 						<td>
 							<?php if ( 1 === $rule['activate'] ) : ?>
-								<button class="button" type="submit" name="wptcmf-deactivate-rule" value="<?php esc_attr_e( $rule['text_domain'] ); ?>"><?php esc_html_e( 'Deactivate', 'wpt-custom-mo-file' ); ?></button>
+								<button class="button" type="submit" name="wptcmf_options[deactivate_rule]" value="<?php esc_attr_e( $rule['text_domain'] ); ?>"><?php esc_html_e( 'Deactivate', 'wpt-custom-mo-file' ); ?></button>
 							<?php else : ?>
-								<button class="button" type="submit" name="wptcmf-activate-rule" value="<?php esc_attr_e( $rule['text_domain'] ); ?>"><?php esc_html_e( 'Activate', 'wpt-custom-mo-file' ); ?></button>
+								<button class="button" type="submit" name="wptcmf_options[activate_rule]" value="<?php esc_attr_e( $rule['text_domain'] ); ?>"><?php esc_html_e( 'Activate', 'wpt-custom-mo-file' ); ?></button>
 							<?php endif; ?>
-							<button class="button" type="submit" name="wptcmf-delete-rule" value="<?php esc_attr_e( $rule['text_domain'] ); ?>"><?php esc_html_e( 'Delete rule', 'wpt-custom-mo-file' ); ?></button>
+							<button class="button" type="submit" name="wptcmf_options[delete_rule]" value="<?php esc_attr_e( $rule['text_domain'] ); ?>"><?php esc_html_e( 'Delete rule', 'wpt-custom-mo-file' ); ?></button>
 						</td>
-						<td></td>
 					</tr>
 				<?php endforeach; ?>
 			</tbody>

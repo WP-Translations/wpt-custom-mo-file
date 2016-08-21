@@ -34,39 +34,41 @@ function __wptcmf_initialize_options() {
 	);
 
 	add_settings_field(
-		'wptcmf-upload-mo-file',
-		__( 'Upload your .mo file', 'wpt-custom-mo-file' ),
-		'__wptcmf_upload_mo_file_field',
-		'wptcmf_rules',
-		'wptcmf_section_rules'
-	);
-
-	add_settings_field(
-		'wptcmf-select-textdomain',
+		'wptcmf_select_textdomain',
 		__( 'Select text domain', 'wpt-custom-mo-file' ),
 		'__wptcmf_select_textdomain_field',
 		'wptcmf_rules',
 		'wptcmf_section_rules'
 	);
 
-	add_settings_section(
-		'wptcmf_section_table',
-		'',
-		'',
-		'wptcmf_table'
+	add_settings_field(
+		'wptcmf_upload_mo_file',
+		__( 'Upload your .mo file', 'wpt-custom-mo-file' ),
+		'__wptcmf_upload_mo_file_field',
+		'wptcmf_rules',
+		'wptcmf_section_rules'
 	);
+	register_setting( 'wptcmf_options', 'wptcmf_options', '__wptcmf_add_rule_validate' );
 
 	if ( isset ( $rules['rules'] ) && ! empty( $rules['rules'] ) ) {
+
+		add_settings_section(
+			'wptcmf_section_table',
+			'',
+			'',
+			'wptcmf_rules_actions'
+		);
+
 		add_settings_field(
-			'wptcmf-rules-table',
+			'wptcmf_rules_table',
 			__( 'Rules', 'wpt-custom-mo-file' ),
 			'__wptcmf_rules_table_field',
-			'wptcmf_table',
+			'wptcmf_rules_actions',
 			'wptcmf_section_table'
 		);
+
 	}
 
-	register_setting( 'wptcmf_options', 'wptcmf_options', '__wptcmf_options_validate' );
 }
 
 /**
@@ -74,14 +76,14 @@ function __wptcmf_initialize_options() {
  *
  * @since 1.0.0
  */
-function __wptcmf_options_validate( $input ) {
+function __wptcmf_add_rule_validate( $input ) {
 	$options = get_option( 'wptcmf_options' );
 
 	if ( ! function_exists( 'wp_handle_upload' ) ) {
 			 require_once( ABSPATH . 'wp-admin/includes/file.php' );
 	}
 
-	if ( isset( $_POST['wptcmf-add-rule'] ) ) {
+	if ( isset( $input['wptcmf-add-rule'] ) ) {
 
 		add_filter( 'upload_dir', '__wpcmf_filter_upload_dir' );
 		$mo_file = wp_handle_upload( $_FILES['wptcmf_mo_file'], array( 'test_form' => false, 'mimes' => array( 'mo' => 'application/octet-stream' ) ) );
@@ -91,11 +93,10 @@ function __wptcmf_options_validate( $input ) {
 			$new_rules = array(
 				'filename' => $_FILES['wptcmf_mo_file']['name'],
 				'mo_path' => $mo_file['file'],
-				'text_domain' => $_POST['wptcmf_text_domain'],
+				'text_domain' => $input['text_domain'],
 				'activate' => 1,
-				'debug' => $mo_file,
 			);
-			$options['rules'][ $_POST['wptcmf_text_domain'] ] = $new_rules;
+			$options['rules'][ $input['text_domain'] ] = $new_rules;
 			add_settings_error( 'wptcmf_options', 'wptcmf-file-uploaded', esc_html__( 'Rule saved !', 'wpt-custom-mo-file' ), 'updated' );
 
 		} else {
@@ -103,19 +104,19 @@ function __wptcmf_options_validate( $input ) {
 		}
 	}
 
-	if ( isset( $_POST['wptcmf-deactivate-rule'] ) ) {
-		$options['rules'][ $_POST['wptcmf-deactivate-rule'] ]['activate'] = 0;
+	if ( isset( $input['deactivate_rule'] ) ) {
+		$options['rules'][ $input['deactivate_rule'] ]['activate'] = 0;
 		add_settings_error( 'wptcmf_options', 'wptcmf-deactivate-rule', __( 'Rule successfull deactivated', 'wpt-custom-mo-file' ), 'updated' );
 	}
 
-	if ( isset( $_POST['wptcmf-activate-rule'] ) ) {
-		$options['rules'][ $_POST['wptcmf-activate-rule'] ]['activate'] = 1;
+	if ( isset( $input['activate_rule'] ) ) {
+		$options['rules'][ $input['activate_rule'] ]['activate'] = 1;
 		add_settings_error( 'wptcmf_options', 'wptcmf-activate-rule', __( 'Rule successfull activated ', 'wpt-custom-mo-file' ), 'updated' );
 	}
 
-	if ( isset( $_POST['wptcmf-delete-rule'] ) ) {
-		unlink( $options['rules'][ $_POST['wptcmf-delete-rule'] ]['mo_path'] );
-		unset( $options['rules'][ $_POST['wptcmf-delete-rule'] ] );
+	if ( isset( $input['delete_rule'] ) ) {
+		unlink( $options['rules'][ $input['delete_rule'] ]['mo_path'] );
+		unset( $options['rules'][ $input['delete_rule'] ] );
 		add_settings_error( 'wptcmf_options', 'wptcmf-delete-rule', __( 'Rule successfull deleted ', 'wpt-custom-mo-file' ), 'error' );
 	}
 
