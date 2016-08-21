@@ -1,6 +1,15 @@
+.wptcmf-rules-table {
+	width: 100%;
+}
+
 .wptcmf-rules-table th,
 .wptcmf-rules-table td {
 	width: auto;
 	border-bottom: 1px dashed #CCC;
 	font-size: .8em;
+}
+
+.wptcmf-rules-table th:last-of-type,
+.wptcmf-rules-table td:last-of-type {
+	text-align: right;
 }
