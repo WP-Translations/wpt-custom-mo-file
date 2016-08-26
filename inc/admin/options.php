@@ -35,7 +35,7 @@ function __wptcmf_initialize_options() {
 
 	add_settings_field(
 		'wptcmf_select_textdomain',
-		__( 'Select text domain', 'wpt-custom-mo-file' ),
+		__( 'Select text domain', WPTCMF_SLUG ),
 		'__wptcmf_select_textdomain_field',
 		'wptcmf_rules',
 		'wptcmf_section_rules'
@@ -43,7 +43,7 @@ function __wptcmf_initialize_options() {
 
 	add_settings_field(
 		'wptcmf_upload_mo_file',
-		__( 'Upload your .mo file', 'wpt-custom-mo-file' ),
+		__( 'Upload your .mo file', WPTCMF_SLUG ),
 		'__wptcmf_upload_mo_file_field',
 		'wptcmf_rules',
 		'wptcmf_section_rules'
@@ -61,7 +61,7 @@ function __wptcmf_initialize_options() {
 
 		add_settings_field(
 			'wptcmf_rules_table',
-			__( 'Rules', 'wpt-custom-mo-file' ),
+			__( 'Rules', WPTCMF_SLUG ),
 			'__wptcmf_rules_table_field',
 			'wptcmf_rules_actions',
 			'wptcmf_section_table'
@@ -97,7 +97,7 @@ function __wptcmf_add_rule_validate( $input ) {
 				'activate' => 1,
 			);
 			$options['rules'][ $input['text_domain'] ] = $new_rules;
-			add_settings_error( 'wptcmf_options', 'wptcmf-file-uploaded', esc_html__( 'Rule saved !', 'wpt-custom-mo-file' ), 'updated' );
+			add_settings_error( 'wptcmf_options', 'wptcmf-file-uploaded', esc_html__( 'Rule saved !', WPTCMF_SLUG ), 'updated' );
 
 		} else {
 			add_settings_error( 'wptcmf_options', 'wptcmf-file-missing', $mo_file['error'], 'error' );
@@ -106,18 +106,63 @@ function __wptcmf_add_rule_validate( $input ) {
 
 	if ( isset( $input['deactivate_rule'] ) ) {
 		$options['rules'][ $input['deactivate_rule'] ]['activate'] = 0;
-		add_settings_error( 'wptcmf_options', 'wptcmf-deactivate-rule', __( 'Rule successfull deactivated', 'wpt-custom-mo-file' ), 'updated' );
+		add_settings_error( 'wptcmf_options', 'wptcmf-deactivate-rule', __( 'Rule successfull deactivated', WPTCMF_SLUG ), 'updated' );
 	}
 
 	if ( isset( $input['activate_rule'] ) ) {
 		$options['rules'][ $input['activate_rule'] ]['activate'] = 1;
-		add_settings_error( 'wptcmf_options', 'wptcmf-activate-rule', __( 'Rule successfull activated ', 'wpt-custom-mo-file' ), 'updated' );
+		add_settings_error( 'wptcmf_options', 'wptcmf-activate-rule', __( 'Rule successfull activated ', WPTCMF_SLUG ), 'updated' );
 	}
 
 	if ( isset( $input['delete_rule'] ) ) {
 		unlink( $options['rules'][ $input['delete_rule'] ]['mo_path'] );
 		unset( $options['rules'][ $input['delete_rule'] ] );
-		add_settings_error( 'wptcmf_options', 'wptcmf-delete-rule', __( 'Rule successfull deleted ', 'wpt-custom-mo-file' ), 'error' );
+		add_settings_error( 'wptcmf_options', 'wptcmf-delete-rule', __( 'Rule successfull deleted ', WPTCMF_SLUG ), 'error' );
+	}
+
+	if ( isset( $input['action_top'] ) || isset( $input['action_bottom'] ) ) {
+
+		if ( '-1' !== $input['bulk_action_top'] || '-1' !== $input['bulk_action_bottom'] ) {
+
+			if ( ! empty( $input['mo'] ) ) {
+
+				$action = ( isset( $input['action_top'] ) ) ? $input['bulk_action_top'] : $input['bulk_action_bottom'];
+				$count_task = count( $input['mo'] );
+
+				switch ( $action ) {
+					case 'activate':
+						foreach ( $input['mo'] as $key => $mo ) {
+							$options['rules'][ $mo ]['activate'] = 1;
+						}
+						$message = sprintf( esc_html( _n( '%d rule successfully activated.', '%d rules successfully activated.', $count_task, WPTCMF_SLUG ) ), $count_task );
+						$type = 'updated';
+						break;
+
+					case 'deactivate':
+						foreach ( $input['mo'] as $key => $mo ) {
+							$options['rules'][ $mo ]['activate'] = 0;
+						}
+						$message = sprintf( esc_html( _n( '%d rule successfully deactivated.', '%d rules successfully deactivated.', $count_task, WPTCMF_SLUG ) ), $count_task );
+						$type = 'error';
+						break;
+
+					case 'delete':
+						foreach ( $input['mo'] as $key => $mo ) {
+							unlink( $options['rules'][ $mo ]['mo_path'] );
+							unset( $options['rules'][ $mo ] );
+						}
+						$message = sprintf( esc_html( _n( '%d rule successfully deleted.', '%d rules successfully deleted.', $count_task, WPTCMF_SLUG ) ), $count_task );
+						$type = 'error';
+						break;
+				}
+				add_settings_error( 'wptcmf_options', 'wptcmf-bulk-notice', $message, $type );
+
+			} else {
+				add_settings_error( 'wptcmf_options', 'wptcmf-empty-bulk', __( 'Please select a rule before running bulk action', WPTCMF_SLUG ), 'error' );
+			}
+		} else {
+			add_settings_error( 'wptcmf_options', 'wptcmf-empty-bulk', __( 'Please select a action before', WPTCMF_SLUG ), 'error' );
+		}
 	}
 
 	return $options;
