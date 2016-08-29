@@ -1,9 +1,9 @@
 <?php
 
-// If uninstall not called from WordPress exit
+// If uninstall not called from WordPress exit.
 defined( 'WP_UNINSTALL_PLUGIN' ) or die( 'Cheatin&#8217; uh?' );
 
-// Delete WPTCMF options
+// Delete WPTCMF options.
 delete_option( 'wptcmf_options' );
 
 /**
