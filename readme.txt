@@ -18,9 +18,7 @@ WPT Custom Mo File is a free translation plugin that allows you to override and 
 
 * PHP version 5.2.4 or greater (PHP 5.6 or greater is recommended)
 * MySQL version 5.0 or greater (MySQL 5.6 or greater is recommended)
-* WPT Custom Mo File 1.0 requires WordPress 4.4+
-
-Visit the [WPT Custom Mo File server requirements documentation](TODO) for a detailed list of server requirements.
+* WPT Custom Mo File 1.0 requires WordPress 4.0 or greater
 
 = Automatic installation =
 
@@ -40,32 +38,33 @@ Automatic updates should work like a charm; as always though, ensure you backup 
 
 = Where can I find WPT Custom Mo File documentation and user guides? =
 
-For help setting up and configuring WPT Custom Mo File please refer to our [user guide](https://docs.WPT Custom Mo File.com/documentation/plugins/WPT Custom Mo File/getting-started/)
+For help setting up and configuring WPT Custom Mo File please refer to our [dedicated plugin page](https://wptranslations.org/plugins/wpt-custom-mo-file/)
 
 = Where can I get support or talk to other users? =
 
-If you get stuck, you can ask for help in the [WPT Custom Mo File Plugin Forum](https://wordpress.org/support/plugin/WPT Custom Mo File).
+If you get stuck, you can ask for help in the [WPT Custom Mo File Plugin Forum](https://wordpress.org/support/plugin/wpt-custom-mo-file).
 
-= Will WPT Custom Mo File work with my theme? = TODO
+= Will WPT Custom Mo File work with my theme and plugins? =
 
+Yes, WPT Custom Mo File wih any WordPress theme and plugins.
 
 = Where can I request new features, report bugs or contribute to the project? =
 
-Bugs can be reported either in our support forum or preferably on the [WPT Custom Mo File GitHub repository](TODO/issues).
+Bugs can be reported either in our support forum or preferably on the [WPT Custom Mo File GitHub repository](https://github.com/WP-Translations/wpt-custom-mo-file/issues).
 
 = WPT Custom Mo File is awesome! Can I contribute? =
 
-Yes you can! Join in on our [GitHub repository](TODO) :)
+Yes you can! Join in on our [GitHub repository](https://github.com/WP-Translations/wpt-custom-mo-file) :)
 
 == Screenshots ==
 
 1. The slick WPT Custom Mo File settings panel.
 2.
-3.
-4.
-5.
-6.
 
 == Changelog ==
+
+=== 1.0.0 (01 September 2016) ===
+
+* Initial Release
 
 == Upgrade Notice ==
