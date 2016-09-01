@@ -67,6 +67,22 @@ function __wptcmf_select_textdomain_field() {
 }
 
 /**
+ * Output languages select field
+ *
+ * @since 1.0.0
+ */
+function __wptcmf_select_language_field() {
+	$locale = get_locale();
+	$args = array(
+		'id' => 'wptcmf_select_languages',
+		'name' => 'wptcmf_options[language]',
+		'selected' => $locale,
+	);
+	wp_dropdown_languages( $args );
+
+}
+
+/**
  * Output rules table
  *
  * @since 1.0.0
@@ -75,6 +91,8 @@ function __wptcmf_rules_table_field() {
 	global $l10n;
 	$rules = get_option( 'wptcmf_options' );
 	$count_rules = count( $rules['rules'] );
+	$locale = get_locale();
+
 	if ( isset ( $rules['rules'] ) && ! empty( $rules['rules'] ) ) : ?>
 
 		<div class="tablenav top">
@@ -100,28 +118,32 @@ function __wptcmf_rules_table_field() {
 						<input id="cb-select-all-1" type="checkbox">
 					</td>
 					<th scope="col"><?php esc_html_e( 'Text domain', WPTCMF_SLUG ); ?></th>
+					<th scope="col"><?php esc_html_e( 'Language', WPTCMF_SLUG ); ?></th>
 					<th scope="col"><?php esc_html_e( 'Filename', WPTCMF_SLUG ); ?></th>
 					<th scope="col"><?php esc_html_e( 'Actions', WPTCMF_SLUG ); ?></th>
 				</tr>
 			</thead>
 			<tbody>
-				<?php foreach ( $rules['rules'] as $rule ) : ?>
+				<?php foreach ( $rules['rules'] as $lang ) : ?>
+					<?php foreach ( $lang as $rule ) : ?>
 					<tr>
 						<th scope="row" class="check-column">
-							<label class="screen-reader-text" for="cb-select-<?php esc_attr_e( $rule['text_domain'] ); ?>"><?php esc_html_e( 'Select&nbsp;', WPTCMF_SLUG ); ?><?php echo esc_html( $rule['text_domain'] ); ?></label>
-							<input name="wptcmf_options[mo][]" id="cb-select-<?php esc_attr_e( $rule['text_domain'] ); ?>" value="<?php esc_attr_e( $rule['text_domain'] ); ?>" type="checkbox">
+							<label class="screen-reader-text" for="cb-select-<?php esc_attr_e( $rule['text_domain'].'-'.$rule['language'] ); ?>"><?php esc_html_e( 'Select&nbsp;', WPTCMF_SLUG ); ?><?php echo esc_html( $rule['text_domain'] ); ?></label>
+							<input name="wptcmf_options[mo][]" id="cb-select-<?php esc_attr_e( $rule['text_domain'].'-'.$rule['language'] ); ?>" value="<?php esc_attr_e( $rule['text_domain'].'|'.$rule['language'] ); ?>" type="checkbox">
 						</th>
 						<td><?php esc_attr_e( $rule['text_domain'] ); ?></td>
+						<td><?php esc_attr_e( $rule['language'] ); ?></td>
 						<td><?php esc_attr_e( $rule['filename'] ); ?></td>
 						<td>
 							<?php if ( 1 === $rule['activate'] ) : ?>
-								<button class="button" type="submit" name="wptcmf_options[deactivate_rule]" value="<?php esc_attr_e( $rule['text_domain'] ); ?>"><?php esc_html_e( 'Deactivate', WPTCMF_SLUG ); ?></button>
+								<button class="button" type="submit" name="wptcmf_options[deactivate_rule]" value="<?php esc_attr_e( $rule['text_domain'].'|'.$rule['language'] ); ?>"><?php esc_html_e( 'Deactivate', WPTCMF_SLUG ); ?></button>
 							<?php else : ?>
-								<button class="button" type="submit" name="wptcmf_options[activate_rule]" value="<?php esc_attr_e( $rule['text_domain'] ); ?>"><?php esc_html_e( 'Activate', WPTCMF_SLUG ); ?></button>
+								<button class="button" type="submit" name="wptcmf_options[activate_rule]" value="<?php esc_attr_e( $rule['text_domain'].'|'.$rule['language'] ); ?>"><?php esc_html_e( 'Activate', WPTCMF_SLUG ); ?></button>
 							<?php endif; ?>
-							<button class="button" type="submit" name="wptcmf_options[delete_rule]" value="<?php esc_attr_e( $rule['text_domain'] ); ?>"><?php esc_html_e( 'Delete rule', WPTCMF_SLUG ); ?></button>
+							<button class="button" type="submit" name="wptcmf_options[delete_rule]" value="<?php esc_attr_e( $rule['text_domain'].'|'.$rule['language'] ); ?>"><?php esc_html_e( 'Delete rule', WPTCMF_SLUG ); ?></button>
 						</td>
 					</tr>
+				<?php endforeach; ?>
 				<?php endforeach; ?>
 			</tbody>
 			<tfoot>
@@ -131,6 +153,7 @@ function __wptcmf_rules_table_field() {
 						<input id="cb-select-all-1" type="checkbox">
 					</td>
 					<th scope="col"><?php esc_html_e( 'Text domain', WPTCMF_SLUG ); ?></th>
+					<th scope="col"><?php esc_html_e( 'Language', WPTCMF_SLUG ); ?></th>
 					<th scope="col"><?php esc_html_e( 'Filename', WPTCMF_SLUG ); ?></th>
 					<th scope="col"><?php esc_html_e( 'Actions', WPTCMF_SLUG ); ?></th>
 				</tr>

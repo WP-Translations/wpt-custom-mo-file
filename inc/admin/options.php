@@ -42,6 +42,14 @@ function __wptcmf_initialize_options() {
 	);
 
 	add_settings_field(
+		'wptcmf_select_languages',
+		__( 'Choose language', WPTCMF_SLUG ),
+		'__wptcmf_select_language_field',
+		'wptcmf_rules',
+		'wptcmf_section_rules'
+	);
+
+	add_settings_field(
 		'wptcmf_upload_mo_file',
 		__( 'Upload your .mo file', WPTCMF_SLUG ),
 		'__wptcmf_upload_mo_file_field',
@@ -89,14 +97,17 @@ function __wptcmf_add_rule_validate( $input ) {
 		$mo_file = wp_handle_upload( $_FILES['wptcmf_mo_file'], array( 'test_form' => false, 'mimes' => array( 'mo' => 'application/octet-stream' ) ) );
 		remove_filter( 'upload_dir', '__wpcmf_filter_upload_dir' );
 
+		$input['language'] = ( empty( $input['language'] ) ) ? 'en_US' : $input['language'];
+
 		if ( $mo_file && empty( $mo_file['error'] ) ) {
 			$new_rules = array(
 				'filename' => $_FILES['wptcmf_mo_file']['name'],
 				'mo_path' => $mo_file['file'],
 				'text_domain' => $input['text_domain'],
 				'activate' => 1,
+				'language' => $input['language'],
 			);
-			$options['rules'][ $input['text_domain'] ] = $new_rules;
+			$options['rules'][ $input['language'] ][ $input['text_domain'] ] = $new_rules;
 			add_settings_error( 'wptcmf_options', 'wptcmf-file-uploaded', esc_html__( 'Rule saved !', WPTCMF_SLUG ), 'updated' );
 
 		} else {
@@ -105,18 +116,21 @@ function __wptcmf_add_rule_validate( $input ) {
 	}
 
 	if ( isset( $input['deactivate_rule'] ) ) {
-		$options['rules'][ $input['deactivate_rule'] ]['activate'] = 0;
+		$data = wptcmf_extract_textdomain_locale( $input['deactivate_rule'] );
+		$options['rules'][ $data['locale'] ][ $data['text_domain'] ]['activate'] = 0;
 		add_settings_error( 'wptcmf_options', 'wptcmf-deactivate-rule', __( 'Rule successfull deactivated', WPTCMF_SLUG ), 'updated' );
 	}
 
 	if ( isset( $input['activate_rule'] ) ) {
-		$options['rules'][ $input['activate_rule'] ]['activate'] = 1;
+		$data = wptcmf_extract_textdomain_locale( $input['activate_rule'] );
+		$options['rules'][ $data['locale'] ][ $data['text_domain'] ]['activate'] = 1;
 		add_settings_error( 'wptcmf_options', 'wptcmf-activate-rule', __( 'Rule successfull activated ', WPTCMF_SLUG ), 'updated' );
 	}
 
 	if ( isset( $input['delete_rule'] ) ) {
-		unlink( $options['rules'][ $input['delete_rule'] ]['mo_path'] );
-		unset( $options['rules'][ $input['delete_rule'] ] );
+		$data = wptcmf_extract_textdomain_locale( $input['delete_rule'] );
+		unlink( $options['rules'][ $data['locale'] ][ $data['text_domain'] ]['mo_path'] );
+		unset( $options['rules'][ $data['locale'] ][ $data['text_domain'] ] );
 		add_settings_error( 'wptcmf_options', 'wptcmf-delete-rule', __( 'Rule successfull deleted ', WPTCMF_SLUG ), 'error' );
 	}
 
@@ -132,7 +146,8 @@ function __wptcmf_add_rule_validate( $input ) {
 				switch ( $action ) {
 					case 'activate':
 						foreach ( $input['mo'] as $key => $mo ) {
-							$options['rules'][ $mo ]['activate'] = 1;
+							$data = wptcmf_extract_textdomain_locale( $mo );
+							$options['rules'][ $data['locale'] ][ $data['text_domain'] ]['activate'] = 1;
 						}
 						$message = sprintf( esc_html( _n( '%d rule successfully activated.', '%d rules successfully activated.', $count_task, WPTCMF_SLUG ) ), $count_task );
 						$type = 'updated';
@@ -140,7 +155,8 @@ function __wptcmf_add_rule_validate( $input ) {
 
 					case 'deactivate':
 						foreach ( $input['mo'] as $key => $mo ) {
-							$options['rules'][ $mo ]['activate'] = 0;
+							$data = wptcmf_extract_textdomain_locale( $mo );
+							$options['rules'][ $data['locale'] ][ $data['text_domain'] ]['activate'] = 0;
 						}
 						$message = sprintf( esc_html( _n( '%d rule successfully deactivated.', '%d rules successfully deactivated.', $count_task, WPTCMF_SLUG ) ), $count_task );
 						$type = 'error';
@@ -148,8 +164,9 @@ function __wptcmf_add_rule_validate( $input ) {
 
 					case 'delete':
 						foreach ( $input['mo'] as $key => $mo ) {
-							unlink( $options['rules'][ $mo ]['mo_path'] );
-							unset( $options['rules'][ $mo ] );
+							$data = wptcmf_extract_textdomain_locale( $mo );
+							unlink( $options['rules'][ $data['locale'] ][ $data['text_domain'] ]['mo_path'] );
+							unset( $options['rules'][ $data['locale'] ][ $data['text_domain'] ] );
 						}
 						$message = sprintf( esc_html( _n( '%d rule successfully deleted.', '%d rules successfully deleted.', $count_task, WPTCMF_SLUG ) ), $count_task );
 						$type = 'error';

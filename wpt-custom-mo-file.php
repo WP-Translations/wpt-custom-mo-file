@@ -62,7 +62,7 @@ function wptcmf_init() {
  */
 register_activation_hook( __FILE__, 'wptcmf_activation' );
 function wptcmf_activation() {
-	add_option( 'wptcmf_options', array( 'rules' ), '', 'no' );
+	add_option( 'wptcmf_options' );
 }
 
 /**
@@ -73,10 +73,11 @@ function wptcmf_activation() {
 add_action( 'plugins_loaded', '__wptcmf_overwrite_domains', 0 );
 function __wptcmf_overwrite_domains() {
 	$options = get_option( 'wptcmf_options' );
+	$locale = get_locale();
 
-	if ( isset ( $options['rules'] ) && ! empty( $options['rules'] ) ) {
-		foreach ( $options['rules'] as $rule ) {
-			if ( 1 === $rule['activate'] ) {
+	if ( isset ( $options['rules'][ $locale ] ) && ! empty( $options['rules'][ $locale ] ) ) {
+		foreach ( $options['rules'][ $locale ] as $rule ) {
+			if ( 1 === $rule['activate'] && $locale === $rule['language'] ) {
 				unload_textdomain( $rule['text_domain'] );
 				load_textdomain( $rule['text_domain'], $rule['mo_path'] );
 			}
