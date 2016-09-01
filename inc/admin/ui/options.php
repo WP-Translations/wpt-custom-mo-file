@@ -154,3 +154,43 @@ function __wptcmf_rules_table_field() {
 
 	<?php endif;
 }
+
+/**
+ * Custom footer text left
+ *
+ * @since 1.0.0
+ * @return string
+ */
+add_filter( 'admin_footer_text', '_wptcmf_filter_admin_footer_text' );
+function _wptcmf_filter_admin_footer_text( $text ) {
+	$screen = get_current_screen();
+	if ( 'tools_page_wpt-custom-mo-file' !== $screen->base ) {
+		return $text;
+	} else {
+		return
+			esc_html( 'Visit&nbsp;','wpt-custom-mo-file' ) . '<a href="http://wp-translations.org/" target="_blank">WP-Translations&nbsp;</a>' . esc_html( 'community site', 'wpt-custom-mo-file' ) . ' | <a target="_blank" href="http://wordpress.org/support/plugin/wpt-custom-mo-file#postform">' . esc_html__( 'Contact Support', 'wpt-custom-mo-file' ) . '</a> | ' .
+			str_replace(
+				array( '[stars]', '[wp.org]' ),
+				array( '<a target="_blank" href="http://wordpress.org/support/view/plugin-reviews/wpt-custom-mo-file#postform" >&#9733;&#9733;&#9733;&#9733;&#9733;</a>', '<a target="_blank" href="http://wordpress.org/plugins/wpt-custom-mo-file/" >wordpress.org</a>' ),
+				__( 'Add your [stars] on [wp.org].', WPTCMF_SLUG )
+			);
+	}
+}
+
+/**
+ * Custom footer text right
+ *
+ * @since 1.0.0
+ * @return string
+ */
+add_filter( 'update_footer', '_wptcmf_filter_update_footer', 15 );
+function _wptcmf_filter_update_footer( $text ) {
+	$screen = get_current_screen();
+	if ( 'tools_page_wpt-custom-mo-file' !== $screen->base ) {
+		return $text;
+	} else {
+		$translate = sprintf( '<a style="margin-right:10px;" href="https://translate.wordpress.org/projects/wp-plugins/wpt-custom-mo-file" title="%s"><span class="dashicons dashicons-translation"></span></a>', esc_html__( 'Help us with Translations', 'wpt-custom-mo-file' ) );
+		$version = esc_html__( 'Version:&nbsp;', 'wpt-custom-mo-file' ) . WPTCMF_VERSION;
+		return $translate . $version;
+	}
+}
