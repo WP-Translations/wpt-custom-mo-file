@@ -1,16 +1,23 @@
 === WPT Custom Mo File ===
-Contributors: g3ronim0, fxbenard
+Contributors: wptranslationsorg, g3ronim0, fxbenard
 Tags: i18n, .mo file, language, localization, textdomain, Text Domain, translation
 Requires at least: 4.0
 Tested up to: 4.6
 Stable tag: 1.0.0
 License: GPLv2 or later
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
 WPT Custom Mo File is a powerful translation plugin that helps you use your own translation .mo files. Simple as that.
 
 == Description ==
 
-WPT Custom Mo File is a free translation plugin that allows you to override and use your own translation files for any WordPress themes or plugins. Built to integrate seamlessly with WordPress, WPT Custom Mo File is the solution that gives website owner complete control over their translations.
+WPT Custom Mo File is a free translation plugin that allows you to override and use your own translation files for any WordPress themes or plugins.
+
+One or any languages of your choice, change the WordPress languages, WPT Custom Mo file will automatically use the defined rules for those locales.
+
+Built to integrate seamlessly with WordPress, WPT Custom Mo File is the solution that gives website owner complete control over their translations.
+
+Thanks to [Pixabay](https://pixabay.com/en/wood-cube-abc-cube-letters-473703/) for the banner image.
 
 == Installation ==
 
@@ -48,6 +55,10 @@ If you get stuck, you can ask for help in the [WPT Custom Mo File Plugin Forum](
 
 Yes, WPT Custom Mo File wih any WordPress theme and plugins.
 
+= Will WPT Custom Mo File work with any languages? =
+
+Yes, WPT Custom Mo File wih any WordPress supported languages.
+
 = Where can I request new features, report bugs or contribute to the project? =
 
 Bugs can be reported either in our support forum or preferably on the [WPT Custom Mo File GitHub repository](https://github.com/WP-Translations/wpt-custom-mo-file/issues).
@@ -58,7 +69,7 @@ Yes you can! Join in on our [GitHub repository](https://github.com/WP-Translatio
 
 == Screenshots ==
 
-1. The slick WPT Custom Mo File settings panel.
+1. The slick but efficient WPT Custom Mo File settings panel.
 2.
 
 == Changelog ==
