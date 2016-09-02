@@ -66,5 +66,3 @@ Yes you can! Join in on our [GitHub repository](https://github.com/WP-Translatio
 === 1.0.0 (01 September 2016) ===
 
 * Initial Release
-
-== Upgrade Notice ==
