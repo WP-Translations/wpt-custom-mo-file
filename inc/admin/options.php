@@ -35,7 +35,7 @@ function __wptcmf_initialize_options() {
 
 	add_settings_field(
 		'wptcmf_select_textdomain',
-		__( 'Select text domain', WPTCMF_SLUG ),
+		__( 'Select a text domain', WPTCMF_SLUG ),
 		'__wptcmf_select_textdomain_field',
 		'wptcmf_rules',
 		'wptcmf_section_rules'
@@ -43,7 +43,7 @@ function __wptcmf_initialize_options() {
 
 	add_settings_field(
 		'wptcmf_select_languages',
-		__( 'Choose language', WPTCMF_SLUG ),
+		__( 'Select a language', WPTCMF_SLUG ),
 		'__wptcmf_select_language_field',
 		'wptcmf_rules',
 		'wptcmf_section_rules'
@@ -51,7 +51,7 @@ function __wptcmf_initialize_options() {
 
 	add_settings_field(
 		'wptcmf_upload_mo_file',
-		__( 'Upload your .mo file', WPTCMF_SLUG ),
+		__( 'Upload a custom .mo file', WPTCMF_SLUG ),
 		'__wptcmf_upload_mo_file_field',
 		'wptcmf_rules',
 		'wptcmf_section_rules'
