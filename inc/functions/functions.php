@@ -23,10 +23,15 @@ function wptcmf_get_domains() {
 	$locale = get_locale();
 	if ( 'en_US' === $locale ) {
 		add_filter( 'locale', '__wptcmf_hack_locale' );
+		$wptcmf_domains[] = 'default';
+		if ( is_multisite() ) {
+			$theme_data = wp_get_theme();
+			$wptcmf_domains[] = $theme_data->get( 'TextDomain' );
+		}
 	}
 	global $l10n;
-	$plugins = get_option( 'active_plugins' );
-	$rules = get_option( 'wptcmf_options' );
+
+	$plugins = ( is_multisite() ) ? array_keys( get_site_option( 'active_sitewide_plugins' ) ) : get_option( 'active_plugins' );
 
 	foreach ( $plugins as $plugin ) {
 		$plugin_data = get_plugin_data( trailingslashit( WP_PLUGIN_DIR ) . $plugin );
@@ -34,7 +39,7 @@ function wptcmf_get_domains() {
 			$wptcmf_domains[] = $plugin_data['TextDomain'];
 		}
 	}
-	$wptcmf_domains = array_unique( array_merge( $wptcmf_domains, array_keys( $l10n ) ) );
+	$wptcmf_domains = array_unique( array_merge( $wptcmf_domains, array_keys( (array) $l10n ) ) );
 	remove_filter( 'locale', '__wptcmf_hack_locale' );
 
 	return $wptcmf_domains;
@@ -47,7 +52,7 @@ function wptcmf_get_domains() {
  * @since 1.0.0
  */
 function __wptcmf_hack_locale() {
-	return 'fr_FR';
+	return 'fr_FR'; // Why not !
 }
 
 /**

@@ -18,7 +18,7 @@ function __wptcmf_tools_page() {
 				<?php do_settings_sections( 'wptcmf_rules' ); ?>
 				<?php submit_button( __( 'Add new rule', WPTCMF_SLUG ), 'primary', 'wptcmf_options[wptcmf-add-rule]' ); ?>
 			<?php else : ?>
-				<div class="settings-error notice notice-info is-dismissible"><p><strong><?php  esc_html_e( 'There is no textdomain or all available domains are already overwritten. ', WPTCMF_SLUG ); ?></strong></p></div>
+				<div class="settings-error notice notice-info is-dismissible"><p><strong><?php  esc_html_e( 'There is no available textdomain. ', WPTCMF_SLUG ); ?></strong></p></div>
 			<?php endif; ?>
 			<?php do_settings_sections( 'wptcmf_rules_actions' ); ?>
 		</form>
