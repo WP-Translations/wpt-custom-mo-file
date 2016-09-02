@@ -195,7 +195,7 @@ function _wptcmf_filter_admin_footer_text( $text ) {
 			str_replace(
 				array( '[stars]', '[wp.org]' ),
 				array( '<a target="_blank" href="http://wordpress.org/support/view/plugin-reviews/wpt-custom-mo-file#postform" >&#9733;&#9733;&#9733;&#9733;&#9733;</a>', '<a target="_blank" href="http://wordpress.org/plugins/wpt-custom-mo-file/" >wordpress.org</a>' ),
-				__( 'Add your [stars] on [wp.org].', WPTCMF_SLUG )
+				__( 'Add your [stars] on [wp.org] to spread the love.', WPTCMF_SLUG )
 			);
 	}
 }
