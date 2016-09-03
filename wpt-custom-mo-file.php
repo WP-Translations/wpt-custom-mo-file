@@ -63,9 +63,35 @@ function wptcmf_init() {
  *
  * @since 1.0.0
  */
-register_activation_hook( __FILE__, 'wptcmf_activation' );
-function wptcmf_activation() {
-	add_option( 'wptcmf_options' );
+register_activation_hook( __FILE__, '__wptcmf_activation' );
+function __wptcmf_activation( $network_wide ) {
+	if ( is_multisite() && $network_wide ) {
+		global $wpdb;
+
+		foreach ( $wpdb->get_col( "SELECT blog_id FROM $wpdb->blogs" ) as $blog_id ) {
+				switch_to_blog( $blog_id );
+				add_option( 'wptcmf_options', '' );
+				restore_current_blog();
+		}
+	} else {
+		add_option( 'wptcmf_options', '' );
+	}
+
+}
+
+/**
+ * Add wptcmf_options when a new blog is create
+ *
+ * @since  1.0.0
+ */
+add_action( 'wpmu_new_blog', '__wptcmf_new_blog', 10, 6 );
+function __wptcmf_new_blog( $blog_id, $user_id, $domain, $path, $site_id, $meta ) {
+
+	if ( is_plugin_active_for_network( WPTCMF_SLUG . '/' . WPTCMF_SLUG . '.php' ) ) {
+		switch_to_blog( $blog_id );
+		add_option( 'wptcmf_options', '' );
+		restore_current_blog();
+	}
 }
 
 /**

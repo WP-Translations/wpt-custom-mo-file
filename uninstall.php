@@ -4,7 +4,17 @@
 defined( 'WP_UNINSTALL_PLUGIN' ) or die( 'Cheatin&#8217; uh?' );
 
 // Delete WPTCMF options.
-delete_option( 'wptcmf_options' );
+if ( is_multisite() && $network_wide ) {
+	global $wpdb;
+
+	foreach ( $wpdb->get_col( "SELECT blog_id FROM $wpdb->blogs" ) as $blog_id ) {
+			switch_to_blog( $blog_id );
+			delete_option( 'wptcmf_options' );
+			restore_current_blog();
+	}
+} else {
+	delete_option( 'wptcmf_options' );
+}
 
 /**
  * Remove all mo files
