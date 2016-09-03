@@ -93,10 +93,6 @@ function __wptcmf_rules_table_field() {
 	$count_rules = count( $rules['rules'] );
 	$locale = get_locale();
 
-	echo '<pre>';
-		print_r($rules);
-	echo '</pre>';
-
 	if ( isset ( $rules['rules'] ) && ! empty( $rules['rules'] ) ) : ?>
 
 		<div class="tablenav top">
