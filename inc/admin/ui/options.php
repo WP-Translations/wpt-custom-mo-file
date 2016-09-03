@@ -16,9 +16,9 @@ function __wptcmf_tools_page() {
 			<?php settings_fields( 'wptcmf_options' ); ?>
 			<?php if ( 0 < $count_domains ) : ?>
 				<?php do_settings_sections( 'wptcmf_rules' ); ?>
-				<?php submit_button( __( 'Add new rule', WPTCMF_SLUG ), 'primary', 'wptcmf_options[wptcmf-add-rule]' ); ?>
+				<?php submit_button( __( 'Add new rule', 'wpt-custom-mo-file' ), 'primary', 'wptcmf_options[wptcmf-add-rule]' ); ?>
 			<?php else : ?>
-				<div class="settings-error notice notice-info is-dismissible"><p><strong><?php  esc_html_e( 'There is no available textdomain. ', WPTCMF_SLUG ); ?></strong></p></div>
+				<div class="settings-error notice notice-info is-dismissible"><p><strong><?php  esc_html_e( 'There is no available textdomain. ', 'wpt-custom-mo-file' ); ?></strong></p></div>
 			<?php endif; ?>
 			<?php do_settings_sections( 'wptcmf_rules_actions' ); ?>
 		</form>
@@ -34,7 +34,7 @@ function __wptcmf_tools_page() {
  */
 function __wptcmf_section_rules_text() {
 	?>
-	<p><?php esc_html_e( 'Create your own rules to override translation', WPTCMF_SLUG ); ?></p>
+	<p><?php esc_html_e( 'Create your own rules to override translation', 'wpt-custom-mo-file' ); ?></p>
 	<?php
 }
 
@@ -93,20 +93,24 @@ function __wptcmf_rules_table_field() {
 	$count_rules = count( $rules['rules'] );
 	$locale = get_locale();
 
+	echo '<pre>';
+		print_r($rules);
+	echo '</pre>';
+
 	if ( isset ( $rules['rules'] ) && ! empty( $rules['rules'] ) ) : ?>
 
 		<div class="tablenav top">
 			<div class="alignleft actions bulkactions">
-				<label for="bulk-action-selector-top" class="screen-reader-text"><?php esc_html_e( 'Select bulk action', WPTCMF_SLUG ); ?></label>
+				<label for="bulk-action-selector-top" class="screen-reader-text"><?php esc_html_e( 'Select bulk action', 'wpt-custom-mo-file' ); ?></label>
 				<select name="wptcmf_options[bulk_action_top]" id="bulk-action-selector-top">
-					<option value="-1"><?php esc_html_e( 'Bulk actions', WPTCMF_SLUG ); ?></option>
-					<option value="activate"><?php esc_html_e( 'Activate', WPTCMF_SLUG ); ?></option>
-					<option value="deactivate"><?php esc_html_e( 'Deactivate', WPTCMF_SLUG ); ?></option>
-					<option value="delete"><?php esc_html_e( 'Delete', WPTCMF_SLUG ); ?></option>
+					<option value="-1"><?php esc_html_e( 'Bulk actions', 'wpt-custom-mo-file' ); ?></option>
+					<option value="activate"><?php esc_html_e( 'Activate', 'wpt-custom-mo-file' ); ?></option>
+					<option value="deactivate"><?php esc_html_e( 'Deactivate', 'wpt-custom-mo-file' ); ?></option>
+					<option value="delete"><?php esc_html_e( 'Delete', 'wpt-custom-mo-file' ); ?></option>
 				</select>
-				<button name="wptcmf_options[action_top]" class="button" type="submit"><?php esc_html_e( 'Apply', WPTCMF_SLUG ); ?></button>
+				<button name="wptcmf_options[action_top]" class="button" type="submit"><?php esc_html_e( 'Apply', 'wpt-custom-mo-file' ); ?></button>
 			</div>
-			<div class="tablenav-pages"><span class="displaying-num"><?php printf( esc_html( _n( '%d item.', '%d items.', absint( $count_rules ), WPTCMF_SLUG ) ), absint( $count_rules ) ); ?></span></div>
+			<div class="tablenav-pages"><span class="displaying-num"><?php printf( esc_html( _n( '%d item.', '%d items.', absint( $count_rules ), 'wpt-custom-mo-file' ) ), absint( $count_rules ) ); ?></span></div>
 			<br class="clear">
 		</div>
 
@@ -114,13 +118,13 @@ function __wptcmf_rules_table_field() {
 			<thead>
 				<tr>
 					<td id="cb" class="column-cb check-column">
-						<label class="screen-reader-text" for="cb-select-all-1"><?php esc_html_e( 'Select All', WPTCMF_SLUG ); ?></label>
+						<label class="screen-reader-text" for="cb-select-all-1"><?php esc_html_e( 'Select All', 'wpt-custom-mo-file' ); ?></label>
 						<input id="cb-select-all-1" type="checkbox">
 					</td>
-					<th scope="col"><?php esc_html_e( 'Text domain', WPTCMF_SLUG ); ?></th>
-					<th scope="col"><?php esc_html_e( 'Language', WPTCMF_SLUG ); ?></th>
-					<th scope="col"><?php esc_html_e( 'Filename', WPTCMF_SLUG ); ?></th>
-					<th scope="col"><?php esc_html_e( 'Actions', WPTCMF_SLUG ); ?></th>
+					<th scope="col"><?php esc_html_e( 'Text domain', 'wpt-custom-mo-file' ); ?></th>
+					<th scope="col"><?php esc_html_e( 'Language', 'wpt-custom-mo-file' ); ?></th>
+					<th scope="col"><?php esc_html_e( 'Filename', 'wpt-custom-mo-file' ); ?></th>
+					<th scope="col"><?php esc_html_e( 'Actions', 'wpt-custom-mo-file' ); ?></th>
 				</tr>
 			</thead>
 			<tbody>
@@ -128,7 +132,7 @@ function __wptcmf_rules_table_field() {
 					<?php foreach ( $lang as $rule ) : ?>
 					<tr>
 						<th scope="row" class="check-column">
-							<label class="screen-reader-text" for="cb-select-<?php esc_attr_e( $rule['text_domain'].'-'.$rule['language'] ); ?>"><?php esc_html_e( 'Select&nbsp;', WPTCMF_SLUG ); ?><?php echo esc_html( $rule['text_domain'] ); ?></label>
+							<label class="screen-reader-text" for="cb-select-<?php esc_attr_e( $rule['text_domain'].'-'.$rule['language'] ); ?>"><?php esc_html_e( 'Select&nbsp;', 'wpt-custom-mo-file' ); ?><?php echo esc_html( $rule['text_domain'] ); ?></label>
 							<input name="wptcmf_options[mo][]" id="cb-select-<?php esc_attr_e( $rule['text_domain'].'-'.$rule['language'] ); ?>" value="<?php esc_attr_e( $rule['text_domain'].'|'.$rule['language'] ); ?>" type="checkbox">
 						</th>
 						<td><?php esc_attr_e( $rule['text_domain'] ); ?></td>
@@ -136,11 +140,11 @@ function __wptcmf_rules_table_field() {
 						<td><?php esc_attr_e( $rule['filename'] ); ?></td>
 						<td>
 							<?php if ( 1 === $rule['activate'] ) : ?>
-								<button class="button" type="submit" name="wptcmf_options[deactivate_rule]" value="<?php esc_attr_e( $rule['text_domain'].'|'.$rule['language'] ); ?>"><?php esc_html_e( 'Deactivate', WPTCMF_SLUG ); ?></button>
+								<button class="button" type="submit" name="wptcmf_options[deactivate_rule]" value="<?php esc_attr_e( $rule['text_domain'].'|'.$rule['language'] ); ?>"><?php esc_html_e( 'Deactivate', 'wpt-custom-mo-file' ); ?></button>
 							<?php else : ?>
-								<button class="button" type="submit" name="wptcmf_options[activate_rule]" value="<?php esc_attr_e( $rule['text_domain'].'|'.$rule['language'] ); ?>"><?php esc_html_e( 'Activate', WPTCMF_SLUG ); ?></button>
+								<button class="button" type="submit" name="wptcmf_options[activate_rule]" value="<?php esc_attr_e( $rule['text_domain'].'|'.$rule['language'] ); ?>"><?php esc_html_e( 'Activate', 'wpt-custom-mo-file' ); ?></button>
 							<?php endif; ?>
-							<button class="button" type="submit" name="wptcmf_options[delete_rule]" value="<?php esc_attr_e( $rule['text_domain'].'|'.$rule['language'] ); ?>"><?php esc_html_e( 'Delete rule', WPTCMF_SLUG ); ?></button>
+							<button class="button" type="submit" name="wptcmf_options[delete_rule]" value="<?php esc_attr_e( $rule['text_domain'].'|'.$rule['language'] ); ?>"><?php esc_html_e( 'Delete rule', 'wpt-custom-mo-file' ); ?></button>
 						</td>
 					</tr>
 				<?php endforeach; ?>
@@ -152,26 +156,26 @@ function __wptcmf_rules_table_field() {
 						<label class="screen-reader-text" for="cb-select-all-1">Tout sélectionner</label>
 						<input id="cb-select-all-1" type="checkbox">
 					</td>
-					<th scope="col"><?php esc_html_e( 'Text domain', WPTCMF_SLUG ); ?></th>
-					<th scope="col"><?php esc_html_e( 'Language', WPTCMF_SLUG ); ?></th>
-					<th scope="col"><?php esc_html_e( 'Filename', WPTCMF_SLUG ); ?></th>
-					<th scope="col"><?php esc_html_e( 'Actions', WPTCMF_SLUG ); ?></th>
+					<th scope="col"><?php esc_html_e( 'Text domain', 'wpt-custom-mo-file' ); ?></th>
+					<th scope="col"><?php esc_html_e( 'Language', 'wpt-custom-mo-file' ); ?></th>
+					<th scope="col"><?php esc_html_e( 'Filename', 'wpt-custom-mo-file' ); ?></th>
+					<th scope="col"><?php esc_html_e( 'Actions', 'wpt-custom-mo-file' ); ?></th>
 				</tr>
 			</tfoot>
 		</table>
 
 		<div class="tablenav bottom">
 			<div class="alignleft actions bulkactions">
-				<label for="bulk-action-selector-bottom" class="screen-reader-text"><?php esc_html_e( 'Select bulk action', WPTCMF_SLUG ); ?></label>
+				<label for="bulk-action-selector-bottom" class="screen-reader-text"><?php esc_html_e( 'Select bulk action', 'wpt-custom-mo-file' ); ?></label>
 				<select name="wptcmf_options[bulk_action_bottom]" id="bulk-action-selector-bottom">
-					<option value="-1"><?php esc_html_e( 'Bulk actions', WPTCMF_SLUG ); ?></option>
-					<option value="activate"><?php esc_html_e( 'Activate', WPTCMF_SLUG ); ?></option>
-					<option value="deactivate"><?php esc_html_e( 'Deactivate', WPTCMF_SLUG ); ?></option>
-					<option value="delete"><?php esc_html_e( 'Delete', WPTCMF_SLUG ); ?></option>
+					<option value="-1"><?php esc_html_e( 'Bulk actions', 'wpt-custom-mo-file' ); ?></option>
+					<option value="activate"><?php esc_html_e( 'Activate', 'wpt-custom-mo-file' ); ?></option>
+					<option value="deactivate"><?php esc_html_e( 'Deactivate', 'wpt-custom-mo-file' ); ?></option>
+					<option value="delete"><?php esc_html_e( 'Delete', 'wpt-custom-mo-file' ); ?></option>
 				</select>
-				<button name="wptcmf_options[action_bottom]" class="button" type="submit"><?php esc_html_e( 'Apply', WPTCMF_SLUG ); ?></button>
+				<button name="wptcmf_options[action_bottom]" class="button" type="submit"><?php esc_html_e( 'Apply', 'wpt-custom-mo-file' ); ?></button>
 			</div>
-			<div class="tablenav-pages"><span class="displaying-num"><?php printf( esc_html( _n( '%d item.', '%d items.', absint( $count_rules ), WPTCMF_SLUG ) ), absint( $count_rules ) ); ?></span></div>
+			<div class="tablenav-pages"><span class="displaying-num"><?php printf( esc_html( _n( '%d item.', '%d items.', absint( $count_rules ), 'wpt-custom-mo-file' ) ), absint( $count_rules ) ); ?></span></div>
 			<br class="clear">
 		</div>
 
@@ -195,7 +199,7 @@ function _wptcmf_filter_admin_footer_text( $text ) {
 			str_replace(
 				array( '[stars]', '[wp.org]' ),
 				array( '<a target="_blank" href="http://wordpress.org/support/view/plugin-reviews/wpt-custom-mo-file#postform" >&#9733;&#9733;&#9733;&#9733;&#9733;</a>', '<a target="_blank" href="http://wordpress.org/plugins/wpt-custom-mo-file/" >wordpress.org</a>' ),
-				__( 'Add your [stars] on [wp.org] to spread the love.', WPTCMF_SLUG )
+				__( 'Add your [stars] on [wp.org] to spread the love.', 'wpt-custom-mo-file' )
 			);
 	}
 }

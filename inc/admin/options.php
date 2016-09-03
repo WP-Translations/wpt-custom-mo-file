@@ -35,7 +35,7 @@ function __wptcmf_initialize_options() {
 
 	add_settings_field(
 		'wptcmf_select_textdomain',
-		__( 'Select a text domain', WPTCMF_SLUG ),
+		__( 'Select a text domain', 'wpt-custom-mo-file' ),
 		'__wptcmf_select_textdomain_field',
 		'wptcmf_rules',
 		'wptcmf_section_rules'
@@ -43,7 +43,7 @@ function __wptcmf_initialize_options() {
 
 	add_settings_field(
 		'wptcmf_select_languages',
-		__( 'Select a language', WPTCMF_SLUG ),
+		__( 'Select a language', 'wpt-custom-mo-file' ),
 		'__wptcmf_select_language_field',
 		'wptcmf_rules',
 		'wptcmf_section_rules'
@@ -51,7 +51,7 @@ function __wptcmf_initialize_options() {
 
 	add_settings_field(
 		'wptcmf_upload_mo_file',
-		__( 'Upload a custom .mo file', WPTCMF_SLUG ),
+		__( 'Upload a custom .mo file', 'wpt-custom-mo-file' ),
 		'__wptcmf_upload_mo_file_field',
 		'wptcmf_rules',
 		'wptcmf_section_rules'
@@ -69,7 +69,7 @@ function __wptcmf_initialize_options() {
 
 		add_settings_field(
 			'wptcmf_rules_table',
-			__( 'Rules', WPTCMF_SLUG ),
+			__( 'Rules', 'wpt-custom-mo-file' ),
 			'__wptcmf_rules_table_field',
 			'wptcmf_rules_actions',
 			'wptcmf_section_table'
@@ -108,7 +108,7 @@ function __wptcmf_add_rule_validate( $input ) {
 				'language' => $input['language'],
 			);
 			$options['rules'][ $input['language'] ][ $input['text_domain'] ] = $new_rules;
-			add_settings_error( 'wptcmf_options', 'wptcmf-file-uploaded', esc_html__( 'Rule saved !', WPTCMF_SLUG ), 'updated' );
+			add_settings_error( 'wptcmf_options', 'wptcmf-file-uploaded', esc_html__( 'Rule saved !', 'wpt-custom-mo-file' ), 'updated' );
 
 		} else {
 			add_settings_error( 'wptcmf_options', 'wptcmf-file-missing', $mo_file['error'], 'error' );
@@ -118,20 +118,20 @@ function __wptcmf_add_rule_validate( $input ) {
 	if ( isset( $input['deactivate_rule'] ) ) {
 		$data = wptcmf_extract_textdomain_locale( $input['deactivate_rule'] );
 		$options['rules'][ $data['locale'] ][ $data['text_domain'] ]['activate'] = 0;
-		add_settings_error( 'wptcmf_options', 'wptcmf-deactivate-rule', __( 'Rule successfull deactivated', WPTCMF_SLUG ), 'updated' );
+		add_settings_error( 'wptcmf_options', 'wptcmf-deactivate-rule', __( 'Rule successfull deactivated', 'wpt-custom-mo-file' ), 'updated' );
 	}
 
 	if ( isset( $input['activate_rule'] ) ) {
 		$data = wptcmf_extract_textdomain_locale( $input['activate_rule'] );
 		$options['rules'][ $data['locale'] ][ $data['text_domain'] ]['activate'] = 1;
-		add_settings_error( 'wptcmf_options', 'wptcmf-activate-rule', __( 'Rule successfull activated ', WPTCMF_SLUG ), 'updated' );
+		add_settings_error( 'wptcmf_options', 'wptcmf-activate-rule', __( 'Rule successfull activated ', 'wpt-custom-mo-file' ), 'updated' );
 	}
 
 	if ( isset( $input['delete_rule'] ) ) {
 		$data = wptcmf_extract_textdomain_locale( $input['delete_rule'] );
 		unlink( $options['rules'][ $data['locale'] ][ $data['text_domain'] ]['mo_path'] );
 		unset( $options['rules'][ $data['locale'] ][ $data['text_domain'] ] );
-		add_settings_error( 'wptcmf_options', 'wptcmf-delete-rule', __( 'Rule successfull deleted ', WPTCMF_SLUG ), 'error' );
+		add_settings_error( 'wptcmf_options', 'wptcmf-delete-rule', __( 'Rule successfull deleted ', 'wpt-custom-mo-file' ), 'error' );
 	}
 
 	if ( isset( $input['action_top'] ) || isset( $input['action_bottom'] ) ) {
@@ -149,7 +149,7 @@ function __wptcmf_add_rule_validate( $input ) {
 							$data = wptcmf_extract_textdomain_locale( $mo );
 							$options['rules'][ $data['locale'] ][ $data['text_domain'] ]['activate'] = 1;
 						}
-						$message = sprintf( esc_html( _n( '%d rule successfully activated.', '%d rules successfully activated.', $count_task, WPTCMF_SLUG ) ), $count_task );
+						$message = sprintf( esc_html( _n( '%d rule successfully activated.', '%d rules successfully activated.', $count_task, 'wpt-custom-mo-file' ) ), $count_task );
 						$type = 'updated';
 						break;
 
@@ -158,7 +158,7 @@ function __wptcmf_add_rule_validate( $input ) {
 							$data = wptcmf_extract_textdomain_locale( $mo );
 							$options['rules'][ $data['locale'] ][ $data['text_domain'] ]['activate'] = 0;
 						}
-						$message = sprintf( esc_html( _n( '%d rule successfully deactivated.', '%d rules successfully deactivated.', $count_task, WPTCMF_SLUG ) ), $count_task );
+						$message = sprintf( esc_html( _n( '%d rule successfully deactivated.', '%d rules successfully deactivated.', $count_task, 'wpt-custom-mo-file' ) ), $count_task );
 						$type = 'error';
 						break;
 
@@ -168,17 +168,17 @@ function __wptcmf_add_rule_validate( $input ) {
 							unlink( $options['rules'][ $data['locale'] ][ $data['text_domain'] ]['mo_path'] );
 							unset( $options['rules'][ $data['locale'] ][ $data['text_domain'] ] );
 						}
-						$message = sprintf( esc_html( _n( '%d rule successfully deleted.', '%d rules successfully deleted.', $count_task, WPTCMF_SLUG ) ), $count_task );
+						$message = sprintf( esc_html( _n( '%d rule successfully deleted.', '%d rules successfully deleted.', $count_task, 'wpt-custom-mo-file' ) ), $count_task );
 						$type = 'error';
 						break;
 				}
 				add_settings_error( 'wptcmf_options', 'wptcmf-bulk-notice', $message, $type );
 
 			} else {
-				add_settings_error( 'wptcmf_options', 'wptcmf-empty-bulk', __( 'Please select a rule before running bulk action', WPTCMF_SLUG ), 'error' );
+				add_settings_error( 'wptcmf_options', 'wptcmf-empty-bulk', __( 'Please select a rule before running bulk action', 'wpt-custom-mo-file' ), 'error' );
 			}
 		} else {
-			add_settings_error( 'wptcmf_options', 'wptcmf-empty-bulk', __( 'Please select a action before', WPTCMF_SLUG ), 'error' );
+			add_settings_error( 'wptcmf_options', 'wptcmf-empty-bulk', __( 'Please select a action before', 'wpt-custom-mo-file' ), 'error' );
 		}
 	}
 

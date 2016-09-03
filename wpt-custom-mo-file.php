@@ -47,7 +47,7 @@ define( 'WPTCMF_OVERWRITE_DIR',		WP_CONTENT_DIR . '/uploads/wpt-custom-mo-file/'
 add_action( 'plugins_loaded', 'wptcmf_init' );
 function wptcmf_init() {
 
-	load_plugin_textdomain( WPTCMF_SLUG, false, dirname( plugin_basename( __FILE__ ) ) . '/languages' );
+	load_plugin_textdomain( 'wpt-custom-mo-file', false, dirname( plugin_basename( __FILE__ ) ) . '/languages' );
 
 	if ( is_admin() ) {
 		require( WPTCMF_FUNCTIONS_PATH . 'functions.php' );
