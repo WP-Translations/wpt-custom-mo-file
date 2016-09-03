@@ -9,8 +9,8 @@ defined( 'ABSPATH' ) or die( 'Cheatin&#8217; uh?' );
 function __wptcmf_tools_page() {
 	$count_domains = count( wptcmf_get_domains() ); ?>
 
-	<div class="wrap">
-		<img style="display:inline-block; vertical-align:middle; width: 50px; margin-right:1em;" src="<?php echo esc_url( WPTCMF_URL_IMG . 'wpt-logo.png' ); ?>"><h2 style="display:inline-block; vertical-align:middle;"><?php esc_html_e( WPTCMF_NICE_NAME ); ?></h2>
+	<div class="wptcmf-options-page wrap">
+		<img src="<?php echo esc_url( WPTCMF_URL_IMG . 'wpt-logo.png' ); ?>"><h2><?php esc_html_e( WPTCMF_NICE_NAME ); ?></h2>
 		<?php settings_errors(); ?>
 		<form action="options.php" method="post" enctype="multipart/form-data">
 			<?php settings_fields( 'wptcmf_options' ); ?>
@@ -212,7 +212,7 @@ function _wptcmf_filter_update_footer( $text ) {
 	if ( 'tools_page_wpt-custom-mo-file' !== $screen->base ) {
 		return $text;
 	} else {
-		$translate = sprintf( '<a style="margin-right:10px;" href="https://translate.wordpress.org/projects/wp-plugins/wpt-custom-mo-file" title="%s"><span class="dashicons dashicons-translation"></span></a>', esc_html__( 'Help us with Translations', 'wpt-custom-mo-file' ) );
+		$translate = sprintf( '<a class="wptcmf-footer-link" href="https://translate.wordpress.org/projects/wp-plugins/wpt-custom-mo-file" title="%s"><span class="dashicons dashicons-translation"></span></a>', esc_html__( 'Help us with Translations', 'wpt-custom-mo-file' ) );
 		$version = esc_html__( 'Version:&nbsp;', 'wpt-custom-mo-file' ) . WPTCMF_VERSION;
 		return $translate . $version;
 	}
