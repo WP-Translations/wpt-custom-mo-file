@@ -24,10 +24,8 @@ function wptcmf_get_domains() {
 	if ( 'en_US' === $locale ) {
 		add_filter( 'locale', '__wptcmf_hack_locale' );
 		$wptcmf_domains[] = 'default';
-		if ( is_multisite() ) {
-			$theme_data = wp_get_theme();
-			$wptcmf_domains[] = $theme_data->get( 'TextDomain' );
-		}
+		$theme_data = wp_get_theme();
+		$wptcmf_domains[] = $theme_data->get( 'TextDomain' );
 	}
 	global $l10n;
 
