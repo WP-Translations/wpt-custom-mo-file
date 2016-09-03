@@ -1,0 +1,19 @@
+.wptcmf-options-page img {
+	display:inline-block;
+	vertical-align:middle;
+	width: 50px;
+	margin-right:1em;
+}
+
+.wptcmf-options-page h2 {
+	display:inline-block;
+	vertical-align:middle;
+}
+
+.wptcmf-footer-link {
+	margin-right:10px;
+}
+
+.tools_page_wpt-custom-mo-file .form-table:nth-of-type(2) th[scope="row"]:not(.check-column) {
+	display:none;
+}
