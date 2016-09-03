@@ -34,7 +34,9 @@ define( 'WPTCMF_INC_PATH', 				realpath( WPTCMF_PATH . 'inc' ) . '/' );
 define( 'WPTCMF_ADMIN_PATH', 			realpath( WPTCMF_INC_PATH . 'admin' ) . '/' );
 define( 'WPTCMF_ADMIN_UI_PATH', 	realpath( WPTCMF_ADMIN_PATH . 'ui' ) . '/' );
 define( 'WPTCMF_FUNCTIONS_PATH', 	realpath( WPTCMF_INC_PATH . 'functions' ) . '/' );
-define( 'WPTCMF_URL_IMG',  				WPTCMF_URL . 'images/' );
+define( 'WPTCMF_URL_ASSETS',  		WPTCMF_URL . 'assets/' );
+define( 'WPTCMF_URL_CSS',  				WPTCMF_URL_ASSETS . 'css/' );
+define( 'WPTCMF_URL_IMG',  				WPTCMF_URL_ASSETS . 'images/' );
 define( 'WPTCMF_OVERWRITE_DIR',		WP_CONTENT_DIR . '/uploads/wpt-custom-mo-file/' );
 
 /**
@@ -49,6 +51,7 @@ function wptcmf_init() {
 
 	if ( is_admin() ) {
 		require( WPTCMF_FUNCTIONS_PATH . 'functions.php' );
+		require( WPTCMF_ADMIN_PATH . 'enqueue.php' );
 		require( WPTCMF_ADMIN_PATH . 'options.php' );
 		require( WPTCMF_ADMIN_UI_PATH . 'options.php' );
 	}
