@@ -187,7 +187,7 @@ function __wptcmf_rules_table_field() {
 add_filter( 'admin_footer_text', '_wptcmf_filter_admin_footer_text' );
 function _wptcmf_filter_admin_footer_text( $text ) {
 	$screen = get_current_screen();
-	if ( 'tools_page_wpt-custom-mo-file' !== $screen->base ) {
+	if ( 'tools_page_' . WPTCMF_SLUG !== $screen->base ) {
 		return $text;
 	} else {
 		$link_1 = '<a href="http://wp-translations.org/" target="_blank">WP-Translations</a>';
@@ -196,9 +196,9 @@ function _wptcmf_filter_admin_footer_text( $text ) {
 		$change = str_replace(
 			array( '[stars]', '[wp.org]' ),
 			array( '<a target="_blank" href="http://wordpress.org/support/view/plugin-reviews/wpt-custom-mo-file#postform" >&#9733;&#9733;&#9733;&#9733;&#9733;</a>', '<a target="_blank" href="http://wordpress.org/plugins/wpt-custom-mo-file/" >wordpress.org</a>' ),
-			esc_html__( 'Add your [stars] on [wp.org] to spread the love.', 'wpt-custom-mo-file' )
+			esc_html_x( 'Add your [stars] on [wp.org] to spread the love.', 'Please do not translate [stars] and [wp.org]', 'wpt-custom-mo-file' )
 		);
-		return sprintf( esc_html_x( 'Visit %1$s Community website | %2$s Contact Support %3$s | %4$s', 'Please do not translate [stars] and [wp.org]', 'wpt-custom-mo-file' ), $link_1, $link_2, $link_3, $change );
+		return sprintf( esc_html__( 'Visit %1$s Community website | %2$s Contact Support %3$s | %4$s', 'wpt-custom-mo-file' ), $link_1, $link_2, $link_3, $change );
 	}
 }
 
@@ -211,7 +211,7 @@ function _wptcmf_filter_admin_footer_text( $text ) {
 add_filter( 'update_footer', '_wptcmf_filter_update_footer', 15 );
 function _wptcmf_filter_update_footer( $text ) {
 	$screen = get_current_screen();
-	if ( 'tools_page_wpt-custom-mo-file' !== $screen->base ) {
+	if ( 'tools_page_' . WPTCMF_SLUG !== $screen->base ) {
 		return $text;
 	} else {
 		$translate = sprintf( '<a class="wptcmf-footer-link" href="https://translate.wordpress.org/projects/wp-plugins/wpt-custom-mo-file" title="%s"><span class="dashicons dashicons-translation"></span></a>', esc_html__( 'Help us with Translations', 'wpt-custom-mo-file' ) );
