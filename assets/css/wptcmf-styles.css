@@ -12,6 +12,7 @@
 
 .wptcmf-footer-link {
 	margin-right:10px;
+	text-decoration: none;
 }
 
 .tools_page_wpt-custom-mo-file .form-table:nth-of-type(2) th[scope="row"]:not(.check-column) {
