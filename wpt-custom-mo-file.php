@@ -13,7 +13,8 @@
  * @wordpress-plugin
  * Plugin Name: WPT Custom Mo File
  * Plugin URI:  https://wordpress.org/plugins/wpt-custom-mo-file/
- * Description: Override text-domain with your own mo file
+ * Description: A powerful WordPress plugin that let you use your own translation .mo files. Simple as that.
+
  * Version:     1.0.0
  * Author:      WP-Translations Team
  * Author URI:  http://wp-translations.org/

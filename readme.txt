@@ -13,7 +13,7 @@ WPT Custom Mo File is a powerful translation plugin that helps you use your own 
 
 WPT Custom Mo File is a free translation plugin that allows you to override and use your own translation files for any WordPress themes or plugins.
 
-One or any languages of your choice, change the WordPress languages, WPT Custom Mo file will automatically use the defined rules for those locales.
+For one or any languages of your choice, select the WordPress languages, WPT Custom Mo file will automatically use your defined rules for those locales.
 
 Built to integrate seamlessly with WordPress, WPT Custom Mo File is the solution that gives website owner complete control over their translations.
 
