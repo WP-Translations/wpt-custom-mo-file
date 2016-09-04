@@ -23,9 +23,7 @@ function wptcmf_get_domains() {
 	global $l10n;
 	$locale = get_locale();
 	$theme_data = wp_get_theme();
-	if ( 'en_US' === $locale ) {
-		add_filter( 'locale', '__wptcmf_hack_locale' );
-	}
+
 	$wptcmf_domains[] = 'default';
 	$wptcmf_domains[] = $theme_data->get( 'TextDomain' );
 
@@ -42,19 +40,9 @@ function wptcmf_get_domains() {
 		}
 	}
 	$wptcmf_domains = array_unique( array_merge( $wptcmf_domains, array_keys( (array) $l10n ) ) );
-	remove_filter( 'locale', '__wptcmf_hack_locale' );
 
 	return $wptcmf_domains;
 
-}
-
-/**
- * Change locale when en_US to load global $l10n
- *
- * @since 1.0.0
- */
-function __wptcmf_hack_locale() {
-	return 'fr_FR'; // Why not !
 }
 
 /**
