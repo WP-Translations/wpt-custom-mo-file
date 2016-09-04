@@ -34,7 +34,7 @@ function __wptcmf_tools_page() {
  */
 function __wptcmf_section_rules_text() {
 	?>
-	<p><?php esc_html_e( 'Create your own rules to override translation', 'wpt-custom-mo-file' ); ?></p>
+	<p><?php esc_html_e( 'Create, activate, desactivate your own set of rules to get full control of any translations in your WordPress installation', 'wpt-custom-mo-file' ); ?></p>
 	<?php
 }
 
