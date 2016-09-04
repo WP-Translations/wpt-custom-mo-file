@@ -136,11 +136,11 @@ function __wptcmf_rules_table_field() {
 						<td><?php esc_attr_e( $rule['filename'] ); ?></td>
 						<td>
 							<?php if ( 1 === $rule['activate'] ) : ?>
-								<button class="button" type="submit" name="wptcmf_options[deactivate_rule]" value="<?php esc_attr_e( $rule['text_domain'].'|'.$rule['language'] ); ?>"><?php esc_html_e( 'Deactivate', 'wpt-custom-mo-file' ); ?></button>
+								<button class="button wptcmf-button wptcmf-button-deactivate" type="submit" name="wptcmf_options[deactivate_rule]" value="<?php esc_attr_e( $rule['text_domain'].'|'.$rule['language'] ); ?>"><?php esc_html_e( 'Deactivate', 'wpt-custom-mo-file' ); ?></button>
 							<?php else : ?>
-								<button class="button" type="submit" name="wptcmf_options[activate_rule]" value="<?php esc_attr_e( $rule['text_domain'].'|'.$rule['language'] ); ?>"><?php esc_html_e( 'Activate', 'wpt-custom-mo-file' ); ?></button>
+								<button class="button wptcmf-button wptcmf-button-activate" type="submit" name="wptcmf_options[activate_rule]" value="<?php esc_attr_e( $rule['text_domain'].'|'.$rule['language'] ); ?>"><?php esc_html_e( 'Activate', 'wpt-custom-mo-file' ); ?></button>
 							<?php endif; ?>
-							<button class="button" type="submit" name="wptcmf_options[delete_rule]" value="<?php esc_attr_e( $rule['text_domain'].'|'.$rule['language'] ); ?>"><?php esc_html_e( 'Delete rule', 'wpt-custom-mo-file' ); ?></button>
+							<button class="button wptcmf-button wptcmf-button-delete" type="submit" name="wptcmf_options[delete_rule]" value="<?php esc_attr_e( $rule['text_domain'].'|'.$rule['language'] ); ?>"><?php esc_html_e( 'Delete rule', 'wpt-custom-mo-file' ); ?></button>
 						</td>
 					</tr>
 				<?php endforeach; ?>

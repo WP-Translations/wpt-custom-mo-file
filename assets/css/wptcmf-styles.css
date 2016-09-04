@@ -18,3 +18,23 @@
 .tools_page_wpt-custom-mo-file .form-table:nth-of-type(2) th[scope="row"]:not(.check-column) {
 	display:none;
 }
+
+.wptcmf-button:before {
+	display: inline-block;
+	vertical-align: middle;
+	padding-bottom: 3px;
+	font-family: "dashicons";
+	font-size:20px;
+}
+
+.wptcmf-button-deactivate:before {
+	content: "\f523";
+}
+
+.wptcmf-button-activate:before {
+	content: "\f522";
+}
+
+.wptcmf-button-delete:before {
+	content: "\f182";
+}
