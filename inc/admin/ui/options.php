@@ -191,7 +191,7 @@ function _wptcmf_filter_admin_footer_text( $text ) {
 		return $text;
 	} else {
 		return
-			esc_html( 'Visit&nbsp;','wpt-custom-mo-file' ) . '<a href="http://wp-translations.org/" target="_blank">WP-Translations&nbsp;</a>' . esc_html( 'community site', 'wpt-custom-mo-file' ) . ' | <a target="_blank" href="http://wordpress.org/support/plugin/wpt-custom-mo-file#postform">' . esc_html__( 'Contact Support', 'wpt-custom-mo-file' ) . '</a> | ' .
+			esc_html__( 'Visit&nbsp;','wpt-custom-mo-file' ) . '<a href="http://wp-translations.org/" target="_blank">WP-Translations&nbsp;</a>' . esc_html__( 'Community website', 'wpt-custom-mo-file' ) . ' | <a target="_blank" href="http://wordpress.org/support/plugin/wpt-custom-mo-file#postform">' . esc_html__( 'Contact Support', 'wpt-custom-mo-file' ) . '</a> | ' .
 			str_replace(
 				array( '[stars]', '[wp.org]' ),
 				array( '<a target="_blank" href="http://wordpress.org/support/view/plugin-reviews/wpt-custom-mo-file#postform" >&#9733;&#9733;&#9733;&#9733;&#9733;</a>', '<a target="_blank" href="http://wordpress.org/plugins/wpt-custom-mo-file/" >wordpress.org</a>' ),
