@@ -190,12 +190,15 @@ function _wptcmf_filter_admin_footer_text( $text ) {
 	if ( 'tools_page_wpt-custom-mo-file' !== $screen->base ) {
 		return $text;
 	} else {
+		$link_1 = '<a href="http://wp-translations.org/" target="_blank">WP-Translations</a>';
+		$link_2 = '<a target="_blank" href="http://wordpress.org/support/plugin/wpt-custom-mo-file#postform">';
+		$link_3 = '</a>';
 		$change = str_replace(
 			array( '[stars]', '[wp.org]' ),
 			array( '<a target="_blank" href="http://wordpress.org/support/view/plugin-reviews/wpt-custom-mo-file#postform" >&#9733;&#9733;&#9733;&#9733;&#9733;</a>', '<a target="_blank" href="http://wordpress.org/plugins/wpt-custom-mo-file/" >wordpress.org</a>' ),
-			esc_html_x( 'Add your [stars] on [wp.org] to spread the love.', 'Please do not translate [stars] and [wp.org]', 'wpt-custom-mo-file' )
+			esc_html__( 'Add your [stars] on [wp.org] to spread the love.' )
 		);
-		return sprintf( '%1$s<a href="http://wp-translations.org/" target="_blank">WP-Translations</a>%2$s | <a target="_blank" href="http://wordpress.org/support/plugin/wpt-custom-mo-file#postform">%3$s</a> | %4$s', esc_html__( 'Visit&nbsp;','wpt-custom-mo-file' ), esc_html__( '&nbsp;Community website', 'wpt-custom-mo-file' ), esc_html__( 'Contact Support', 'wpt-custom-mo-file' ), $change );
+		return sprintf( esc_html_x( 'Visit %1$s Community website | %2$s Contact Support %3$s | %4$s', 'Please do not translate [stars] and [wp.org]', 'wpt-custom-mo-file' ), $link_1, $link_2, $link_3, $change );
 	}
 }
 
