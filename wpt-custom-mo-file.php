@@ -16,7 +16,7 @@
  * Description: Override text-domain with your own mo file
  * Version:     1.0.0
  * Author:      WP-Translations Team
- * Author URI:  http://www.wp-translations.org/
+ * Author URI:  http://wp-translations.org/
  * Text Domain: wpt-custom-mo-file
  * Domain Path: /languages
  * Copyright:   2016 WP-Translations Team
