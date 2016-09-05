@@ -15,37 +15,6 @@ function __wpcmf_filter_upload_dir( $dirs ) {
 }
 
 /**
- * Create available textdomains array
- *
- * @since 1.0.0
- */
-function wptcmf_get_domains() {
-	global $l10n;
-	$locale = get_locale();
-	$theme_data = wp_get_theme();
-
-	$wptcmf_domains[] = 'default';
-	$wptcmf_domains[] = $theme_data->get( 'TextDomain' );
-
-	if ( is_multisite() ) {
-		$plugins = ( ! empty( get_site_option( 'active_sitewide_plugins' ) ) ) ? array_keys( get_site_option( 'active_sitewide_plugins' ) ) : get_option( 'active_plugins' );
-	} else {
-		$plugins = get_option( 'active_plugins' );
-	}
-
-	foreach ( $plugins as $plugin ) {
-		$plugin_data = get_plugin_data( trailingslashit( WP_PLUGIN_DIR ) . $plugin );
-		if ( ! empty( $plugin_data['TextDomain'] ) ) {
-			$wptcmf_domains[] = $plugin_data['TextDomain'];
-		}
-	}
-	$wptcmf_domains = array_unique( array_merge( $wptcmf_domains, array_keys( (array) $l10n ) ) );
-
-	return $wptcmf_domains;
-
-}
-
-/**
  * Extract textdomain and locale
  *
  * @since 1.0.0
