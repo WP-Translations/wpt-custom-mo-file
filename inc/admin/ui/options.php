@@ -184,8 +184,8 @@ function __wptcmf_rules_table_field() {
  * @since 1.0.0
  * @return string
  */
-add_filter( 'admin_footer_text', '_wptcmf_filter_admin_footer_text' );
-function _wptcmf_filter_admin_footer_text( $text ) {
+add_filter( 'admin_footer_text', '__wptcmf_filter_admin_footer_text' );
+function __wptcmf_filter_admin_footer_text( $text ) {
 	$screen = get_current_screen();
 	if ( 'tools_page_' . WPTCMF_SLUG !== $screen->base ) {
 		return $text;
@@ -208,8 +208,8 @@ function _wptcmf_filter_admin_footer_text( $text ) {
  * @since 1.0.0
  * @return string
  */
-add_filter( 'update_footer', '_wptcmf_filter_update_footer', 15 );
-function _wptcmf_filter_update_footer( $text ) {
+add_filter( 'update_footer', '__wptcmf_filter_update_footer', 15 );
+function __wptcmf_filter_update_footer( $text ) {
 	$screen = get_current_screen();
 	if ( 'tools_page_' . WPTCMF_SLUG !== $screen->base ) {
 		return $text;
