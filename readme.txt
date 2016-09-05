@@ -54,6 +54,10 @@ Automatic updates should work like a charm; as always though, ensure you backup 
 
 For help setting up and configuring WPT Custom Mo File please refer to our [dedicated plugin page](https://wptranslations.org/plugins/wpt-custom-mo-file/)
 
+= Can I use .po files ? =
+
+No, not yet. Until we implement this feature, we recommend you to use any gettext editor to create your .mo files. E.g. [Poedit](https://make.wordpress.org/polyglots/handbook/tools/poedit/)
+
 = Where can I get support or talk to other users? =
 
 If you get stuck, you can ask for help in the [WPT Custom Mo File Plugin Forum](https://wordpress.org/support/plugin/wpt-custom-mo-file).
@@ -81,6 +85,5 @@ Yes you can! Join in on our [GitHub repository](https://github.com/WP-Translatio
 
 == Changelog ==
 
-=== 1.0.0 (01 September 2016) ===
-
+= 1.0.0 - 05 Sept 2016 =
 * Initial Release
