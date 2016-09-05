@@ -41,6 +41,13 @@ The manual installation method involves downloading our translation plugin and u
 
 Automatic updates should work like a charm; as always though, ensure you backup your site just in case.
 
+= Usage =
+
+1. Select the textdomain in the list at *Tools > WPT Custom Mo File*
+2. Select your language
+3. Upload your custom .mo file
+4. That's it. Enjoy your Custom Translations
+
 == Frequently Asked Questions ==
 
 = Where can I find WPT Custom Mo File documentation and user guides? =
