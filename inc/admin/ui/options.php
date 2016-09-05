@@ -55,8 +55,9 @@ function __wptcmf_upload_mo_file_field() {
  * @since 1.0.0
  */
 function __wptcmf_select_textdomain_field() {
-	$domains = $GLOBALS['wptcmf_text_domains']; ?>
-
+	$domains = $GLOBALS['wptcmf_text_domains'];
+	asort( $domains ); ?>
+	
 	<select id="wptcmf_select_textdomain" name="wptcmf_options[text_domain]">
 		<?php foreach ( $domains as $domain ) : ?>
 			<option value="<?php esc_attr_e( $domain ); ?>"><?php echo esc_attr_e( $domain ); ?></option>
