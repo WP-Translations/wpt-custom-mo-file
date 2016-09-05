@@ -59,6 +59,15 @@ function wptcmf_init() {
 
 }
 
+add_action( 'load_textdomain', '__wptcmf_log_textdomain', 10, 2 );
+function __wptcmf_log_textdomain( $domain, $mo_file ) {
+
+	if ( ! isset( $GLOBALS['wptcmf_text_domains'][ $domain ] ) ) {
+		$GLOBALS['wptcmf_text_domains'][ $domain ] = $domain;
+	}
+
+}
+
 /**
  * Tell WP what to do when plugin is activated
  *

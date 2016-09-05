@@ -7,7 +7,7 @@ defined( 'ABSPATH' ) or die( 'Cheatin&#8217; uh?' );
  * @since 1.0.0
  */
 function __wptcmf_tools_page() {
-	$count_domains = count( wptcmf_get_domains() ); ?>
+	$count_domains = count( $GLOBALS['wptcmf_text_domains'] ); ?>
 
 	<div class="wptcmf-options-page wrap">
 		<img src="<?php echo esc_url( WPTCMF_URL_IMG . 'wpt-logo.png' ); ?>"><h2><?php esc_html_e( WPTCMF_NICE_NAME ); ?></h2>
@@ -55,7 +55,7 @@ function __wptcmf_upload_mo_file_field() {
  * @since 1.0.0
  */
 function __wptcmf_select_textdomain_field() {
-	$domains = wptcmf_get_domains(); ?>
+	$domains = $GLOBALS['wptcmf_text_domains']; ?>
 
 	<select id="wptcmf_select_textdomain" name="wptcmf_options[text_domain]">
 		<?php foreach ( $domains as $domain ) : ?>
