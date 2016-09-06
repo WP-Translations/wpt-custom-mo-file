@@ -57,7 +57,7 @@ function __wptcmf_upload_mo_file_field() {
 function __wptcmf_select_textdomain_field() {
 	$domains = $GLOBALS['wptcmf_text_domains'];
 	asort( $domains ); ?>
-	
+
 	<select id="wptcmf_select_textdomain" name="wptcmf_options[text_domain]">
 		<?php foreach ( $domains as $domain ) : ?>
 			<option value="<?php esc_attr_e( $domain ); ?>"><?php echo esc_attr_e( $domain ); ?></option>
@@ -91,7 +91,6 @@ function __wptcmf_select_language_field() {
 function __wptcmf_rules_table_field() {
 	global $l10n;
 	$rules = get_option( 'wptcmf_options' );
-	$count_rules = count( $rules['rules'] );
 	$locale = get_locale();
 
 	if ( isset ( $rules['rules'] ) && ! empty( $rules['rules'] ) ) : ?>
@@ -107,11 +106,9 @@ function __wptcmf_rules_table_field() {
 				</select>
 				<button name="wptcmf_options[action_top]" class="button" type="submit"><?php esc_html_e( 'Apply', 'wpt-custom-mo-file' ); ?></button>
 			</div>
-			<div class="tablenav-pages"><span class="displaying-num"><?php printf( esc_html( _n( '%d item.', '%d items.', absint( $count_rules ), 'wpt-custom-mo-file' ) ), absint( $count_rules ) ); ?></span></div>
-			<br class="clear">
 		</div>
 
-		<table class="wp-list-table widefat fixed striped">
+		<table id="wptcmf-rules-table" class="wp-list-table widefat plugins">
 			<thead>
 				<tr>
 					<td id="cb" class="column-cb check-column">
@@ -127,7 +124,7 @@ function __wptcmf_rules_table_field() {
 			<tbody>
 				<?php foreach ( $rules['rules'] as $lang ) : ?>
 					<?php foreach ( $lang as $rule ) : ?>
-					<tr>
+					<tr class="<?php if ( 1 === $rule['activate'] ) { esc_attr_e( 'active' ); }?>">
 						<th scope="row" class="check-column">
 							<label class="screen-reader-text" for="cb-select-<?php esc_attr_e( $rule['text_domain'].'-'.$rule['language'] ); ?>"><?php esc_html_e( 'Select&nbsp;', 'wpt-custom-mo-file' ); ?><?php echo esc_html( $rule['text_domain'] ); ?></label>
 							<input name="wptcmf_options[mo][]" id="cb-select-<?php esc_attr_e( $rule['text_domain'].'-'.$rule['language'] ); ?>" value="<?php esc_attr_e( $rule['text_domain'].'|'.$rule['language'] ); ?>" type="checkbox">
@@ -172,8 +169,6 @@ function __wptcmf_rules_table_field() {
 				</select>
 				<button name="wptcmf_options[action_bottom]" class="button" type="submit"><?php esc_html_e( 'Apply', 'wpt-custom-mo-file' ); ?></button>
 			</div>
-			<div class="tablenav-pages"><span class="displaying-num"><?php printf( esc_html( _n( '%d item.', '%d items.', absint( $count_rules ), 'wpt-custom-mo-file' ) ), absint( $count_rules ) ); ?></span></div>
-			<br class="clear">
 		</div>
 
 	<?php endif;

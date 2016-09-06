@@ -37,6 +37,7 @@ define( 'WPTCMF_ADMIN_UI_PATH', 	realpath( WPTCMF_ADMIN_PATH . 'ui' ) . '/' );
 define( 'WPTCMF_FUNCTIONS_PATH', 	realpath( WPTCMF_INC_PATH . 'functions' ) . '/' );
 define( 'WPTCMF_URL_ASSETS',  		WPTCMF_URL . 'assets/' );
 define( 'WPTCMF_URL_CSS',  				WPTCMF_URL_ASSETS . 'css/' );
+define( 'WPTCMF_URL_JS',  				WPTCMF_URL_ASSETS . 'js/' );
 define( 'WPTCMF_URL_IMG',  				WPTCMF_URL_ASSETS . 'images/' );
 define( 'WPTCMF_OVERWRITE_DIR',		WP_CONTENT_DIR . '/uploads/wpt-custom-mo-file/' );
 
