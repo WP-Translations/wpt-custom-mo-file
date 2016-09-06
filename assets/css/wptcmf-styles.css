@@ -18,9 +18,15 @@
 .tools_page_wpt-custom-mo-file .form-table:nth-of-type(2) th[scope="row"]:not(.check-column) {
 	display:none;
 }
+
 .tools_page_wpt-custom-mo-file table.widefat {
 	border: none;
+	border-top: 5px solid #F1F1F1;
 	box-shadow: none;
+}
+
+.tools_page_wpt-custom-mo-file .tablenav {
+	margin: 6px 0 5px;
 }
 
 #wptcmf-rules-table_wrapper .column-cb {
