@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
 "Project-Id-Version: WPT Custom Mo File\n"
-"POT-Creation-Date: 2016-09-04 17:42+0200\n"
+"POT-Creation-Date: 2016-09-06 22:23+0200\n"
 "PO-Revision-Date: 2016-09-03 00:39+0200\n"
 "Last-Translator: FX Bénard <fx@fxbenard.com>\n"
 "Language-Team: FX Bénard <fx@fxbenard.com>\n"
@@ -19,6 +19,69 @@ msgstr ""
 "_n_noop:1,2;_nx_noop:3c,1,2;__ngettext_noop:1,2\n"
 "X-Poedit-SearchPath-0: .\n"
 "X-Poedit-SearchPathExcluded-0: *.js\n"
+
+#: inc/admin/enqueue.php:16
+msgid "No data available in table"
+msgstr ""
+
+#: inc/admin/enqueue.php:17
+msgctxt "Please don't translate: _START_ _END_ _TOTAL_"
+msgid "Showing _START_ to _END_ of _TOTAL_ entries"
+msgstr ""
+
+#: inc/admin/enqueue.php:18
+msgid "Showing 0 to 0 of 0 entries"
+msgstr ""
+
+#: inc/admin/enqueue.php:19
+msgctxt "Please don't translate: _MAX_"
+msgid "filtered from _MAX_ total entries"
+msgstr ""
+
+#: inc/admin/enqueue.php:20
+msgctxt "Please don't translate: _MENU_"
+msgid "Show _MENU_ entries"
+msgstr ""
+
+#: inc/admin/enqueue.php:21
+msgid "Loading..."
+msgstr ""
+
+#: inc/admin/enqueue.php:22
+msgid "Processing..."
+msgstr ""
+
+#: inc/admin/enqueue.php:23
+msgid "Search:"
+msgstr ""
+
+#: inc/admin/enqueue.php:24
+msgid "No matching records found"
+msgstr ""
+
+#: inc/admin/enqueue.php:25
+msgid "First"
+msgstr ""
+
+#: inc/admin/enqueue.php:26
+msgid "Last"
+msgstr ""
+
+#: inc/admin/enqueue.php:27
+msgid "Next"
+msgstr ""
+
+#: inc/admin/enqueue.php:28
+msgid "Previous"
+msgstr ""
+
+#: inc/admin/enqueue.php:29
+msgid ": activate to sort column ascending"
+msgstr ""
+
+#: inc/admin/enqueue.php:30
+msgid ": activate to sort column descending"
+msgstr ""
 
 #: inc/admin/options.php:38
 msgid "Select a text domain"
@@ -95,91 +158,88 @@ msgid ""
 "any translations in your WordPress installation."
 msgstr ""
 
-#: inc/admin/ui/options.php:100 inc/admin/ui/options.php:165
+#: inc/admin/ui/options.php:100 inc/admin/ui/options.php:163
 msgid "Select bulk action"
 msgstr ""
 
-#: inc/admin/ui/options.php:102 inc/admin/ui/options.php:167
+#: inc/admin/ui/options.php:102 inc/admin/ui/options.php:165
 msgid "Bulk actions"
 msgstr ""
 
-#: inc/admin/ui/options.php:103 inc/admin/ui/options.php:141
-#: inc/admin/ui/options.php:168
+#: inc/admin/ui/options.php:103 inc/admin/ui/options.php:139
+#: inc/admin/ui/options.php:166
 msgid "Activate"
 msgstr ""
 
-#: inc/admin/ui/options.php:104 inc/admin/ui/options.php:139
-#: inc/admin/ui/options.php:169
+#: inc/admin/ui/options.php:104 inc/admin/ui/options.php:137
+#: inc/admin/ui/options.php:167
 msgid "Deactivate"
 msgstr ""
 
-#: inc/admin/ui/options.php:105 inc/admin/ui/options.php:170
+#: inc/admin/ui/options.php:105 inc/admin/ui/options.php:168
 msgid "Delete"
 msgstr ""
 
-#: inc/admin/ui/options.php:107 inc/admin/ui/options.php:172
+#: inc/admin/ui/options.php:107 inc/admin/ui/options.php:170
 msgid "Apply"
 msgstr ""
 
-#: inc/admin/ui/options.php:109 inc/admin/ui/options.php:174
-#, php-format
-msgid "%d item."
-msgid_plural "%d items."
-msgstr[0] ""
-msgstr[1] ""
-
-#: inc/admin/ui/options.php:117
+#: inc/admin/ui/options.php:115
 msgid "Select All"
 msgstr ""
 
-#: inc/admin/ui/options.php:120 inc/admin/ui/options.php:155
+#: inc/admin/ui/options.php:118 inc/admin/ui/options.php:153
 msgid "Text domain"
 msgstr ""
 
-#: inc/admin/ui/options.php:121 inc/admin/ui/options.php:156
+#: inc/admin/ui/options.php:119 inc/admin/ui/options.php:154
 msgid "Language"
 msgstr ""
 
-#: inc/admin/ui/options.php:122 inc/admin/ui/options.php:157
+#: inc/admin/ui/options.php:120 inc/admin/ui/options.php:155
 msgid "Filename"
 msgstr ""
 
-#: inc/admin/ui/options.php:123 inc/admin/ui/options.php:158
+#: inc/admin/ui/options.php:121 inc/admin/ui/options.php:156
 msgid "Actions"
 msgstr ""
 
-#: inc/admin/ui/options.php:131 inc/admin/ui/options.php:132
+#: inc/admin/ui/options.php:127
+msgid "active"
+msgstr ""
+
+#: inc/admin/ui/options.php:129 inc/admin/ui/options.php:130
 msgid "-"
 msgstr ""
 
-#: inc/admin/ui/options.php:131
+#: inc/admin/ui/options.php:129
 msgid "Select&nbsp;"
 msgstr ""
 
-#: inc/admin/ui/options.php:132 inc/admin/ui/options.php:139
-#: inc/admin/ui/options.php:141 inc/admin/ui/options.php:143
+#: inc/admin/ui/options.php:130 inc/admin/ui/options.php:137
+#: inc/admin/ui/options.php:139 inc/admin/ui/options.php:141
 msgid "|"
 msgstr ""
 
-#: inc/admin/ui/options.php:143
+#: inc/admin/ui/options.php:141
 msgid "Delete rule"
 msgstr ""
 
-#: inc/admin/ui/options.php:199
+#: inc/admin/ui/options.php:195
 msgctxt "Please do not translate [stars] and [wp.org]"
 msgid "Add your [stars] on [wp.org] to spread the love."
 msgstr ""
 
-#: inc/admin/ui/options.php:201
+#: inc/admin/ui/options.php:197
 #, php-format
 msgid "Visit %1$s Community website | %2$s Contact Support %3$s | %4$s"
 msgstr ""
 
-#: inc/admin/ui/options.php:217
+#: inc/admin/ui/options.php:213
 msgid "Help us with Translations"
 msgstr ""
 
-#: inc/admin/ui/options.php:218
+#: inc/admin/ui/options.php:214
 msgid "Version:&nbsp;"
 msgstr ""
 

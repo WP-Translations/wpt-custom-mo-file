@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: WPT Custom Mo File\n"
-"POT-Creation-Date: 2016-09-04 17:42+0200\n"
-"PO-Revision-Date: 2016-09-04 17:43+0200\n"
+"POT-Creation-Date: 2016-09-06 22:23+0200\n"
+"PO-Revision-Date: 2016-09-06 22:46+0200\n"
 "Last-Translator: FX Bénard <fx@fxbenard.com>\n"
 "Language-Team: FX Bénard <fx@fxbenard.com>\n"
 "Language: fr_FR\n"
@@ -19,6 +19,69 @@ msgstr ""
 "_nx_noop:3c,1,2;__ngettext_noop:1,2\n"
 "X-Poedit-SearchPath-0: .\n"
 "X-Poedit-SearchPathExcluded-0: *.js\n"
+
+#: inc/admin/enqueue.php:16
+msgid "No data available in table"
+msgstr "Aucune donnée disponible dans le tableau"
+
+#: inc/admin/enqueue.php:17
+msgctxt "Please don't translate: _START_ _END_ _TOTAL_"
+msgid "Showing _START_ to _END_ of _TOTAL_ entries"
+msgstr "Affichage de _START_ à _END_ sur _TOTAL_ éléments"
+
+#: inc/admin/enqueue.php:18
+msgid "Showing 0 to 0 of 0 entries"
+msgstr "Affichage de l’élément 0 à 0 sur 0 élément"
+
+#: inc/admin/enqueue.php:19
+msgctxt "Please don't translate: _MAX_"
+msgid "filtered from _MAX_ total entries"
+msgstr "filtré de _MAX_ éléments au total"
+
+#: inc/admin/enqueue.php:20
+msgctxt "Please don't translate: _MENU_"
+msgid "Show _MENU_ entries"
+msgstr "Afficher _MENU_ éléments"
+
+#: inc/admin/enqueue.php:21
+msgid "Loading..."
+msgstr "Chargement en cours..."
+
+#: inc/admin/enqueue.php:22
+msgid "Processing..."
+msgstr "Traitement en cours..."
+
+#: inc/admin/enqueue.php:23
+msgid "Search:"
+msgstr "Rechercher :"
+
+#: inc/admin/enqueue.php:24
+msgid "No matching records found"
+msgstr "Aucune donnée correspondante trouvée"
+
+#: inc/admin/enqueue.php:25
+msgid "First"
+msgstr "Premier"
+
+#: inc/admin/enqueue.php:26
+msgid "Last"
+msgstr "Dernier"
+
+#: inc/admin/enqueue.php:27
+msgid "Next"
+msgstr "Suivant"
+
+#: inc/admin/enqueue.php:28
+msgid "Previous"
+msgstr "Précédent"
+
+#: inc/admin/enqueue.php:29
+msgid ": activate to sort column ascending"
+msgstr ": activer pour trier la colonne par ordre croissant"
+
+#: inc/admin/enqueue.php:30
+msgid ": activate to sort column descending"
+msgstr ": activer pour trier la colonne par ordre décroissant"
 
 #: inc/admin/options.php:38
 msgid "Select a text domain"
@@ -97,93 +160,90 @@ msgstr ""
 "Créer, activer, désactiver vos ensembles de règles personnalisées pour avoir "
 "le plein contrôle de toutes les traductions de votre installation WordPress."
 
-#: inc/admin/ui/options.php:100 inc/admin/ui/options.php:165
+#: inc/admin/ui/options.php:100 inc/admin/ui/options.php:163
 msgid "Select bulk action"
 msgstr "Sélectionnez l’action groupée"
 
-#: inc/admin/ui/options.php:102 inc/admin/ui/options.php:167
+#: inc/admin/ui/options.php:102 inc/admin/ui/options.php:165
 msgid "Bulk actions"
 msgstr "Actions groupées"
 
-#: inc/admin/ui/options.php:103 inc/admin/ui/options.php:141
-#: inc/admin/ui/options.php:168
+#: inc/admin/ui/options.php:103 inc/admin/ui/options.php:139
+#: inc/admin/ui/options.php:166
 msgid "Activate"
 msgstr "Activate"
 
-#: inc/admin/ui/options.php:104 inc/admin/ui/options.php:139
-#: inc/admin/ui/options.php:169
+#: inc/admin/ui/options.php:104 inc/admin/ui/options.php:137
+#: inc/admin/ui/options.php:167
 msgid "Deactivate"
 msgstr "Désactiver"
 
-#: inc/admin/ui/options.php:105 inc/admin/ui/options.php:170
+#: inc/admin/ui/options.php:105 inc/admin/ui/options.php:168
 msgid "Delete"
 msgstr "Supprimer"
 
-#: inc/admin/ui/options.php:107 inc/admin/ui/options.php:172
+#: inc/admin/ui/options.php:107 inc/admin/ui/options.php:170
 msgid "Apply"
 msgstr "Appliquer"
 
-#: inc/admin/ui/options.php:109 inc/admin/ui/options.php:174
-#, php-format
-msgid "%d item."
-msgid_plural "%d items."
-msgstr[0] "%d élément."
-msgstr[1] "%d éléments."
-
-#: inc/admin/ui/options.php:117
+#: inc/admin/ui/options.php:115
 msgid "Select All"
 msgstr "Tout sélectionner"
 
-#: inc/admin/ui/options.php:120 inc/admin/ui/options.php:155
+#: inc/admin/ui/options.php:118 inc/admin/ui/options.php:153
 msgid "Text domain"
 msgstr "Text domain"
 
-#: inc/admin/ui/options.php:121 inc/admin/ui/options.php:156
+#: inc/admin/ui/options.php:119 inc/admin/ui/options.php:154
 msgid "Language"
 msgstr "Langue"
 
-#: inc/admin/ui/options.php:122 inc/admin/ui/options.php:157
+#: inc/admin/ui/options.php:120 inc/admin/ui/options.php:155
 msgid "Filename"
 msgstr "Nom du fichier"
 
-#: inc/admin/ui/options.php:123 inc/admin/ui/options.php:158
+#: inc/admin/ui/options.php:121 inc/admin/ui/options.php:156
 msgid "Actions"
 msgstr "Actions"
 
-#: inc/admin/ui/options.php:131 inc/admin/ui/options.php:132
+#: inc/admin/ui/options.php:127
+msgid "active"
+msgstr "actif"
+
+#: inc/admin/ui/options.php:129 inc/admin/ui/options.php:130
 msgid "-"
 msgstr "-"
 
-#: inc/admin/ui/options.php:131
+#: inc/admin/ui/options.php:129
 msgid "Select&nbsp;"
 msgstr "Sélectionner"
 
-#: inc/admin/ui/options.php:132 inc/admin/ui/options.php:139
-#: inc/admin/ui/options.php:141 inc/admin/ui/options.php:143
+#: inc/admin/ui/options.php:130 inc/admin/ui/options.php:137
+#: inc/admin/ui/options.php:139 inc/admin/ui/options.php:141
 msgid "|"
 msgstr "|"
 
-#: inc/admin/ui/options.php:143
+#: inc/admin/ui/options.php:141
 msgid "Delete rule"
 msgstr "Supprimer la règle"
 
-#: inc/admin/ui/options.php:199
+#: inc/admin/ui/options.php:195
 msgctxt "Please do not translate [stars] and [wp.org]"
 msgid "Add your [stars] on [wp.org] to spread the love."
 msgstr "Ajoutez vos [stars] sur [wp.org] pour afficher votre soutien."
 
-#: inc/admin/ui/options.php:201
+#: inc/admin/ui/options.php:197
 #, php-format
 msgid "Visit %1$s Community website | %2$s Contact Support %3$s | %4$s"
 msgstr ""
 "Visitez le site de la communauté de %1$s | %2$s Contactez le support %3$s | "
 "%4$s"
 
-#: inc/admin/ui/options.php:217
+#: inc/admin/ui/options.php:213
 msgid "Help us with Translations"
 msgstr "Aidez nous à le traduire"
 
-#: inc/admin/ui/options.php:218
+#: inc/admin/ui/options.php:214
 msgid "Version:&nbsp;"
 msgstr "Version : "
 
@@ -210,6 +270,11 @@ msgstr "WP-Translations Team"
 #. Author URI of the plugin/theme
 msgid "http://wp-translations.org/"
 msgstr "http://wp-translations.org/"
+
+#~ msgid "%d item."
+#~ msgid_plural "%d items."
+#~ msgstr[0] "%d élément."
+#~ msgstr[1] "%d éléments."
 
 #~ msgid "Visit&nbsp;"
 #~ msgstr "Visitez "
