@@ -82,9 +82,8 @@ Yes you can! Join in on our [GitHub repository](https://github.com/WP-Translatio
 == Screenshots ==
 
 1. The slick but efficient WPT Custom Mo File settings panel.
-2.
 
 == Changelog ==
 
-= 1.0.0 - 05 Sept 2016 =
+= 1.0.0 - 07 Sept 2016 =
 * Initial Release
