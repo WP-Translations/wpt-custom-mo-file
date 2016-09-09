@@ -1,9 +1,9 @@
 === WPT Custom Mo File ===
-Contributors: wptranslationsorg, g3ronim0, fxbenard
+Contributors: wptranslationsteam, g3ronim0, fxbenard
 Tags: language, textdomain, Text Domain, translation, translators, localization, localisation, l10n, i18n, MO, .mo file, productivity
 Donate link: http://wp-translations.org/donation/
 Requires at least: 4.0
-Tested up to: 4.6
+Tested up to: 4.6.1
 Stable tag: 1.0.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
