@@ -1,6 +1,14 @@
-/*
- * Table styles
+/**
+ * dataTable custom theme
+ *
+ * @author     WP-Translations Team
+ * @link       http://wp-translations.org
+ * @since      1.0.0
+ *
+ * @package    WPT_Custom_Mo_File
+ * @subpackage WPT_Custom_Mo_File/assets/css
  */
+
 table.dataTable {
 	width: 100%;
 	margin: 0 auto;
@@ -10,13 +18,7 @@ table.dataTable {
 }
 
 table.dataTable thead th,
-table.dataTable tfoot th {
-
-}
-
-table.dataTable thead th,
 table.dataTable thead td {
-
 	border-bottom: 1px solid #e5e5e5;
 }
 
@@ -27,7 +29,6 @@ table.dataTable thead td:active {
 
 table.dataTable tfoot th,
 table.dataTable tfoot td {
-	/*padding: 10px 18px 6px 18px;*/
 	border-top: 1px solid #e5e5e5;
 }
 
@@ -65,10 +66,6 @@ table.dataTable thead .sorting_desc:before {
 	content: "\f140";
 }
 
-
-/*
- * Control feature layout
- */
 .dataTables_wrapper {
 	position: relative;
 	clear: both;
@@ -83,7 +80,6 @@ table.dataTable thead .sorting_desc:before {
 .dataTables_wrapper .dataTables_filter {
 	float: right;
 	text-align: right;
-
 }
 
 .dataTables_wrapper .dataTables_filter input {
@@ -159,12 +155,6 @@ table.dataTable thead .sorting_desc:before {
 	text-align: center;
 	font-size: 1.2em;
 	background-color: white;
-	background: -webkit-gradient(linear, left top, right top, color-stop(0%, rgba(249, 249, 249, 0)), color-stop(25%, rgba(249, 249, 249, 0.9)), color-stop(75%, rgba(249, 249, 249, 0.9)), color-stop(100%, rgba(255, 255, 255, 0)));
-	background: -webkit-linear-gradient(left, rgba(249, 249, 249, 0) 0%, rgba(249, 249, 249, 0.9) 25%, rgba(249, 249, 249, 0.9) 75%, rgba(249, 249, 249, 0) 100%);
-	background: -moz-linear-gradient(left, rgba(249, 249, 249, 0) 0%, rgba(249, 249, 249, 0.9) 25%, rgba(249, 249, 249, 0.9) 75%, rgba(249, 249, 249, 0) 100%);
-	background: -ms-linear-gradient(left, rgba(249, 249, 249, 0) 0%, rgba(249, 249, 249, 0.9) 25%, rgba(249, 249, 249, 0.9) 75%, rgba(249, 249, 249, 0) 100%);
-	background: -o-linear-gradient(left, rgba(249, 249, 249, 0) 0%, rgba(249, 249, 249, 0.9) 25%, rgba(249, 249, 249, 0.9) 75%, rgba(249, 249, 249, 0) 100%);
-	background: linear-gradient(to right, rgba(249, 249, 249, 0) 0%, rgba(249, 249, 249, 0.9) 25%, rgba(249, 249, 249, 0.9) 75%, rgba(249, 249, 249, 0) 100%);
 }
 
 .dataTables_wrapper .dataTables_length,
@@ -172,7 +162,7 @@ table.dataTable thead .sorting_desc:before {
 .dataTables_wrapper .dataTables_info,
 .dataTables_wrapper .dataTables_processing,
 .dataTables_wrapper .dataTables_paginate {
-	color: #555555;
+	color: #555;
 }
 
 .dataTables_wrapper .dataTables_scroll {

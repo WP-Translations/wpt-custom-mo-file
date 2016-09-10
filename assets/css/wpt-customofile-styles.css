@@ -1,0 +1,84 @@
+/**
+ * CSS code
+ *
+ * @author     WP-Translations Team
+ * @link       http://wp-translations.org
+ * @since      1.0.0
+ *
+ * @package    WPT_Custom_Mo_File
+ * @subpackage WPT_Custom_Mo_File/assets/css
+ */
+
+/* ----------------------------- */
+/* Summary */
+/* ----------------------------- */
+/*
+	== Page Header
+	== Table
+	== Buttons
+	== Page footer
+*/
+
+/* == @section Page Header ==================== */
+.wpt-customofile-options-page img {
+	display: inline-block;
+	vertical-align: middle;
+	width: 50px;
+	margin-right:1em;
+}
+
+.wpt-customofile-page-title {
+	display: inline-block;
+	vertical-align: middle;
+}
+
+/* == @section Table ==================== */
+.tools_page_wpt-custom-mo-file .form-table:nth-of-type(2) th[scope="row"]:not(.check-column) {
+	display: none;
+}
+
+.tools_page_wpt-custom-mo-file .widefat {
+	border: none;
+	border-top: 5px solid #f1f1f1;
+	box-shadow: none;
+}
+
+.tools_page_wpt-custom-mo-file .tablenav {
+	margin: 6px 0 5px;
+}
+
+.tools_page_wpt-custom-mo-file input[type="search"] {
+	padding: 5px;
+}
+
+.wpt-customofile-table-row-actions td {
+	padding: 0;
+	background: #f1f1f1;
+}
+
+/* == @section Buttons ==================== */
+.wpt-customofile-button:before {
+	display: inline-block;
+	vertical-align: middle;
+	padding-bottom: 3px;
+	font-family: "dashicons";
+	font-size: 20px;
+}
+
+.wpt-customofile-button-deactivate:before {
+	content: "\f523";
+}
+
+.wpt-customofile-button-activate:before {
+	content: "\f522";
+}
+
+.wpt-customofile-button-delete:before {
+	content: "\f182";
+}
+
+/* == @section Page Footer ==================== */
+.wpt-customofile-footer-link {
+	margin-right:10px;
+	text-decoration: none;
+}

@@ -2,7 +2,7 @@
 /**
  * WPT Custom Mo File
  *
- * @package     WordPress\Plugins\WPT Custom Mo File
+ * @package     WPT_Custom_Mo_File
  * @author      WP-Translations Team
  * @link        https://github.com/WP-Translations/wpt-custom-mo-file
  * @version     1.0.0
@@ -25,97 +25,112 @@
 
 defined( 'ABSPATH' ) or die( 'Cheatin&#8217; uh?' );
 
-define( 'WPTCMF_VERSION', 				'1.0.0' );
-define( 'WPTCMF_SLUG', 						'wpt-custom-mo-file' );
-define( 'WPTCMF_NICE_NAME', 			'WPT Custom Mo File' );
-define( 'WPTCMF_FILE', 						__FILE__ );
-define( 'WPTCMF_URL', 						plugin_dir_url( WPTCMF_FILE ) );
-define( 'WPTCMF_PATH', 						realpath( plugin_dir_path( WPTCMF_FILE ) ) . '/' );
-define( 'WPTCMF_INC_PATH', 				realpath( WPTCMF_PATH . 'inc' ) . '/' );
-define( 'WPTCMF_ADMIN_PATH', 			realpath( WPTCMF_INC_PATH . 'admin' ) . '/' );
-define( 'WPTCMF_ADMIN_UI_PATH', 	realpath( WPTCMF_ADMIN_PATH . 'ui' ) . '/' );
-define( 'WPTCMF_FUNCTIONS_PATH', 	realpath( WPTCMF_INC_PATH . 'functions' ) . '/' );
-define( 'WPTCMF_URL_ASSETS',  		WPTCMF_URL . 'assets/' );
-define( 'WPTCMF_URL_CSS',  				WPTCMF_URL_ASSETS . 'css/' );
-define( 'WPTCMF_URL_JS',  				WPTCMF_URL_ASSETS . 'js/' );
-define( 'WPTCMF_URL_IMG',  				WPTCMF_URL_ASSETS . 'images/' );
-define( 'WPTCMF_OVERWRITE_DIR',		WP_CONTENT_DIR . '/uploads/wpt-custom-mo-file/' );
+define( 'WPT_CUSTOMOFILE_VERSION', 				'1.0.0' );
+define( 'WPT_CUSTOMOFILE_SLUG', 					'wpt-custom-mo-file' );
+define( 'WPT_CUSTOMOFILE_NICE_NAME', 			'WPT Custom Mo File' );
+define( 'WPT_CUSTOMOFILE_FILE', 					__FILE__ );
+define( 'WPT_CUSTOMOFILE_URL', 						plugin_dir_url( WPT_CUSTOMOFILE_FILE ) );
+define( 'WPT_CUSTOMOFILE_PATH', 					realpath( plugin_dir_path( WPT_CUSTOMOFILE_FILE ) ) . '/' );
+define( 'WPT_CUSTOMOFILE_INC_PATH', 			realpath( WPT_CUSTOMOFILE_PATH . 'inc' ) . '/' );
+define( 'WPT_CUSTOMOFILE_ADMIN_PATH', 		realpath( WPT_CUSTOMOFILE_INC_PATH . 'admin' ) . '/' );
+define( 'WPT_CUSTOMOFILE_ADMIN_UI_PATH', 	realpath( WPT_CUSTOMOFILE_ADMIN_PATH . 'ui' ) . '/' );
+define( 'WPT_CUSTOMOFILE_FUNCTIONS_PATH', realpath( WPT_CUSTOMOFILE_INC_PATH . 'functions' ) . '/' );
+define( 'WPT_CUSTOMOFILE_URL_ASSETS',  		WPT_CUSTOMOFILE_URL . 'assets/' );
+define( 'WPT_CUSTOMOFILE_URL_CSS',  			WPT_CUSTOMOFILE_URL_ASSETS . 'css/' );
+define( 'WPT_CUSTOMOFILE_URL_JS',  				WPT_CUSTOMOFILE_URL_ASSETS . 'js/' );
+define( 'WPT_CUSTOMOFILE_URL_IMG',  			WPT_CUSTOMOFILE_URL_ASSETS . 'images/' );
+define( 'WPT_CUSTOMOFILE_OVERWRITE_DIR',	WP_CONTENT_DIR . '/uploads/wpt-custom-mo-file/' );
 
 /**
  * Tell WP what to do when plugin is loaded
  *
  * @since 1.0.0
  */
-add_action( 'plugins_loaded', 'wptcmf_init' );
-function wptcmf_init() {
+function wpt_customofile_init() {
 
 	load_plugin_textdomain( 'wpt-custom-mo-file', false, dirname( plugin_basename( __FILE__ ) ) . '/languages' );
 
 	if ( is_admin() ) {
-		require( WPTCMF_FUNCTIONS_PATH . 'functions.php' );
-		require( WPTCMF_ADMIN_PATH . 'enqueue.php' );
-		require( WPTCMF_ADMIN_PATH . 'options.php' );
-		require( WPTCMF_ADMIN_UI_PATH . 'options.php' );
+		require( WPT_CUSTOMOFILE_FUNCTIONS_PATH . 'functions.php' );
+		require( WPT_CUSTOMOFILE_ADMIN_PATH . 'enqueue.php' );
+		require( WPT_CUSTOMOFILE_ADMIN_PATH . 'options.php' );
+		require( WPT_CUSTOMOFILE_ADMIN_UI_PATH . 'options.php' );
 	}
 
 }
+add_action( 'plugins_loaded', 'wpt_customofile_init' );
 
-add_action( 'load_textdomain', '__wptcmf_log_textdomain', 10, 2 );
-function __wptcmf_log_textdomain( $domain, $mo_file ) {
+/**
+ * Log available textdomains
+ *
+ * @param  string $domain  Unique identifier for retrieving translated strings.
+ * @param  string $mo_file Path to the .mo file.
+ * @since 1.0.0
+ */
+function _wpt_customofile_log_textdomain( $domain, $mo_file ) {
 
-	if ( ! isset( $GLOBALS['wptcmf_text_domains'][ $domain ] ) ) {
-		$GLOBALS['wptcmf_text_domains'][ $domain ] = $domain;
+	if ( ! isset( $GLOBALS['wpt_customofile_text_domains'][ $domain ] ) ) {
+		$GLOBALS['wpt_customofile_text_domains'][ $domain ] = $domain;
 	}
 
 }
+add_action( 'load_textdomain', '_wpt_customofile_log_textdomain', 10, 2 );
 
 /**
  * Tell WP what to do when plugin is activated
  *
+ * @param  boolean $network_wide Whether to enable the plugin for all sites in the network or just the current site. Multisite only.
  * @since 1.0.0
  */
-register_activation_hook( __FILE__, '__wptcmf_activation' );
-function __wptcmf_activation( $network_wide ) {
+function _wpt_customofile_activation( $network_wide ) {
 	if ( is_multisite() && $network_wide ) {
 		global $wpdb;
-
+		// @codingStandardsIgnoreStart
 		foreach ( $wpdb->get_col( "SELECT blog_id FROM $wpdb->blogs" ) as $blog_id ) {
 				switch_to_blog( $blog_id );
-				add_option( 'wptcmf_options', '' );
+				// @codingStandardsIgnoreEnd
+				add_option( 'wpt_customofile_options', '' );
 				restore_current_blog();
 		}
 	} else {
-		add_option( 'wptcmf_options', '' );
+		add_option( 'wpt_customofile_options', '' );
 	}
 
 }
+register_activation_hook( __FILE__, '_wpt_customofile_activation' );
 
 /**
- * Add wptcmf_options when a new blog is create
+ * Add wpt_customofile_options when a new blog is create
  *
- * @since  1.0.0
+ * @param  int    $blog_id Blog ID of the created blog.
+ * @param  int    $user_id User ID of the user creating the blog.
+ * @param  string $domain  Domain used for the new blog.
+ * @param  string $path    Path to the new blog.
+ * @param  int    $site_id Site ID. Only relevant on multi-network installs.
+ * @param  array  $meta    Meta data. Used to set initial site options.
+ * @since 1.0.0
  */
-add_action( 'wpmu_new_blog', '__wptcmf_new_blog', 10, 6 );
-function __wptcmf_new_blog( $blog_id, $user_id, $domain, $path, $site_id, $meta ) {
-
-	if ( is_plugin_active_for_network( WPTCMF_SLUG . '/' . WPTCMF_SLUG . '.php' ) ) {
+function _wpt_customofile_new_blog( $blog_id, $user_id, $domain, $path, $site_id, $meta ) {
+	if ( is_plugin_active_for_network( WPT_CUSTOMOFILE_SLUG . '/' . WPT_CUSTOMOFILE_SLUG . '.php' ) ) {
+		// @codingStandardsIgnoreStart
 		switch_to_blog( $blog_id );
-		add_option( 'wptcmf_options', '' );
+		// @codingStandardsIgnoreEnd
+		add_option( 'wpt_customofile_options', '' );
 		restore_current_blog();
 	}
 }
+add_action( 'wpmu_new_blog', '_wpt_customofile_new_blog', 10, 6 );
 
 /**
  * Load overwrites rules
  *
  * @since 1.0.0
  */
-add_action( 'plugins_loaded', '__wptcmf_overwrite_domains', 0 );
-function __wptcmf_overwrite_domains() {
-	$options = get_option( 'wptcmf_options' );
+function _wpt_customofile_overwrite_domains() {
+	$options = get_option( 'wpt_customofile_options' );
 	$locale = get_locale();
 
-	if ( isset ( $options['rules'][ $locale ] ) && ! empty( $options['rules'][ $locale ] ) ) {
+	if ( isset( $options['rules'][ $locale ] ) && ! empty( $options['rules'][ $locale ] ) ) {
 		foreach ( $options['rules'][ $locale ] as $rule ) {
 			if ( 1 === $rule['activate'] && $locale === $rule['language'] ) {
 				unload_textdomain( $rule['text_domain'] );
@@ -125,3 +140,4 @@ function __wptcmf_overwrite_domains() {
 	}
 
 }
+add_action( 'plugins_loaded', '_wpt_customofile_overwrite_domains', 0 );

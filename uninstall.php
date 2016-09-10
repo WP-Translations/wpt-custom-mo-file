@@ -1,41 +1,54 @@
 <?php
+/**
+ * Fired when the plugin is uninstalled.
+ *
+ * @link       http:wp-translations.org
+ * @since      1.0.0
+ *
+ * @package    WPT_Custom_Mo_File
+ */
 
-// If uninstall not called from WordPress exit.
 defined( 'WP_UNINSTALL_PLUGIN' ) or die( 'Cheatin&#8217; uh?' );
 
-// Delete WPTCMF options.
+// Delete WPT_CUSTOMOFILE options.
 if ( is_multisite() && $network_wide ) {
 	global $wpdb;
-
+	// @codingStandardsIgnoreStart
 	foreach ( $wpdb->get_col( "SELECT blog_id FROM $wpdb->blogs" ) as $blog_id ) {
 			switch_to_blog( $blog_id );
-			delete_option( 'wptcmf_options' );
+			// @codingStandardsIgnoreEnd
+			delete_option( 'wpt_customofile_options' );
 			restore_current_blog();
 	}
 } else {
-	delete_option( 'wptcmf_options' );
+	delete_option( 'wpt_customofile_options' );
 }
 
 /**
  * Remove all mo files
  *
- * @since 1.2.0
+ * @param string $dir filename.
+ * @since 1.0.0
  */
-function __wptcmf_rrmdir( $dir ) {
+function _wpt_customofile_rrmdir( $dir ) {
 
 	if ( ! is_dir( $dir ) ) {
-		@unlink( $dir );
+		// @codingStandardsIgnoreStart
+		unlink( $dir );
+		// @codingStandardsIgnoreEnd
 		return;
 	}
 
 	if ( $globs = glob( $dir . '/*', GLOB_NOSORT ) ) {
 		foreach ( $globs as $file ) {
-			is_dir( $file ) ? __wptcmf_rrmdir( $file ) : @unlink( $file );
+			// @codingStandardsIgnoreStart
+			is_dir( $file ) ? _wpt_customofile_rrmdir( $file ) : unlink( $file );
+			// @codingStandardsIgnoreEnd
 		}
 	}
-
-		@rmdir( $dir );
-
+	// @codingStandardsIgnoreStart
+	rmdir( $dir );
+	// @codingStandardsIgnoreStart
 }
 
-__wptcmf_rrmdir( WP_CONTENT_DIR . '/uploads/wpt-custom-mo-file/' );
+_wpt_customofile_rrmdir( WP_CONTENT_DIR . '/uploads/wpt-custom-mo-file/' );

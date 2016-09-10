@@ -1,4 +1,15 @@
 <?php
+/**
+ * Register the stylesheets and scipts for the admin area.
+ *
+ * @author     WP-Translations Team
+ * @link       http://wp-translations.org
+ * @since      1.0.0
+ *
+ * @package    WPT_Custom_Mo_File
+ * @subpackage WPT_Custom_Mo_File/inc/admin
+ */
+
 defined( 'ABSPATH' ) or die( 'Cheatin&#8217; uh?' );
 
 /**
@@ -6,11 +17,10 @@ defined( 'ABSPATH' ) or die( 'Cheatin&#8217; uh?' );
  *
  * @since 1.0.0
  */
-add_action( 'admin_print_styles', '__wptcmf_load_admin_assets' );
-function __wptcmf_load_admin_assets() {
+function _wpt_customofile_load_admin_assets() {
 	$screen = get_current_screen();
-	$css_ext        = ( defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ) ? '.css' : '.min.css';
-	$js_ext         = ( defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ) ? '.js' : '.min.js';
+	$css_ext = ( defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ) ? '.css' : '.min.css';
+	$js_ext = ( defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ) ? '.js' : '.min.js';
 
 	$translation_datatable = array(
 			'sEmptyTable' => __( 'No data available in table', 'wpt-custom-mo-file' ),
@@ -30,12 +40,12 @@ function __wptcmf_load_admin_assets() {
 			'sSortDescending' => __( ': activate to sort column descending', 'wpt-custom-mo-file' ),
 	);
 
-	if ( 'tools_page_' . WPTCMF_SLUG === $screen->base ) {
-		wp_enqueue_style( 'wptcmf-styles', WPTCMF_URL_CSS . 'wptcmf-styles'. $css_ext, array(), WPTCMF_VERSION );
-		wp_enqueue_style( 'data-tables-styles',  WPTCMF_URL_CSS . 'data-table'. $css_ext, array(), '1.10.12' );
-		wp_enqueue_script( 'data-tables-scripts',  WPTCMF_URL_JS . 'jquery.dataTables' . $js_ext, array(), '1.10.12' );
-		wp_enqueue_script( 'wptcmf-scripts', WPTCMF_URL_JS . 'wptcmf-scripts' . $js_ext, array( 'jquery' ), WPTCMF_VERSION );
-		wp_localize_script( 'wptcmf-scripts', 'wptcmf',	$translation_datatable );
-
+	if ( 'tools_page_' . WPT_CUSTOMOFILE_SLUG === $screen->base ) {
+		wp_enqueue_style( 'wpt-customofile-styles', WPT_CUSTOMOFILE_URL_CSS . 'wpt-customofile-styles' . $css_ext, array(), WPT_CUSTOMOFILE_VERSION );
+		wp_enqueue_style( 'data-tables-styles',  WPT_CUSTOMOFILE_URL_CSS . 'data-table' . $css_ext, array(), '1.10.12' );
+		wp_enqueue_script( 'data-tables-scripts',  WPT_CUSTOMOFILE_URL_JS . 'jquery.dataTables' . $js_ext, array(), '1.10.12' );
+		wp_enqueue_script( 'wpt-customofile-scripts', WPT_CUSTOMOFILE_URL_JS . 'wpt-customofile-scripts' . $js_ext, array( 'jquery' ), WPT_CUSTOMOFILE_VERSION );
+		wp_localize_script( 'wpt-customofile-scripts', 'wpt_customofile',	$translation_datatable );
 	}
 }
+add_action( 'admin_print_styles', '_wpt_customofile_load_admin_assets' );
