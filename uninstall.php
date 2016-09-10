@@ -2,6 +2,7 @@
 /**
  * Fired when the plugin is uninstalled.
  *
+ * @author     WP-Translations Team
  * @link       http:wp-translations.org
  * @since      1.0.0
  *
