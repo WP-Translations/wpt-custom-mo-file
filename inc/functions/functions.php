@@ -19,7 +19,7 @@ defined( 'ABSPATH' ) or die( 'Cheatin&#8217; uh?' );
  * @return array      				new directory subdir/path/url.
  * @since 1.0.0
  */
-function _wpt_customofile_filter_upload_dir( $upload_dir ) {
+function wpt_customofile_filter_upload_dir( $upload_dir ) {
 		$upload_dir['subdir'] = '/wpt-custom-mo-file';
 		$upload_dir['path'] = $upload_dir['basedir'] . '/wpt-custom-mo-file';
 		$upload_dir['url'] = $upload_dir['baseurl'] . '/wpt-custom-mo-file';

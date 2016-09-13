@@ -17,7 +17,7 @@ defined( 'ABSPATH' ) or die( 'Cheatin&#8217; uh?' );
  *
  * @since 1.0.0
  */
-function _wpt_customofile_tools_page() {
+function wpt_customofile_tools_page() {
 	$count_domains = count( $GLOBALS['wpt_customofile_text_domains'] ); ?>
 
 	<div class="wpt-customofile-options-page wrap">
@@ -43,7 +43,7 @@ function _wpt_customofile_tools_page() {
  *
  * @since 1.0.0
  */
-function _wpt_customofile_section_rules_text() {
+function wpt_customofile_section_rules_text() {
 	?>
 	<p><?php esc_html_e( 'Create, activate, desactivate your own set of rules to get full control of any translations in your WordPress installation.', 'wpt-custom-mo-file' ); ?></p>
 	<?php
@@ -54,7 +54,7 @@ function _wpt_customofile_section_rules_text() {
  *
  * @since 1.0.0
  */
-function _wpt_customofile_upload_mo_file_field() {
+function wpt_customofile_upload_mo_file_field() {
 	?>
 	<input id="wpt_customofile_upload_mo_file" name="wpt_customofile_mo_file" type="file">
 	<?php
@@ -65,7 +65,7 @@ function _wpt_customofile_upload_mo_file_field() {
  *
  * @since 1.0.0
  */
-function _wpt_customofile_select_textdomain_field() {
+function wpt_customofile_select_textdomain_field() {
 	$domains = $GLOBALS['wpt_customofile_text_domains'];
 	asort( $domains ); ?>
 
@@ -83,7 +83,7 @@ function _wpt_customofile_select_textdomain_field() {
  *
  * @since 1.0.0
  */
-function _wpt_customofile_select_language_field() {
+function wpt_customofile_select_language_field() {
 	$locale = get_locale();
 	$args = array(
 		'id' => 'wpt_customofile_select_languages',
@@ -98,7 +98,7 @@ function _wpt_customofile_select_language_field() {
  *
  * @since 1.0.0
  */
-function _wpt_customofile_rules_table_field() {
+function wpt_customofile_rules_table_field() {
 	global $l10n;
 	$rules = get_option( 'wpt_customofile_options' );
 	$locale = get_locale();
@@ -191,7 +191,7 @@ function _wpt_customofile_rules_table_field() {
  * @return return filterd text.
  * @since 1.0.0
  */
-function _wpt_customofile_filter_admin_footer_text( $text ) {
+function wpt_customofile_filter_admin_footer_text( $text ) {
 	$screen = get_current_screen();
 	if ( 'tools_page_' . WPT_CUSTOMOFILE_SLUG !== $screen->base ) {
 		return $text;
@@ -207,7 +207,7 @@ function _wpt_customofile_filter_admin_footer_text( $text ) {
 		return sprintf( esc_html__( 'Visit %1$s Community website | %2$s Contact Support %3$s | %4$s', 'wpt-custom-mo-file' ), $link_1, $link_2, $link_3, $change );
 	}
 }
-add_filter( 'admin_footer_text', '_wpt_customofile_filter_admin_footer_text' );
+add_filter( 'admin_footer_text', 'wpt_customofile_filter_admin_footer_text' );
 
 /**
  * Custom footer text right
@@ -216,7 +216,7 @@ add_filter( 'admin_footer_text', '_wpt_customofile_filter_admin_footer_text' );
  * @return return filterd text.
  * @since 1.0.0
  */
-function _wpt_customofile_filter_update_footer( $text ) {
+function wpt_customofile_filter_update_footer( $text ) {
 	$screen = get_current_screen();
 	if ( 'tools_page_' . WPT_CUSTOMOFILE_SLUG !== $screen->base ) {
 		return $text;
@@ -226,4 +226,4 @@ function _wpt_customofile_filter_update_footer( $text ) {
 		return $translate . $version;
 	}
 }
-add_filter( 'update_footer', '_wpt_customofile_filter_update_footer', 15 );
+add_filter( 'update_footer', 'wpt_customofile_filter_update_footer', 15 );

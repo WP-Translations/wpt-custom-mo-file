@@ -17,7 +17,7 @@ defined( 'ABSPATH' ) or die( 'Cheatin&#8217; uh?' );
  *
  * @since 1.0.0
  */
-function _wpt_customofile_load_admin_assets() {
+function wpt_customofile_load_admin_assets() {
 	$screen  = get_current_screen();
 	$css_ext = ( defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ) ? '.css' : '.min.css';
 	$js_ext  = ( defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ) ? '.js' : '.min.js';
@@ -85,4 +85,4 @@ function _wpt_customofile_load_admin_assets() {
 		);
 	}
 }
-add_action( 'admin_print_styles', '_wpt_customofile_load_admin_assets' );
+add_action( 'admin_print_styles', 'wpt_customofile_load_admin_assets' );

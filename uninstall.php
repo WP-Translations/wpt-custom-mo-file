@@ -31,7 +31,7 @@ if ( is_multisite() && $network_wide ) {
  * @param string $dir filename.
  * @since 1.0.0
  */
-function _wpt_customofile_rrmdir( $dir ) {
+function wpt_customofile_rrmdir( $dir ) {
 
 	if ( ! is_dir( $dir ) ) {
 		// @codingStandardsIgnoreStart
@@ -43,7 +43,7 @@ function _wpt_customofile_rrmdir( $dir ) {
 	if ( $globs = glob( $dir . '/*', GLOB_NOSORT ) ) {
 		foreach ( $globs as $file ) {
 			// @codingStandardsIgnoreStart
-			is_dir( $file ) ? _wpt_customofile_rrmdir( $file ) : unlink( $file );
+			is_dir( $file ) ? wpt_customofile_rrmdir( $file ) : unlink( $file );
 			// @codingStandardsIgnoreEnd
 		}
 	}
@@ -52,4 +52,4 @@ function _wpt_customofile_rrmdir( $dir ) {
 	// @codingStandardsIgnoreStart
 }
 
-_wpt_customofile_rrmdir( WP_CONTENT_DIR . '/uploads/wpt-custom-mo-file/' );
+wpt_customofile_rrmdir( WP_CONTENT_DIR . '/uploads/wpt-custom-mo-file/' );

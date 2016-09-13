@@ -67,14 +67,14 @@ add_action( 'plugins_loaded', 'wpt_customofile_init' );
  * @param  string $mo_file Path to the .mo file.
  * @since 1.0.0
  */
-function _wpt_customofile_log_textdomain( $domain, $mo_file ) {
+function wpt_customofile_log_textdomain( $domain, $mo_file ) {
 
 	if ( ! isset( $GLOBALS['wpt_customofile_text_domains'][ $domain ] ) ) {
 		$GLOBALS['wpt_customofile_text_domains'][ $domain ] = $domain;
 	}
 
 }
-add_action( 'load_textdomain', '_wpt_customofile_log_textdomain', 10, 2 );
+add_action( 'load_textdomain', 'wpt_customofile_log_textdomain', 10, 2 );
 
 /**
  * Tell WP what to do when plugin is activated
@@ -82,7 +82,7 @@ add_action( 'load_textdomain', '_wpt_customofile_log_textdomain', 10, 2 );
  * @param  boolean $network_wide Whether to enable the plugin for all sites in the network or just the current site. Multisite only.
  * @since 1.0.0
  */
-function _wpt_customofile_activation( $network_wide ) {
+function wpt_customofile_activation( $network_wide ) {
 	if ( is_multisite() && $network_wide ) {
 		global $wpdb;
 		// @codingStandardsIgnoreStart
@@ -97,7 +97,7 @@ function _wpt_customofile_activation( $network_wide ) {
 	}
 
 }
-register_activation_hook( __FILE__, '_wpt_customofile_activation' );
+register_activation_hook( __FILE__, 'wpt_customofile_activation' );
 
 /**
  * Add wpt_customofile_options when a new blog is create
@@ -110,7 +110,7 @@ register_activation_hook( __FILE__, '_wpt_customofile_activation' );
  * @param  array  $meta    Meta data. Used to set initial site options.
  * @since 1.0.0
  */
-function _wpt_customofile_new_blog( $blog_id, $user_id, $domain, $path, $site_id, $meta ) {
+function wpt_customofile_new_blog( $blog_id, $user_id, $domain, $path, $site_id, $meta ) {
 	if ( is_plugin_active_for_network( WPT_CUSTOMOFILE_SLUG . '/' . WPT_CUSTOMOFILE_SLUG . '.php' ) ) {
 		// @codingStandardsIgnoreStart
 		switch_to_blog( $blog_id );
@@ -119,14 +119,14 @@ function _wpt_customofile_new_blog( $blog_id, $user_id, $domain, $path, $site_id
 		restore_current_blog();
 	}
 }
-add_action( 'wpmu_new_blog', '_wpt_customofile_new_blog', 10, 6 );
+add_action( 'wpmu_new_blog', 'wpt_customofile_new_blog', 10, 6 );
 
 /**
  * Load overwrites rules
  *
  * @since 1.0.0
  */
-function _wpt_customofile_overwrite_domains() {
+function wpt_customofile_overwrite_domains() {
 	$options = get_option( 'wpt_customofile_options' );
 	$locale = get_locale();
 
@@ -140,4 +140,4 @@ function _wpt_customofile_overwrite_domains() {
 	}
 
 }
-add_action( 'plugins_loaded', '_wpt_customofile_overwrite_domains', 0 );
+add_action( 'plugins_loaded', 'wpt_customofile_overwrite_domains', 0 );

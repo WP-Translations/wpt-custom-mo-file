@@ -17,36 +17,36 @@ defined( 'ABSPATH' ) or die( 'Cheatin&#8217; uh?' );
  *
  * @since 1.0.0
  */
-function _wpt_customofile_admin_menu() {
+function wpt_customofile_admin_menu() {
 	add_management_page(
 		WPT_CUSTOMOFILE_NICE_NAME,
 		WPT_CUSTOMOFILE_NICE_NAME,
 		'manage_options',
 		WPT_CUSTOMOFILE_SLUG,
-		'_wpt_customofile_tools_page'
+		'wpt_customofile_tools_page'
 	);
 }
-add_action( 'admin_menu', '_wpt_customofile_admin_menu' );
+add_action( 'admin_menu', 'wpt_customofile_admin_menu' );
 
 /**
  * Register section and settings
  *
  * @since 1.0.0
  */
-function _wpt_customofile_initialize_options() {
+function wpt_customofile_initialize_options() {
 	$rules = get_option( 'wpt_customofile_options' );
 
 	add_settings_section(
 		'wpt_customofile_section_rules',
 		'',
-		'_wpt_customofile_section_rules_text',
+		'wpt_customofile_section_rules_text',
 		'wpt_customofile_rules'
 	);
 
 	add_settings_field(
 		'wpt_customofile_select_textdomain',
 		__( 'Select a text domain', 'wpt-custom-mo-file' ),
-		'_wpt_customofile_select_textdomain_field',
+		'wpt_customofile_select_textdomain_field',
 		'wpt_customofile_rules',
 		'wpt_customofile_section_rules'
 	);
@@ -54,7 +54,7 @@ function _wpt_customofile_initialize_options() {
 	add_settings_field(
 		'wpt_customofile_select_languages',
 		__( 'Select a language', 'wpt-custom-mo-file' ),
-		'_wpt_customofile_select_language_field',
+		'wpt_customofile_select_language_field',
 		'wpt_customofile_rules',
 		'wpt_customofile_section_rules'
 	);
@@ -62,11 +62,11 @@ function _wpt_customofile_initialize_options() {
 	add_settings_field(
 		'wpt_customofile_upload_mo_file',
 		__( 'Upload a custom .mo file', 'wpt-custom-mo-file' ),
-		'_wpt_customofile_upload_mo_file_field',
+		'wpt_customofile_upload_mo_file_field',
 		'wpt_customofile_rules',
 		'wpt_customofile_section_rules'
 	);
-	register_setting( 'wpt_customofile_options', 'wpt_customofile_options', '_wpt_customofile_add_rule_validate' );
+	register_setting( 'wpt_customofile_options', 'wpt_customofile_options', 'wpt_customofile_add_rule_validate' );
 
 	if ( isset( $rules['rules'] ) && ! empty( $rules['rules'] ) ) {
 
@@ -80,7 +80,7 @@ function _wpt_customofile_initialize_options() {
 		add_settings_field(
 			'wpt_customofile_rules_table',
 			__( 'Rules', 'wpt-custom-mo-file' ),
-			'_wpt_customofile_rules_table_field',
+			'wpt_customofile_rules_table_field',
 			'wpt_customofile_rules_actions',
 			'wpt_customofile_section_table'
 		);
@@ -88,7 +88,7 @@ function _wpt_customofile_initialize_options() {
 	}
 
 }
-add_action( 'admin_init', '_wpt_customofile_initialize_options' );
+add_action( 'admin_init', 'wpt_customofile_initialize_options' );
 
 /**
  * Validate and save settings
@@ -97,7 +97,7 @@ add_action( 'admin_init', '_wpt_customofile_initialize_options' );
  * @return array $options Return validated values.
  * @since 1.0.0
  */
-function _wpt_customofile_add_rule_validate( $input ) {
+function wpt_customofile_add_rule_validate( $input ) {
 	$options = get_option( 'wpt_customofile_options' );
 
 	if ( ! function_exists( 'wp_handle_upload' ) ) {
@@ -106,7 +106,7 @@ function _wpt_customofile_add_rule_validate( $input ) {
 
 	if ( isset( $input['wpt-customofile-add-rule'] ) ) {
 
-		add_filter( 'upload_dir', '_wpt_customofile_filter_upload_dir' );
+		add_filter( 'upload_dir', 'wpt_customofile_filter_upload_dir' );
 		$mo_file = wp_handle_upload(
 									$_FILES['wpt_customofile_mo_file'], // Input var okay.
 									array(
@@ -114,7 +114,7 @@ function _wpt_customofile_add_rule_validate( $input ) {
 										'mimes' => array( 'mo' => 'application/octet-stream' ),
 								 )
 							);
-		remove_filter( 'upload_dir', '_wpt_customofile_filter_upload_dir' );
+		remove_filter( 'upload_dir', 'wpt_customofile_filter_upload_dir' );
 
 		$input['language'] = ( empty( $input['language'] ) ) ? 'en_US' : $input['language'];
 
