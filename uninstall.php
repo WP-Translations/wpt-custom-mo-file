@@ -52,4 +52,6 @@ function wpt_customofile_rrmdir( $dir ) {
 	// @codingStandardsIgnoreStart
 }
 
-wpt_customofile_rrmdir( WP_CONTENT_DIR . '/uploads/wpt-custom-mo-file/' );
+$upload_dir = wp_upload_dir();
+$wpt_customofile_upload_dir = $upload_dir['basedir'] . '/wpt-custom-mo-file';
+wpt_customofile_rrmdir( $wpt_customofile_upload_dir );
