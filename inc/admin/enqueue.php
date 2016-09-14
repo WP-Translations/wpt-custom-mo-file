@@ -24,21 +24,21 @@ function wpt_customofile_load_admin_assets() {
 
 	wp_register_style(
 		'wpt-customofile-styles',
-		WPT_CUSTOMOFILE_URL_CSS . 'wpt-customofile-styles' . $css_ext,
+		WPT_CUSTOMOFILE_CSS_URL . 'wpt-customofile-styles' . $css_ext,
 		array(),
 		WPT_CUSTOMOFILE_VERSION
 	);
 
 	wp_register_style(
 		'data-tables-styles',
-		WPT_CUSTOMOFILE_URL_CSS . 'data-table' . $css_ext,
+		WPT_CUSTOMOFILE_CSS_URL . 'data-table' . $css_ext,
 		array(),
 		'1.10.12'
 	);
 
 	wp_register_script(
 		'data-tables-scripts',
-		WPT_CUSTOMOFILE_URL_JS . 'jquery.dataTables' . $js_ext,
+		WPT_CUSTOMOFILE_JS_URL . 'jquery.dataTables' . $js_ext,
 		array( 'jquery' ),
 		'1.10.12',
 		true
@@ -46,7 +46,7 @@ function wpt_customofile_load_admin_assets() {
 
 	wp_register_script(
 		'wpt-customofile-scripts',
-		WPT_CUSTOMOFILE_URL_JS . 'wpt-customofile-scripts' . $js_ext,
+		WPT_CUSTOMOFILE_JS_URL . 'wpt-customofile-scripts' . $js_ext,
 		array( 'jquery' ),
 		WPT_CUSTOMOFILE_VERSION,
 		true

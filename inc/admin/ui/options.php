@@ -21,7 +21,7 @@ function wpt_customofile_tools_page() {
 	$count_domains = count( $GLOBALS['wpt_customofile_text_domains'] ); ?>
 
 	<div class="wpt-customofile-options-page wrap">
-		<img src="<?php echo esc_url( WPT_CUSTOMOFILE_URL_IMG . 'wpt-logo.png' ); ?>"><h2 class="wpt-customofile-page-title"><?php echo esc_html( WPT_CUSTOMOFILE_NICE_NAME ); ?></h2>
+		<img src="<?php echo esc_url( WPT_CUSTOMOFILE_IMG_URL . 'wpt-logo.png' ); ?>"><h2 class="wpt-customofile-page-title"><?php echo esc_html( WPT_CUSTOMOFILE_NICE_NAME ); ?></h2>
 		<?php settings_errors(); ?>
 		<form action="options.php" method="post" enctype="multipart/form-data">
 			<?php settings_fields( 'wpt_customofile_options' ); ?>

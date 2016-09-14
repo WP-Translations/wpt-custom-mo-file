@@ -35,11 +35,10 @@ define( 'WPT_CUSTOMOFILE_INC_PATH', 			realpath( WPT_CUSTOMOFILE_PATH . 'inc' ) 
 define( 'WPT_CUSTOMOFILE_ADMIN_PATH', 		realpath( WPT_CUSTOMOFILE_INC_PATH . 'admin' ) . '/' );
 define( 'WPT_CUSTOMOFILE_ADMIN_UI_PATH', 	realpath( WPT_CUSTOMOFILE_ADMIN_PATH . 'ui' ) . '/' );
 define( 'WPT_CUSTOMOFILE_FUNCTIONS_PATH', realpath( WPT_CUSTOMOFILE_INC_PATH . 'functions' ) . '/' );
-define( 'WPT_CUSTOMOFILE_URL_ASSETS',  		WPT_CUSTOMOFILE_URL . 'assets/' );
-define( 'WPT_CUSTOMOFILE_URL_CSS',  			WPT_CUSTOMOFILE_URL_ASSETS . 'css/' );
-define( 'WPT_CUSTOMOFILE_URL_JS',  				WPT_CUSTOMOFILE_URL_ASSETS . 'js/' );
-define( 'WPT_CUSTOMOFILE_URL_IMG',  			WPT_CUSTOMOFILE_URL_ASSETS . 'images/' );
-define( 'WPT_CUSTOMOFILE_OVERWRITE_DIR',	WP_CONTENT_DIR . '/uploads/wpt-custom-mo-file/' );
+define( 'WPT_CUSTOMOFILE_ASSETS_URL',  		WPT_CUSTOMOFILE_URL . 'assets/' );
+define( 'WPT_CUSTOMOFILE_CSS_URL',  			WPT_CUSTOMOFILE_ASSETS_URL . 'css/' );
+define( 'WPT_CUSTOMOFILE_JS_URL',  				WPT_CUSTOMOFILE_ASSETS_URL . 'js/' );
+define( 'WPT_CUSTOMOFILE_IMG_URL',  			WPT_CUSTOMOFILE_ASSETS_URL . 'images/' );
 
 /**
  * Tell WP what to do when plugin is loaded
