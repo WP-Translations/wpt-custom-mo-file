@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: WPT Custom Mo File\n"
 "POT-Creation-Date: 2016-11-29 09:23+0000\n"
-"PO-Revision-Date: 2016-11-29 09:29+0000\n"
+"PO-Revision-Date: 2016-11-29 09:34+0000\n"
 "Last-Translator: Pedro Mendonça <ped.gaspar@gmail.com>\n"
 "Language-Team: Pedro Mendonça <ped.gaspar@gmail.com>\n"
 "Language: pt_PT\n"
@@ -61,11 +61,11 @@ msgstr "Não foram encontrados registos correspondentes"
 
 #: inc/admin/enqueue.php:65
 msgid "First"
-msgstr "Primeiro"
+msgstr "Primeira"
 
 #: inc/admin/enqueue.php:66
 msgid "Last"
-msgstr "Último"
+msgstr "Última"
 
 #: inc/admin/enqueue.php:67
 msgid "Next"
