@@ -127,7 +127,7 @@ function wpt_customofile_add_rule_validate( $input ) {
 				'language' => $input['language'],
 			);
 			$options['rules'][ $input['language'] ][ $input['text_domain'] ] = $new_rules;
-			add_settings_error( 'wpt_customofile_options', 'wpt-customofile-file-uploaded', esc_html__( 'Rule saved !', 'wpt-custom-mo-file' ), 'updated' );
+			add_settings_error( 'wpt_customofile_options', 'wpt-customofile-file-uploaded', esc_html__( 'Rule saved!', 'wpt-custom-mo-file' ), 'updated' );
 
 		} else {
 			add_settings_error( 'wpt_customofile_options', 'wpt-customofile-file-missing', $mo_file['error'], 'error' );
@@ -143,7 +143,7 @@ function wpt_customofile_add_rule_validate( $input ) {
 	if ( isset( $input['activate_rule'] ) ) {
 		$data = wpt_customofile_extract_textdomain_locale( $input['activate_rule'] );
 		$options['rules'][ $data['locale'] ][ $data['text_domain'] ]['activate'] = 1;
-		add_settings_error( 'wpt_customofile_options', 'wpt-customofile-activate-rule', __( 'Rule successfull activated ', 'wpt-custom-mo-file' ), 'updated' );
+		add_settings_error( 'wpt_customofile_options', 'wpt-customofile-activate-rule', __( 'Rule successfull activated', 'wpt-custom-mo-file' ), 'updated' );
 	}
 
 	if ( isset( $input['delete_rule'] ) ) {
@@ -152,7 +152,7 @@ function wpt_customofile_add_rule_validate( $input ) {
 		unlink( $options['rules'][ $data['locale'] ][ $data['text_domain'] ]['mo_path'] );
 		// @codingStandardsIgnoreEnd
 		unset( $options['rules'][ $data['locale'] ][ $data['text_domain'] ] );
-		add_settings_error( 'wpt_customofile_options', 'wpt-customofile-delete-rule', __( 'Rule successfull deleted ', 'wpt-custom-mo-file' ), 'error' );
+		add_settings_error( 'wpt_customofile_options', 'wpt-customofile-delete-rule', __( 'Rule successfull deleted', 'wpt-custom-mo-file' ), 'error' );
 	}
 
 	if ( isset( $input['action_top'] ) || isset( $input['action_bottom'] ) ) {
