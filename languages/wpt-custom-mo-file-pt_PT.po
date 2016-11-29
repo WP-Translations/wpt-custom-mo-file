@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: WPT Custom Mo File\n"
-"POT-Creation-Date: 2016-11-29 09:23+0000\n"
-"PO-Revision-Date: 2016-11-29 09:38+0000\n"
+"POT-Creation-Date: 2016-11-29 09:41+0000\n"
+"PO-Revision-Date: 2016-11-29 09:41+0000\n"
 "Last-Translator: Pedro Mendonça <ped.gaspar@gmail.com>\n"
 "Language-Team: Pedro Mendonça <ped.gaspar@gmail.com>\n"
 "Language: pt_PT\n"
@@ -100,7 +100,7 @@ msgid "Rules"
 msgstr "Regras"
 
 #: inc/admin/options.php:130
-msgid "Rule saved !"
+msgid "Rule saved!"
 msgstr "Regra guardada!"
 
 #: inc/admin/options.php:140
@@ -259,39 +259,3 @@ msgstr "WP-Translations Team"
 #. Author URI of the plugin/theme
 msgid "http://wp-translations.org/"
 msgstr "http://wp-translations.org/"
-
-#~ msgid "Visit %1$s Community website | %2$s Contact Support %3$s | %4$s"
-#~ msgstr ""
-#~ "Visite o site da comunidade %1$s | %2$sContacte o suporte%3$s | %4$s"
-
-#, fuzzy
-#~ msgid "Rule successfull activated "
-#~ msgstr "Regra activada com sucesso"
-
-#, fuzzy
-#~ msgid "Rule successfull deleted "
-#~ msgstr "Regra eliminada com sucesso"
-
-#, fuzzy
-#~ msgid "There is no available textdomain. "
-#~ msgstr "Nenhum text domain disponível. "
-
-#~ msgid "-"
-#~ msgstr "-"
-
-#~ msgid "|"
-#~ msgstr "|"
-
-#~ msgid "%d item."
-#~ msgid_plural "%d items."
-#~ msgstr[0] "%d élément."
-#~ msgstr[1] "%d éléments."
-
-#~ msgid "Visit&nbsp;"
-#~ msgstr "Visitez "
-
-#~ msgid "&nbsp;Community website"
-#~ msgstr " site communautaire"
-
-#~ msgid "Contact Support"
-#~ msgstr "Contactez le support"
