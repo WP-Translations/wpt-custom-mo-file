@@ -127,7 +127,7 @@ function wpt_customofile_add_rule_validate( $input ) {
 				'language' => $input['language'],
 			);
 			$options['rules'][ $input['language'] ][ $input['text_domain'] ] = $new_rules;
-			add_settings_error( 'wpt_customofile_options', 'wpt-customofile-file-uploaded', esc_html__( 'Rule saved !', 'wpt-custom-mo-file' ), 'updated' );
+			add_settings_error( 'wpt_customofile_options', 'wpt-customofile-file-uploaded', esc_html__( 'Rule saved!', 'wpt-custom-mo-file' ), 'updated' );
 
 		} else {
 			add_settings_error( 'wpt_customofile_options', 'wpt-customofile-file-missing', $mo_file['error'], 'error' );
