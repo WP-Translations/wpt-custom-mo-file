@@ -29,7 +29,7 @@ function wpt_customofile_tools_page() {
 				<?php do_settings_sections( 'wpt_customofile_rules' ); ?>
 				<?php submit_button( __( 'Add new rule', 'wpt-custom-mo-file' ), 'primary', 'wpt_customofile_options[wpt-customofile-add-rule]' ); ?>
 			<?php else : ?>
-				<div class="settings-error notice notice-info is-dismissible"><p><strong><?php  esc_html_e( 'There is no available textdomain. ', 'wpt-custom-mo-file' ); ?></strong></p></div>
+				<div class="settings-error notice notice-info is-dismissible"><p><strong><?php  esc_html_e( 'There is no available textdomain.', 'wpt-custom-mo-file' ); ?></strong></p></div>
 			<?php endif; ?>
 			<?php do_settings_sections( 'wpt_customofile_rules_actions' ); ?>
 		</form>
@@ -204,7 +204,7 @@ function wpt_customofile_filter_admin_footer_text( $text ) {
 			array( '<a target="_blank" href="http://wordpress.org/support/view/plugin-reviews/wpt-custom-mo-file#postform" >&#9733;&#9733;&#9733;&#9733;&#9733;</a>', '<a target="_blank" href="http://wordpress.org/plugins/wpt-custom-mo-file/" >wordpress.org</a>' ),
 			esc_html_x( 'Add your [stars] on [wp.org] to spread the love.', 'Please do not translate [stars] and [wp.org]', 'wpt-custom-mo-file' )
 		);
-		return sprintf( esc_html__( 'Visit %1$s Community website | %2$s Contact Support %3$s | %4$s', 'wpt-custom-mo-file' ), $link_1, $link_2, $link_3, $change );
+		return sprintf( esc_html__( 'Visit %1$s Community website | %2$sContact Support%3$s | %4$s', 'wpt-custom-mo-file' ), $link_1, $link_2, $link_3, $change );
 	}
 }
 add_filter( 'admin_footer_text', 'wpt_customofile_filter_admin_footer_text' );
