@@ -84,7 +84,8 @@ function wpt_customofile_select_textdomain_field() {
  * @since 1.0.0
  */
 function wpt_customofile_select_language_field() {
-	$locale = get_locale();
+	global $wp_version;
+	$locale = ( $wp_version >= 4.7 ) ? get_user_locale() : get_locale();
 	$args = array(
 		'id' => 'wpt_customofile_select_languages',
 		'name' => 'wpt_customofile_options[language]',
@@ -99,9 +100,9 @@ function wpt_customofile_select_language_field() {
  * @since 1.0.0
  */
 function wpt_customofile_rules_table_field() {
-	global $l10n;
+	global $l10n, $wp_version;
 	$rules = get_option( 'wpt_customofile_options' );
-	$locale = get_locale();
+	$locale = ( $wp_version >= 4.7 ) ? get_user_locale() : get_locale();
 
 	if ( isset( $rules['rules'] ) && ! empty( $rules['rules'] ) ) : ?>
 
