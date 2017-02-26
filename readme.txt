@@ -3,8 +3,8 @@ Contributors: wptranslationsteam, g3ronim0, fxbenard
 Tags: language, textdomain, Text Domain, translation, translators, localization, localisation, l10n, i18n, MO, .mo file, productivity
 Donate link: http://wp-translations.org/donation/
 Requires at least: 4.0
-Tested up to: 4.6.1
-Stable tag: 1.0.0
+Tested up to: 4.7.2
+Stable tag: 1.0.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -84,6 +84,9 @@ Yes you can! Join in on our [GitHub repository](https://github.com/WP-Translatio
 1. The slick but efficient WPT Custom Mo File settings panel.
 
 == Changelog ==
+
+= 1.0.1 - 07 Sept 2016 =
+* Add support for get_user_locale()
 
 = 1.0.0 - 07 Sept 2016 =
 * Initial Release

@@ -5,7 +5,7 @@
  * @package     WPT_Custom_Mo_File
  * @author      WP-Translations Team
  * @link        https://github.com/WP-Translations/wpt-custom-mo-file
- * @version     1.0.0
+ * @version     1.0.1
  *
  * @copyright   2016 WP-Translations Team
  * @license     http://creativecommons.org/licenses/GPL/2.0/ GNU General Public License, version 2 or higher
@@ -15,7 +15,7 @@
  * Plugin URI:  https://wordpress.org/plugins/wpt-custom-mo-file/
  * Description: A powerful WordPress plugin that let you use your own translation .mo files. Simple as that.
 
- * Version:     1.0.0
+ * Version:     1.0.1
  * Author:      WP-Translations Team
  * Author URI:  http://wp-translations.org/
  * Text Domain: wpt-custom-mo-file
@@ -25,7 +25,7 @@
 
 defined( 'ABSPATH' ) or die( 'Cheatin&#8217; uh?' );
 
-define( 'WPT_CUSTOMOFILE_VERSION', 				'1.0.0' );
+define( 'WPT_CUSTOMOFILE_VERSION', 				'1.0.1' );
 define( 'WPT_CUSTOMOFILE_SLUG', 					'wpt-custom-mo-file' );
 define( 'WPT_CUSTOMOFILE_NICE_NAME', 			'WPT Custom Mo File' );
 define( 'WPT_CUSTOMOFILE_FILE', 					__FILE__ );
