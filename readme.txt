@@ -53,7 +53,7 @@ Automatic updates should work like a charm; as always though, ensure you backup 
 
 = Where can I find WPT Custom Mo File documentation and user guides? =
 
-For help setting up and configuring WPT Custom Mo File please refer to our [dedicated plugin page](https://wptranslations.org/plugins/wpt-custom-mo-file/)
+For help setting up and configuring WPT Custom Mo File please refer to our [dedicated plugin page](http://wp-translations.org/plugins/wpt-custom-mo-file/)
 
 = Can I use .po files ? =
 
