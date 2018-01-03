@@ -1,10 +1,10 @@
 === WPT Custom Mo File ===
 Contributors: wptranslationsteam, g3ronim0, fxbenard
 Tags: language, textdomain, Text Domain, translation, translators, localization, localisation, l10n, i18n, MO, .mo file, productivity
-Donate link: http://wp-translations.org/donation/
+Donate link: http://paypal.me/wptranslations
 Requires at least: 4.0
-Tested up to: 4.7.2
-Stable tag: 1.0.1
+Tested up to: 4.9.1
+Stable tag: 1.1.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -53,7 +53,7 @@ Automatic updates should work like a charm; as always though, ensure you backup 
 
 = Where can I find WPT Custom Mo File documentation and user guides? =
 
-For help setting up and configuring WPT Custom Mo File please refer to our [dedicated plugin page](http://wp-translations.org/plugins/wpt-custom-mo-file/)
+For help setting up and configuring WPT Custom Mo File please refer to our [dedicated plugin page](https://wp-translations.org/plugins/wpt-custom-mo-file/)
 
 = Can I use .po files ? =
 
@@ -84,6 +84,12 @@ Yes you can! Join in on our [GitHub repository](https://github.com/WP-Translatio
 1. The slick but efficient WPT Custom Mo File settings panel.
 
 == Changelog ==
+
+= 1.1.0 - 03 Jan 2018 =
+* Change hook to override text domain
+* Bugfix for PHP 7.x.x
+* Update assets
+* Change donation link
 
 = 1.0.1 - 07 Sept 2016 =
 * Add support for get_user_locale()
