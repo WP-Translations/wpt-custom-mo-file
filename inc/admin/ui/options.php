@@ -221,8 +221,15 @@ function wpt_customofile_filter_admin_footer_text( $text ) {
       array( '<a target="_blank" href="https://wordpress.org/support/view/plugin-reviews/wpt-custom-mo-file#postform" >&#9733;&#9733;&#9733;&#9733;&#9733;</a>', '<a target="_blank" href="https://wordpress.org/plugins/wpt-custom-mo-file/" >wordpress.org</a>' ),
       esc_html_x( 'Add your [stars] on [wp.org] to spread the love.', 'Please do not translate [stars] and [wp.org]', 'wpt-custom-mo-file' )
     );
-    /* translators: 1: site link, 2: open link, 3: close link */
-    return sprintf( esc_html__( 'Visit %1$s Community website | %2$sContact Support%3$s | %4$s', 'wpt-custom-mo-file' ), $link_1, $link_2, $link_3, $change );
+
+    return sprintf(
+      /* translators: 1: site link, 2: open link, 3: close link */
+      esc_html__( 'Visit %1$s Community website | %2$sContact Support%3$s | %4$s', 'wpt-custom-mo-file' ),
+      $link_1,
+      $link_2,
+      $link_3,
+      $change
+    );
   }
 }
 add_filter( 'admin_footer_text', 'wpt_customofile_filter_admin_footer_text' );
