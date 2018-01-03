@@ -3,7 +3,7 @@
  * The admin-specific functionality of the plugin.
  *
  * @author     WP-Translations Team
- * @link       http://wp-translations.org
+ * @link       https://wp-translations.org
  * @since      1.0.0
  *
  * @package    WPT_Custom_Mo_File

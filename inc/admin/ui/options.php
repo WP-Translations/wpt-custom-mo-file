@@ -3,7 +3,7 @@
  * Provide a admin area view for the plugin
  *
  * @author     WP-Translations Team
- * @link       http://wp-translations.org
+ * @link       https://wp-translations.org
  * @since      1.0.0
  *
  * @package    WPT_Custom_Mo_File
@@ -213,14 +213,15 @@ function wpt_customofile_filter_admin_footer_text( $text ) {
   if ( 'tools_page_' . WPT_CUSTOMOFILE_SLUG !== $screen->base ) {
     return $text;
   } else {
-    $link_1 = '<a href="http://wp-translations.org/" target="_blank">WP-Translations</a>';
-    $link_2 = '<a target="_blank" href="http://wordpress.org/support/plugin/wpt-custom-mo-file#postform">';
+    $link_1 = '<a href="https://wp-translations.org/" target="_blank">WP-Translations</a>';
+    $link_2 = '<a target="_blank" href="https://wordpress.org/support/plugin/wpt-custom-mo-file#postform">';
     $link_3 = '</a>';
     $change = str_replace(
       array( '[stars]', '[wp.org]' ),
-      array( '<a target="_blank" href="http://wordpress.org/support/view/plugin-reviews/wpt-custom-mo-file#postform" >&#9733;&#9733;&#9733;&#9733;&#9733;</a>', '<a target="_blank" href="http://wordpress.org/plugins/wpt-custom-mo-file/" >wordpress.org</a>' ),
+      array( '<a target="_blank" href="https://wordpress.org/support/view/plugin-reviews/wpt-custom-mo-file#postform" >&#9733;&#9733;&#9733;&#9733;&#9733;</a>', '<a target="_blank" href="https://wordpress.org/plugins/wpt-custom-mo-file/" >wordpress.org</a>' ),
       esc_html_x( 'Add your [stars] on [wp.org] to spread the love.', 'Please do not translate [stars] and [wp.org]', 'wpt-custom-mo-file' )
     );
+    /* translators: 1: site link, 2: open link, 3: close link */
     return sprintf( esc_html__( 'Visit %1$s Community website | %2$sContact Support%3$s | %4$s', 'wpt-custom-mo-file' ), $link_1, $link_2, $link_3, $change );
   }
 }

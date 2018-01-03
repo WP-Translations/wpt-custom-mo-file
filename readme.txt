@@ -1,12 +1,12 @@
 === WPT Custom Mo File ===
 Contributors: wptranslationsteam, g3ronim0, fxbenard
 Tags: language, textdomain, Text Domain, translation, translators, localization, localisation, l10n, i18n, MO, .mo file, productivity
-Donate link: http://paypal.me/wptranslations
+Donate link: https://paypal.me/wptranslations
 Requires at least: 4.0
 Tested up to: 4.9.1
 Stable tag: 1.1.0
 License: GPLv2 or later
-License URI: http://www.gnu.org/licenses/gpl-2.0.html
+License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
 WPT Custom Mo File is a powerful translation plugin that helps you use your own translation .mo files. Simple as that.
 
