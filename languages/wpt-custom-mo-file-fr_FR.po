@@ -268,8 +268,8 @@ msgid "WP-Translations Team"
 msgstr "WP-Translations Team"
 
 #. Author URI of the plugin/theme
-msgid "https://wp-translations.org/"
-msgstr "https://wp-translations.org/"
+msgid "https://wp-translations.pro/"
+msgstr "https://wp-translations.pro/"
 
 #~ msgid "%d item."
 #~ msgid_plural "%d items."

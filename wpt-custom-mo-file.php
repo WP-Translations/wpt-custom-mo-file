@@ -8,7 +8,7 @@
  * @version     1.1.0
  *
  * @copyright   2016 WP-Translations Team
- * @license     https://creativecommons.org/licenses/GPL/2.0/ GNU General Public License, version 2 or higher
+ * @license     https://creativecommons.org/licenses/GPL/2.0/ GNU General Public License, version 2 or higher.
  *
  * @wordpress-plugin
  * Plugin Name: WPT Custom Mo File
@@ -17,7 +17,7 @@
 
  * Version:     1.1.0
  * Author:      WP-Translations Team
- * Author URI:  https://wp-translations.org/
+ * Author URI:  https://wp-translations.pro/
  * Text Domain: wpt-custom-mo-file
  * Domain Path: /languages
  * Copyright:   2016 WP-Translations Team

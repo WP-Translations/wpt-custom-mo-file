@@ -3,7 +3,7 @@
  * Provide a admin area view for the plugin
  *
  * @author     WP-Translations Team
- * @link       https://wp-translations.org
+ * @link       https://wp-translations.pro
  * @since      1.0.0
  *
  * @package    WPT_Custom_Mo_File
@@ -213,7 +213,7 @@ function wpt_customofile_filter_admin_footer_text( $text ) {
   if ( 'tools_page_' . WPT_CUSTOMOFILE_SLUG !== $screen->base ) {
     return $text;
   } else {
-    $link_1 = '<a href="https://wp-translations.org/" target="_blank">WP-Translations</a>';
+    $link_1 = '<a href="https://wp-translations.pro/" target="_blank">WP-Translations</a>';
     $link_2 = '<a target="_blank" href="https://wordpress.org/support/plugin/wpt-custom-mo-file#postform">';
     $link_3 = '</a>';
     $change = str_replace(

@@ -262,5 +262,5 @@ msgid "WP-Translations Team"
 msgstr ""
 
 #. Author URI of the plugin/theme
-msgid "https://wp-translations.org/"
+msgid "https://wp-translations.pro/"
 msgstr ""
