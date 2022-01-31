@@ -92,7 +92,8 @@ function wpt_customofile_upload_mo_file_field() {
 function wpt_customofile_select_textdomain_field() {
 
 	$domains = $GLOBALS['wpt_customofile_text_domains'];
-	asort( $domains ); ?>
+	asort( $domains );
+	?>
 
 	<select id="wpt_customofile_select_textdomain" name="wpt_customofile_options[text_domain]">
 		<?php
