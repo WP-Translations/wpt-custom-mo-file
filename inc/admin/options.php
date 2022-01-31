@@ -12,10 +12,13 @@
 
 defined( 'ABSPATH' ) || die( 'Cheatin&#8217; uh?' );
 
+
 /**
- * Register options menu page
+ * Register options menu page.
  *
  * @since 1.0.0
+ *
+ * @return void
  */
 function wpt_customofile_admin_menu() {
 	add_management_page(
@@ -28,10 +31,13 @@ function wpt_customofile_admin_menu() {
 }
 add_action( 'admin_menu', 'wpt_customofile_admin_menu' );
 
+
 /**
- * Register section and settings
+ * Register section and settings.
  *
  * @since 1.0.0
+ *
+ * @return void
  */
 function wpt_customofile_initialize_options() {
 	$rules = get_option( 'wpt_customofile_options' );
@@ -90,12 +96,15 @@ function wpt_customofile_initialize_options() {
 }
 add_action( 'admin_init', 'wpt_customofile_initialize_options' );
 
+
 /**
- * Validate and save settings
+ * Validate and save settings.
  *
- * @param  array $input     Get all settings admin page.
- * @return array $options Return validated values.
  * @since 1.0.0
+ *
+ * @param array $input   Get all settings admin page.
+ *
+ * @return array   Return validated values.
  */
 function wpt_customofile_add_rule_validate( $input ) {
 	$options = get_option( 'wpt_customofile_options' );

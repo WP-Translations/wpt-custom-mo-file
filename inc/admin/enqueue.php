@@ -12,10 +12,13 @@
 
 defined( 'ABSPATH' ) || die( 'Cheatin&#8217; uh?' );
 
+
 /**
- * Register admin assets
+ * Register admin assets.
  *
  * @since 1.0.0
+ *
+ * @return void
  */
 function wpt_customofile_load_admin_assets() {
 	$screen  = get_current_screen();

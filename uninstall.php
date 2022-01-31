@@ -11,6 +11,7 @@
 
 defined( 'WP_UNINSTALL_PLUGIN' ) || die( 'Cheatin&#8217; uh?' );
 
+
 // Delete WPT_CUSTOMOFILE options.
 if ( is_multisite() && $network_wide ) {
 
@@ -27,10 +28,13 @@ if ( is_multisite() && $network_wide ) {
 }
 
 /**
- * Remove all mo files
+ * Remove all mo files.
  *
- * @param string $dir filename.
  * @since 1.0.0
+ *
+ * @param string $dir   Filename.
+ *
+ * @return void
  */
 function wpt_customofile_rrmdir( $dir ) {
 
@@ -54,6 +58,7 @@ function wpt_customofile_rrmdir( $dir ) {
 	rmdir( $dir );
 	// @codingStandardsIgnoreStart
 }
+
 
 $upload_dir = wp_upload_dir();
 $wpt_customofile_upload_dir = $upload_dir['basedir'] . '/wpt-custom-mo-file';

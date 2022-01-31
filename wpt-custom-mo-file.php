@@ -25,6 +25,7 @@
 
 defined( 'ABSPATH' ) || die( 'Cheatin&#8217; uh?' );
 
+
 define( 'WPT_CUSTOMOFILE_VERSION', '1.1.0' );
 define( 'WPT_CUSTOMOFILE_SLUG', 'wpt-custom-mo-file' );
 define( 'WPT_CUSTOMOFILE_NICE_NAME', 'WPT Custom Mo File' );
@@ -40,10 +41,13 @@ define( 'WPT_CUSTOMOFILE_CSS_URL', WPT_CUSTOMOFILE_ASSETS_URL . 'css/' );
 define( 'WPT_CUSTOMOFILE_JS_URL', WPT_CUSTOMOFILE_ASSETS_URL . 'js/' );
 define( 'WPT_CUSTOMOFILE_IMG_URL', WPT_CUSTOMOFILE_ASSETS_URL . 'images/' );
 
+
 /**
- * Tell WP what to do when plugin is loaded
+ * Tell WP what to do when plugin is loaded.
  *
  * @since 1.0.0
+ *
+ * @return void
  */
 function wpt_customofile_init() {
 
@@ -59,12 +63,16 @@ function wpt_customofile_init() {
 }
 add_action( 'plugins_loaded', 'wpt_customofile_init' );
 
+
 /**
- * Log available textdomains
+ * Log available textdomains.
  *
- * @param  string $domain  Unique identifier for retrieving translated strings.
- * @param  string $mo_file Path to the .mo file.
  * @since 1.0.0
+ *
+ * @param string $domain    Unique identifier for retrieving translated strings.
+ * @param string $mo_file   Path to the .mo file.
+ *
+ * @return void
  */
 function wpt_customofile_log_textdomain( $domain, $mo_file ) {
 
@@ -75,11 +83,15 @@ function wpt_customofile_log_textdomain( $domain, $mo_file ) {
 }
 add_action( 'load_textdomain', 'wpt_customofile_log_textdomain', 10, 2 );
 
+
 /**
  * Tell WP what to do when plugin is activated
  *
- * @param  boolean $network_wide Whether to enable the plugin for all sites in the network or just the current site. Multisite only.
  * @since 1.0.0
+ *
+ * @param boolean $network_wide   Whether to enable the plugin for all sites in the network or just the current site. Multisite only.
+ *
+ * @return void
  */
 function wpt_customofile_activation( $network_wide ) {
 
@@ -99,16 +111,20 @@ function wpt_customofile_activation( $network_wide ) {
 }
 register_activation_hook( __FILE__, 'wpt_customofile_activation' );
 
+
 /**
  * Add wpt_customofile_options when a new blog is create
  *
- * @param  int    $blog_id Blog ID of the created blog.
- * @param  int    $user_id User ID of the user creating the blog.
- * @param  string $domain  Domain used for the new blog.
- * @param  string $path    Path to the new blog.
- * @param  int    $site_id Site ID. Only relevant on multi-network installs.
- * @param  array  $meta    Meta data. Used to set initial site options.
  * @since 1.0.0
+ *
+ * @param  int    $blog_id   Blog ID of the created blog.
+ * @param  int    $user_id   User ID of the user creating the blog.
+ * @param  string $domain    Domain used for the new blog.
+ * @param  string $path      Path to the new blog.
+ * @param  int    $site_id   Site ID. Only relevant on multi-network installs.
+ * @param  array  $meta      Meta data. Used to set initial site options.
+ *
+ * @return void
  */
 function wpt_customofile_new_blog( $blog_id, $user_id, $domain, $path, $site_id, $meta ) {
 
@@ -122,10 +138,13 @@ function wpt_customofile_new_blog( $blog_id, $user_id, $domain, $path, $site_id,
 }
 add_action( 'wpmu_new_blog', 'wpt_customofile_new_blog', 10, 6 );
 
+
 /**
- * Load overwrites rules
+ * Load overwrites rules.
  *
  * @since 1.0.0
+ *
+ * @return void
  */
 function wpt_customofile_overwrite_domains() {
 

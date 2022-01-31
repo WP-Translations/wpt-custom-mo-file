@@ -12,10 +12,13 @@
 
 defined( 'ABSPATH' ) || die( 'Cheatin&#8217; uh?' );
 
+
 /**
- * Output plugin page
+ * Output plugin page.
  *
  * @since 1.0.0
+ *
+ * @return void
  */
 function wpt_customofile_tools_page() {
 
@@ -63,20 +66,26 @@ function wpt_customofile_tools_page() {
 	<?php
 }
 
+
 /**
- * Output rules section text
+ * Output rules section text.
  *
  * @since 1.0.0
+ *
+ * @return void
  */
 function wpt_customofile_section_rules_text() {
 	?>
 	<?php
 }
 
+
 /**
- * Output input file field
+ * Output input file field.
  *
  * @since 1.0.0
+ *
+ * @return void
  */
 function wpt_customofile_upload_mo_file_field() {
 	?>
@@ -99,10 +108,13 @@ function wpt_customofile_upload_mo_file_field() {
 	<?php
 }
 
+
 /**
- * Output textdomain select field
+ * Output textdomain select field.
  *
  * @since 1.0.0
+ *
+ * @return void
  */
 function wpt_customofile_select_textdomain_field() {
 
@@ -123,10 +135,13 @@ function wpt_customofile_select_textdomain_field() {
 	<?php
 }
 
+
 /**
- * Output languages select field
+ * Output languages select field.
  *
  * @since 1.0.0
+ *
+ * @return void
  */
 function wpt_customofile_select_language_field() {
 
@@ -140,10 +155,13 @@ function wpt_customofile_select_language_field() {
 	wp_dropdown_languages( $args );
 }
 
+
 /**
- * Output rules table
+ * Output rules table.
  *
  * @since 1.0.0
+ *
+ * @return void
  */
 function wpt_customofile_rules_table_field() {
 
@@ -247,12 +265,15 @@ function wpt_customofile_rules_table_field() {
 
 }
 
+
 /**
- * Custom footer text left
+ * Custom footer text left.
  *
- * @param  string $text Get default text.
- * @return return filterd text.
  * @since 1.0.0
+ *
+ * @param string $text   Get default text.
+ *
+ * @return string   Custom footer admin text.
  */
 function wpt_customofile_filter_admin_footer_text( $text ) {
 
@@ -292,12 +313,15 @@ function wpt_customofile_filter_admin_footer_text( $text ) {
 }
 add_filter( 'admin_footer_text', 'wpt_customofile_filter_admin_footer_text' );
 
+
 /**
- * Custom footer text right
+ * Custom footer text right.
  *
- * @param  string $text Get default text.
- * @return return filterd text.
  * @since 1.0.0
+ *
+ * @param string $text   Get default text.
+ *
+ * @return string   Custom footer update text.
  */
 function wpt_customofile_filter_update_footer( $text ) {
 
