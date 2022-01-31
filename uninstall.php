@@ -64,5 +64,7 @@ function wpt_customofile_rrmdir( $dir ) {
 
 
 $upload_dir = wp_upload_dir();
+
 $wpt_customofile_upload_dir = $upload_dir['basedir'] . '/wpt-custom-mo-file';
+
 wpt_customofile_rrmdir( $wpt_customofile_upload_dir );
