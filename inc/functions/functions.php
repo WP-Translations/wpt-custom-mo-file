@@ -15,16 +15,16 @@ defined( 'ABSPATH' ) or die( 'Cheatin&#8217; uh?' );
 /**
  * Filter for upload_dir
  *
- * @param  array $upload_dir 	get upload_dir params.
- * @return array      				new directory subdir/path/url.
+ * @param array $upload_dir   Get upload_dir params.
+ * @return array              New directory subdir/path/url.
  * @since 1.0.0
  */
 function wpt_customofile_filter_upload_dir( $upload_dir ) {
-		$upload_dir['subdir'] = '/wpt-custom-mo-file';
-		$upload_dir['path'] = $upload_dir['basedir'] . '/wpt-custom-mo-file';
-		$upload_dir['url'] = $upload_dir['baseurl'] . '/wpt-custom-mo-file';
+	$upload_dir['subdir'] = '/wpt-custom-mo-file';
+	$upload_dir['path']   = $upload_dir['basedir'] . '/wpt-custom-mo-file';
+	$upload_dir['url']    = $upload_dir['baseurl'] . '/wpt-custom-mo-file';
 
-		return $upload_dir;
+	return $upload_dir;
 }
 
 /**
@@ -37,7 +37,7 @@ function wpt_customofile_filter_upload_dir( $upload_dir ) {
 function wpt_customofile_extract_textdomain_locale( $value ) {
 	list( $domain, $locale ) = explode( '|', $value );
 	return $extract = array(
-											'text_domain' => $domain,
-											'locale' => $locale,
-										);
+		'text_domain' => $domain,
+		'locale'      => $locale,
+	);
 }

@@ -13,13 +13,14 @@ defined( 'WP_UNINSTALL_PLUGIN' ) or die( 'Cheatin&#8217; uh?' );
 
 // Delete WPT_CUSTOMOFILE options.
 if ( is_multisite() && $network_wide ) {
+
 	global $wpdb;
 	// @codingStandardsIgnoreStart
 	foreach ( $wpdb->get_col( "SELECT blog_id FROM $wpdb->blogs" ) as $blog_id ) {
-			switch_to_blog( $blog_id );
-			// @codingStandardsIgnoreEnd
-			delete_option( 'wpt_customofile_options' );
-			restore_current_blog();
+		switch_to_blog( $blog_id );
+		// @codingStandardsIgnoreEnd
+		delete_option( 'wpt_customofile_options' );
+		restore_current_blog();
 	}
 } else {
 	delete_option( 'wpt_customofile_options' );
