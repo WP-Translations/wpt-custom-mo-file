@@ -170,7 +170,18 @@ function wpt_customofile_add_rule_validate( $input ) {
 							$data = wpt_customofile_extract_textdomain_locale( $mo );
 							$options['rules'][ $data['locale'] ][ $data['text_domain'] ]['activate'] = 1;
 						}
-						$message = sprintf( esc_html( _n( '%d rule successfully activated.', '%d rules successfully activated.', $count_task, 'wpt-custom-mo-file' ) ), $count_task );
+						$message = sprintf(
+							esc_html(
+								/* translators: %d: Rules count. */
+								_n(
+									'%d rule successfully activated.',
+									'%d rules successfully activated.',
+									$count_task,
+									'wpt-custom-mo-file'
+								)
+							),
+							$count_task
+						);
 						$type    = 'updated';
 						break;
 
@@ -179,7 +190,18 @@ function wpt_customofile_add_rule_validate( $input ) {
 							$data = wpt_customofile_extract_textdomain_locale( $mo );
 							$options['rules'][ $data['locale'] ][ $data['text_domain'] ]['activate'] = 0;
 						}
-						$message = sprintf( esc_html( _n( '%d rule successfully deactivated.', '%d rules successfully deactivated.', $count_task, 'wpt-custom-mo-file' ) ), $count_task );
+						$message = sprintf(
+							esc_html(
+								/* translators: %d: Rules count. */
+								_n(
+									'%d rule successfully deactivated.',
+									'%d rules successfully deactivated.',
+									$count_task,
+									'wpt-custom-mo-file'
+								)
+							),
+							$count_task
+						);
 						$type    = 'error';
 						break;
 
@@ -191,7 +213,18 @@ function wpt_customofile_add_rule_validate( $input ) {
 							// @codingStandardsIgnoreEnd
 							unset( $options['rules'][ $data['locale'] ][ $data['text_domain'] ] );
 						}
-						$message = sprintf( esc_html( _n( '%d rule successfully deleted.', '%d rules successfully deleted.', $count_task, 'wpt-custom-mo-file' ) ), $count_task );
+						$message = sprintf(
+							esc_html(
+								/* translators: %d: Rules count. */
+								_n(
+									'%d rule successfully deleted.',
+									'%d rules successfully deleted.',
+									$count_task,
+									'wpt-custom-mo-file'
+								)
+							),
+							$count_task
+						);
 						$type    = 'error';
 						break;
 				}
