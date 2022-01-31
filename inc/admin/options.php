@@ -101,7 +101,7 @@ function wpt_customofile_add_rule_validate( $input ) {
 	$options = get_option( 'wpt_customofile_options' );
 
 	if ( ! function_exists( 'wp_handle_upload' ) ) {
-		require_once( ABSPATH . 'wp-admin/includes/file.php' );
+		require_once ABSPATH . 'wp-admin/includes/file.php';
 	}
 
 	if ( isset( $input['wpt-customofile-add-rule'] ) ) {

@@ -50,10 +50,10 @@ function wpt_customofile_init() {
 	load_plugin_textdomain( 'wpt-custom-mo-file', false, dirname( plugin_basename( __FILE__ ) ) . '/languages' );
 
 	if ( is_admin() ) {
-		require( WPT_CUSTOMOFILE_FUNCTIONS_PATH . 'functions.php' );
-		require( WPT_CUSTOMOFILE_ADMIN_PATH . 'enqueue.php' );
-		require( WPT_CUSTOMOFILE_ADMIN_PATH . 'options.php' );
-		require( WPT_CUSTOMOFILE_ADMIN_UI_PATH . 'options.php' );
+		require WPT_CUSTOMOFILE_FUNCTIONS_PATH . 'functions.php';
+		require WPT_CUSTOMOFILE_ADMIN_PATH . 'enqueue.php';
+		require WPT_CUSTOMOFILE_ADMIN_PATH . 'options.php';
+		require WPT_CUSTOMOFILE_ADMIN_UI_PATH . 'options.php';
 	}
 
 }
