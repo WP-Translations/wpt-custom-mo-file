@@ -202,7 +202,7 @@ function wpt_customofile_rules_table_field() {
 			<tfoot>
 				<tr>
 					<td id="cb" class="column-cb check-column">
-						<label class="screen-reader-text" for="cb-select-all-1">Tout sélectionner</label>
+						<label class="screen-reader-text" for="cb-select-all-1"><?php esc_html_e( 'Select All', 'wpt-custom-mo-file' ); ?></label>
 						<input id="cb-select-all-1" type="checkbox">
 					</td>
 					<th scope="col"><?php esc_html_e( 'Text domain', 'wpt-custom-mo-file' ); ?></th>
