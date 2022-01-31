@@ -81,6 +81,21 @@ function wpt_customofile_section_rules_text() {
 function wpt_customofile_upload_mo_file_field() {
 	?>
 	<input id="wpt_customofile_upload_mo_file" name="wpt_customofile_mo_file" type="file">
+	<p class="description">
+		<?php
+		echo wp_kses_post(
+			sprintf(
+				/* translators: %s: File name example. */
+				__( 'Please upload a binary language file for this rule. For example %s.', 'wpt-custom-mo-file' ),
+				sprintf(
+					'<code>%s</code>',
+					/* translators: File name example. */
+					__( 'my-custom-language-file.mo', 'wpt-custom-mo-file' )
+				)
+			)
+		);
+		?>
+	</p>
 	<?php
 }
 

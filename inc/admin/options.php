@@ -45,7 +45,7 @@ function wpt_customofile_initialize_options() {
 
 	add_settings_field(
 		'wpt_customofile_select_textdomain',
-		__( 'Select a text domain', 'wpt-custom-mo-file' ),
+		__( 'Text domain', 'wpt-custom-mo-file' ),
 		'wpt_customofile_select_textdomain_field',
 		'wpt_customofile_rules',
 		'wpt_customofile_section_rules'
@@ -53,7 +53,7 @@ function wpt_customofile_initialize_options() {
 
 	add_settings_field(
 		'wpt_customofile_select_languages',
-		__( 'Select a language', 'wpt-custom-mo-file' ),
+		__( 'Language', 'wpt-custom-mo-file' ),
 		'wpt_customofile_select_language_field',
 		'wpt_customofile_rules',
 		'wpt_customofile_section_rules'
@@ -61,7 +61,7 @@ function wpt_customofile_initialize_options() {
 
 	add_settings_field(
 		'wpt_customofile_upload_mo_file',
-		__( 'Upload a custom .mo file', 'wpt-custom-mo-file' ),
+		__( 'Custom language file', 'wpt-custom-mo-file' ),
 		'wpt_customofile_upload_mo_file_field',
 		'wpt_customofile_rules',
 		'wpt_customofile_section_rules'
