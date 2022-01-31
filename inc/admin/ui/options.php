@@ -34,7 +34,9 @@ function wpt_customofile_tools_page() {
 
 		<form action="options.php" method="post" enctype="multipart/form-data">
 			<?php settings_fields( 'wpt_customofile_options' ); ?>
-			<?php if ( 0 < $count_domains ) : ?>
+			<?php
+			if ( 0 < $count_domains ) {
+				?>
 			<div class="wpt-box postbox">
 				<h2><?php esc_html_e( 'Add new rule', 'wpt-custom-mo-file' ); ?></h2>
 				<div class="inside">
@@ -42,11 +44,15 @@ function wpt_customofile_tools_page() {
 				<?php submit_button( __( 'Add new rule', 'wpt-custom-mo-file' ), 'primary', 'wpt_customofile_options[wpt-customofile-add-rule]' ); ?>
 				</div>
 			</div>
-			<?php else : ?>
+				<?php
+			} else {
+				?>
 			<div class="settings-error notice notice-info is-dismissible">
 				<p><strong><?php esc_html_e( 'There is no available textdomain.', 'wpt-custom-mo-file' ); ?></strong></p>
 			</div>
-			<?php endif; ?>
+				<?php
+			}
+				?>
 			<div class="wpt-rules">
 			<?php do_settings_sections( 'wpt_customofile_rules_actions' ); ?>
 			</div>
@@ -89,9 +95,13 @@ function wpt_customofile_select_textdomain_field() {
 	asort( $domains ); ?>
 
 	<select id="wpt_customofile_select_textdomain" name="wpt_customofile_options[text_domain]">
-		<?php foreach ( $domains as $domain ) : ?>
-		<option value="<?php echo esc_attr( $domain ); ?>"><?php echo esc_attr( $domain ); ?></option>
-		<?php endforeach; ?>
+		<?php
+		foreach ( $domains as $domain ) {
+			?>
+			<option value="<?php echo esc_attr( $domain ); ?>"><?php echo esc_attr( $domain ); ?></option>
+			<?php
+		}
+		?>
 	</select>
 
 	<?php
@@ -125,7 +135,8 @@ function wpt_customofile_rules_table_field() {
 	$rules  = get_option( 'wpt_customofile_options' );
 	$locale = ( $wp_version >= 4.7 ) ? get_user_locale() : get_locale();
 
-	if ( isset( $rules['rules'] ) && ! empty( $rules['rules'] ) ) : ?>
+	if ( isset( $rules['rules'] ) && ! empty( $rules['rules'] ) ) {
+		?>
 
 		<div class="tablenav top">
 			<div class="alignleft actions bulkactions">
@@ -155,8 +166,10 @@ function wpt_customofile_rules_table_field() {
 			</thead>
 
 			<tbody>
-				<?php foreach ( $rules['rules'] as $lang ) : ?>
-					<?php foreach ( $lang as $rule ) : ?>
+				<?php
+				foreach ( $rules['rules'] as $lang ) {
+					foreach ( $lang as $rule ) {
+						?>
 						<tr class="<?php echo esc_attr( 1 === $rule['activate'] ? 'active' : '' ); ?> ">
 							<th scope="row" class="check-column">
 								<label class="screen-reader-text" for="cb-select-<?php echo esc_attr( $rule['text_domain'] . '-' . $rule['language'] ); ?>"><?php esc_html_e( 'Select&nbsp;', 'wpt-custom-mo-file' ); ?><?php echo esc_html( $rule['text_domain'] ); ?></label>
@@ -166,16 +179,24 @@ function wpt_customofile_rules_table_field() {
 							<td><?php echo esc_attr( $rule['language'] ); ?></td>
 							<td><?php echo esc_attr( $rule['filename'] ); ?></td>
 							<td>
-								<?php if ( 1 === $rule['activate'] ) : ?>
+								<?php
+								if ( 1 === $rule['activate'] ) {
+									?>
 									<button class="button wpt-customofile-button wpt-customofile-button-deactivate" type="submit" name="wpt_customofile_options[deactivate_rule]" value="<?php echo esc_attr( $rule['text_domain'] . '|' . $rule['language'] ); ?>"><?php esc_html_e( 'Deactivate', 'wpt-custom-mo-file' ); ?></button>
-								<?php else : ?>
+									<?php
+								} else {
+									?>
 									<button class="button wpt-customofile-button wpt-customofile-button-activate" type="submit" name="wpt_customofile_options[activate_rule]" value="<?php echo esc_attr( $rule['text_domain'] . '|' . $rule['language'] ); ?>"><?php esc_html_e( 'Activate', 'wpt-custom-mo-file' ); ?></button>
-								<?php endif; ?>
+									<?php
+								}
+								?>
 								<button class="button wpt-customofile-button wpt-customofile-button-delete" type="submit" name="wpt_customofile_options[delete_rule]" value="<?php echo esc_attr( $rule['text_domain'] . '|' . $rule['language'] ); ?>"><?php esc_html_e( 'Delete rule', 'wpt-custom-mo-file' ); ?></button>
 							</td>
 						</tr>
-					<?php endforeach; ?>
-				<?php endforeach; ?>
+						<?php
+					}
+				}
+				?>
 			</tbody>
 
 			<tfoot>
@@ -205,7 +226,8 @@ function wpt_customofile_rules_table_field() {
 			</div>
 		</div>
 
-	<?php endif;
+		<?php
+	}
 
 }
 
