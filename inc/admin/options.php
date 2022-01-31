@@ -182,7 +182,8 @@ function wpt_customofile_add_rule_validate( $input ) {
 							),
 							$count_task
 						);
-						$type    = 'updated';
+
+						$type = 'updated';
 						break;
 
 					case 'deactivate':
@@ -202,7 +203,8 @@ function wpt_customofile_add_rule_validate( $input ) {
 							),
 							$count_task
 						);
-						$type    = 'error';
+
+						$type = 'error';
 						break;
 
 					case 'delete':
@@ -225,7 +227,8 @@ function wpt_customofile_add_rule_validate( $input ) {
 							),
 							$count_task
 						);
-						$type    = 'error';
+
+						$type = 'error';
 						break;
 				}
 				add_settings_error( 'wpt_customofile_options', 'wpt-customofile-bulk-notice', $message, $type );
