@@ -24,7 +24,7 @@ function wpt_customofile_tools_page() {
 	<div class="wpt-customofile-options-page wrap">
 		<header class="wpt-header">
 		<div>
-		<img src="<?php echo WPT_CUSTOMOFILE_IMG_URL . 'wpt-logo.svg'; ?>" />
+		<img src="<?php echo esc_url( WPT_CUSTOMOFILE_IMG_URL . 'wpt-logo.svg' ); ?>" />
 		<a href="https://www.transifex.com/wp-translations/" class="wpt-transifex-link alignright"><?php esc_html_e( 'Join us on transifex', 'wpt-custom-mo-file' ); ?></a>
 		</div>
 		<p><strong><?php echo esc_html( WPT_CUSTOMOFILE_NICE_NAME ); ?></strong> - <?php esc_html_e( 'Create, activate, desactivate your own set of rules to get full control of any translations in your WordPress installation.', 'wpt-custom-mo-file' ); ?></p>
