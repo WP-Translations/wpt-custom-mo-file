@@ -29,7 +29,7 @@ function wpt_customofile_tools_page() {
 		</div>
 		<p><strong><?php echo esc_html( WPT_CUSTOMOFILE_NICE_NAME ); ?></strong> - <?php esc_html_e( 'Create, activate, desactivate your own set of rules to get full control of any translations in your WordPress installation.', 'wpt-custom-mo-file' ); ?></p>
 		</header>
-		<h2 class="screen-reader-text" style="margin:0;">WP-Translations</h2>
+		<h2 class="screen-reader-text" style="margin:0;"><?php echo esc_html_x( 'WP-Translations', 'Company name, don\'t translate', 'wpt-custom-mo-file' ); ?></h2>
 		<?php settings_errors(); ?>
 
 		<form action="options.php" method="post" enctype="multipart/form-data">
