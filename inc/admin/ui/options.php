@@ -157,7 +157,7 @@ function wpt_customofile_rules_table_field() {
 			<tbody>
 				<?php foreach ( $rules['rules'] as $lang ) : ?>
 					<?php foreach ( $lang as $rule ) : ?>
-						<tr class="<?php if ( 1 === $rule['activate'] ) { esc_attr_e( 'active' ); }?>">
+						<tr class="<?php echo esc_attr( 1 === $rule['activate'] ? 'active' : '' ); ?> ">
 							<th scope="row" class="check-column">
 								<label class="screen-reader-text" for="cb-select-<?php echo esc_attr( $rule['text_domain'] . '-' . $rule['language'] ); ?>"><?php esc_html_e( 'Select&nbsp;', 'wpt-custom-mo-file' ); ?><?php echo esc_html( $rule['text_domain'] ); ?></label>
 								<input name="wpt_customofile_options[mo][]" id="cb-select-<?php echo esc_attr( $rule['text_domain'] . '-' . $rule['language'] ); ?>" value="<?php echo esc_attr( $rule['text_domain'] . '|' . $rule['language'] ); ?>" type="checkbox">
