@@ -175,7 +175,7 @@ function wpt_customofile_add_rule_validate( $input ) {
 
 				switch ( $action ) {
 					case 'activate':
-						foreach ( $input['mo'] as $key => $mo ) {
+						foreach ( $input['mo'] as $mo ) {
 							$data = wpt_customofile_extract_textdomain_locale( $mo );
 							$options['rules'][ $data['locale'] ][ $data['text_domain'] ]['activate'] = 1;
 						}
@@ -196,7 +196,7 @@ function wpt_customofile_add_rule_validate( $input ) {
 						break;
 
 					case 'deactivate':
-						foreach ( $input['mo'] as $key => $mo ) {
+						foreach ( $input['mo'] as $mo ) {
 							$data = wpt_customofile_extract_textdomain_locale( $mo );
 							$options['rules'][ $data['locale'] ][ $data['text_domain'] ]['activate'] = 0;
 						}
@@ -217,7 +217,7 @@ function wpt_customofile_add_rule_validate( $input ) {
 						break;
 
 					case 'delete':
-						foreach ( $input['mo'] as $key => $mo ) {
+						foreach ( $input['mo'] as $mo ) {
 							$data = wpt_customofile_extract_textdomain_locale( $mo );
 							// @codingStandardsIgnoreStart
 							unlink( $options['rules'][ $data['locale'] ][ $data['text_domain'] ]['mo_path'] );

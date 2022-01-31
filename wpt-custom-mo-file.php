@@ -76,6 +76,9 @@ add_action( 'plugins_loaded', 'wpt_customofile_init' );
  */
 function wpt_customofile_log_textdomain( $domain, $mo_file ) {
 
+	// Unset unused variable.
+	unset( $mo_file );
+
 	if ( ! isset( $GLOBALS['wpt_customofile_text_domains'][ $domain ] ) ) {
 		$GLOBALS['wpt_customofile_text_domains'][ $domain ] = $domain;
 	}
@@ -127,6 +130,9 @@ register_activation_hook( __FILE__, 'wpt_customofile_activation' );
  * @return void
  */
 function wpt_customofile_new_blog( $blog_id, $user_id, $domain, $path, $site_id, $meta ) {
+
+	// Unset unused variables.
+	unset( $user_id, $domain, $path, $site_id, $meta );
 
 	if ( is_plugin_active_for_network( WPT_CUSTOMOFILE_SLUG . '/' . WPT_CUSTOMOFILE_SLUG . '.php' ) ) {
 		// @codingStandardsIgnoreStart

@@ -53,6 +53,9 @@ function wpt_customofile_rrmdir( $dir ) {
 			is_dir( $file ) ? wpt_customofile_rrmdir( $file ) : unlink( $file );
 			// @codingStandardsIgnoreEnd
 		}
+
+		// Unset unused variable.
+		unset( $globs );
 	}
 	// @codingStandardsIgnoreStart
 	rmdir( $dir );
