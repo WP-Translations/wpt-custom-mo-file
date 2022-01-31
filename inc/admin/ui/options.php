@@ -23,11 +23,11 @@ function wpt_customofile_tools_page() {
 
 	<div class="wpt-customofile-options-page wrap">
 		<header class="wpt-header">
-		<div>
-		<img src="<?php echo esc_url( WPT_CUSTOMOFILE_IMG_URL . 'wpt-logo.svg' ); ?>" />
-		<a href="https://www.transifex.com/wp-translations/" class="wpt-transifex-link alignright"><?php esc_html_e( 'Join us on transifex', 'wpt-custom-mo-file' ); ?></a>
-		</div>
-		<p><strong><?php echo esc_html( WPT_CUSTOMOFILE_NICE_NAME ); ?></strong> - <?php esc_html_e( 'Create, activate, desactivate your own set of rules to get full control of any translations in your WordPress installation.', 'wpt-custom-mo-file' ); ?></p>
+			<div>
+				<img src="<?php echo esc_url( WPT_CUSTOMOFILE_IMG_URL . 'wpt-logo.svg' ); ?>" />
+				<a href="https://www.transifex.com/wp-translations/" class="wpt-transifex-link alignright"><?php esc_html_e( 'Join us on transifex', 'wpt-custom-mo-file' ); ?></a>
+			</div>
+			<p><strong><?php echo esc_html( WPT_CUSTOMOFILE_NICE_NAME ); ?></strong> - <?php esc_html_e( 'Create, activate, desactivate your own set of rules to get full control of any translations in your WordPress installation.', 'wpt-custom-mo-file' ); ?></p>
 		</header>
 		<h2 class="screen-reader-text" style="margin:0;"><?php echo esc_html_x( 'WP-Translations', 'Company name, don\'t translate', 'wpt-custom-mo-file' ); ?></h2>
 		<?php settings_errors(); ?>
@@ -37,24 +37,24 @@ function wpt_customofile_tools_page() {
 			<?php
 			if ( 0 < $count_domains ) {
 				?>
-			<div class="wpt-box postbox">
-				<h2><?php esc_html_e( 'Add new rule', 'wpt-custom-mo-file' ); ?></h2>
-				<div class="inside">
-				<?php do_settings_sections( 'wpt_customofile_rules' ); ?>
-				<?php submit_button( __( 'Add new rule', 'wpt-custom-mo-file' ), 'primary', 'wpt_customofile_options[wpt-customofile-add-rule]' ); ?>
+				<div class="wpt-box postbox">
+					<h2><?php esc_html_e( 'Add new rule', 'wpt-custom-mo-file' ); ?></h2>
+					<div class="inside">
+						<?php do_settings_sections( 'wpt_customofile_rules' ); ?>
+						<?php submit_button( __( 'Add new rule', 'wpt-custom-mo-file' ), 'primary', 'wpt_customofile_options[wpt-customofile-add-rule]' ); ?>
+					</div>
 				</div>
-			</div>
 				<?php
 			} else {
 				?>
-			<div class="settings-error notice notice-info is-dismissible">
-				<p><strong><?php esc_html_e( 'There is no available textdomain.', 'wpt-custom-mo-file' ); ?></strong></p>
-			</div>
+				<div class="settings-error notice notice-info is-dismissible">
+					<p><strong><?php esc_html_e( 'There is no available textdomain.', 'wpt-custom-mo-file' ); ?></strong></p>
+				</div>
 				<?php
 			}
-				?>
+			?>
 			<div class="wpt-rules">
-			<?php do_settings_sections( 'wpt_customofile_rules_actions' ); ?>
+				<?php do_settings_sections( 'wpt_customofile_rules_actions' ); ?>
 			</div>
 		</form>
 
