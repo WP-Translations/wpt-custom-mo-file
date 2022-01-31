@@ -41,7 +41,9 @@ function wpt_customofile_rrmdir( $dir ) {
 		return;
 	}
 
-	if ( $globs = glob( $dir . '/*', GLOB_NOSORT ) ) {
+	$globs = glob( $dir . '/*', GLOB_NOSORT );
+
+	if ( $globs ) {
 		foreach ( $globs as $file ) {
 			// @codingStandardsIgnoreStart
 			is_dir( $file ) ? wpt_customofile_rrmdir( $file ) : unlink( $file );
