@@ -9,7 +9,7 @@
  * @package    WPT_Custom_Mo_File
  */
 
-defined( 'WP_UNINSTALL_PLUGIN' ) or die( 'Cheatin&#8217; uh?' );
+defined( 'WP_UNINSTALL_PLUGIN' ) || die( 'Cheatin&#8217; uh?' );
 
 // Delete WPT_CUSTOMOFILE options.
 if ( is_multisite() && $network_wide ) {

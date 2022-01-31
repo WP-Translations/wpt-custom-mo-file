@@ -10,7 +10,7 @@
  * @subpackage WPT_Custom_Mo_File/inc/admin
  */
 
-defined( 'ABSPATH' ) or die( 'Cheatin&#8217; uh?' );
+defined( 'ABSPATH' ) || die( 'Cheatin&#8217; uh?' );
 
 /**
  * Register admin assets

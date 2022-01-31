@@ -10,7 +10,7 @@
  * @subpackage WPT_Custom_Mo_File/inc/functions
  */
 
-defined( 'ABSPATH' ) or die( 'Cheatin&#8217; uh?' );
+defined( 'ABSPATH' ) || die( 'Cheatin&#8217; uh?' );
 
 /**
  * Filter for upload_dir

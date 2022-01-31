@@ -23,7 +23,7 @@
  * Copyright:   2016 WP-Translations Team
  */
 
-defined( 'ABSPATH' ) or die( 'Cheatin&#8217; uh?' );
+defined( 'ABSPATH' ) || die( 'Cheatin&#8217; uh?' );
 
 define( 'WPT_CUSTOMOFILE_VERSION', '1.1.0' );
 define( 'WPT_CUSTOMOFILE_SLUG', 'wpt-custom-mo-file' );

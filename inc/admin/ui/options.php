@@ -10,7 +10,7 @@
  * @subpackage WPT_Custom_Mo_File/inc/admin/ui
  */
 
-defined( 'ABSPATH' ) or die( 'Cheatin&#8217; uh?' );
+defined( 'ABSPATH' ) || die( 'Cheatin&#8217; uh?' );
 
 /**
  * Output plugin page
