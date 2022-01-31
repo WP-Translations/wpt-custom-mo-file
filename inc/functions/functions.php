@@ -36,7 +36,7 @@ function wpt_customofile_filter_upload_dir( $upload_dir ) {
  */
 function wpt_customofile_extract_textdomain_locale( $value ) {
 	list( $domain, $locale ) = explode( '|', $value );
-	return $extract = array(
+	return array(
 		'text_domain' => $domain,
 		'locale'      => $locale,
 	);
