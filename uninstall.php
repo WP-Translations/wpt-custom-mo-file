@@ -13,7 +13,7 @@ defined( 'WP_UNINSTALL_PLUGIN' ) || die( 'Cheatin&#8217; uh?' );
 
 
 // Delete WPT_CUSTOMOFILE options.
-if ( is_multisite() && $network_wide ) {
+if ( is_multisite() && $network_wide ) { // phpcs:ignore
 
 	global $wpdb;
 	// @codingStandardsIgnoreStart

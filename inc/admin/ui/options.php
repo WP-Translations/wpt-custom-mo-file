@@ -39,9 +39,9 @@ function wpt_customofile_tools_page() {
 					'text' => esc_html__( 'Join us', 'wpt-custom-mo-file' ),
 				);
 
-				if ( $call_to_action['url'] && $call_to_action['text'] )  {
+				if ( $call_to_action['url'] && $call_to_action['text'] ) { // @phpstan-ignore-line
 					?>
-					<a href="<?php echo esc_url( $call_to_action['url'] ); ?>" target="_blank" class="wpt-calltoaction-link alignright"><?php esc_html_e( $call_to_action['text'] ); ?></a>
+					<a href="<?php echo esc_url( $call_to_action['url'] ); ?>" target="_blank" class="wpt-calltoaction-link alignright"><?php echo esc_html( $call_to_action['text'] ); ?></a>
 					<?php
 				}
 				?>

@@ -8,3 +8,4 @@ parameters:
 		- wpt-custom-mo-file.php
 	paths:
 		- inc/
+		- uninstall.php
