@@ -12,6 +12,9 @@
  * Plugin URI:  https://wordpress.org/plugins/wpt-custom-mo-file/
  * Description: A powerful WordPress plugin that let you use your own translation .mo files. Simple as that.
  * Version:     1.1.0
+ * Requires at least: 5.3
+ * Tested up to:      5.9
+ * Requires PHP:      7.3
  * Author:      WP-Translations Team
  * Author URI:  https://wp-translations.pro/
  * Text Domain: wpt-custom-mo-file
