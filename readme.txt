@@ -25,9 +25,9 @@ Thanks to [Pixabay](https://pixabay.com/en/wood-cube-abc-cube-letters-473703/) f
 
 = Minimum Requirements =
 
-* PHP version 5.2.4 or greater (PHP 5.6 or greater is recommended)
+* PHP version 7.2 or greater (PHP 7.3 or greater is recommended)
 * MySQL version 5.0 or greater (MySQL 5.6 or greater is recommended)
-* WPT Custom Mo File 1.0 requires WordPress 4.0 or greater
+* WPT Custom Mo File 1.1 requires WordPress 5.3 or greater
 
 = Automatic installation =
 
@@ -37,7 +37,7 @@ In the search field type “WPT Custom Mo File” and click Search Plugins. Once
 
 = Manual installation =
 
-The manual installation method involves downloading our translation plugin and uploading it to your webserver via your favourite FTP application. The WordPress codex contains [instructions on how to do this here](https://codex.wordpress.org/Managing_Plugins#Manual_Plugin_Installation).
+The manual installation method involves downloading our translation plugin and uploading it to your webserver via your favourite FTP application. Check the documentation about [managing plugins](https://wordpress.org/support/article/managing-plugins/).
 
 = Updating =
 
@@ -47,7 +47,7 @@ Automatic updates should work like a charm; as always though, ensure you backup 
 
 1. Select the textdomain in the list at *Tools > WPT Custom Mo File*
 2. Select your language
-3. Upload your custom .mo file
+3. Upload your custom `.mo` file
 4. That's it. Enjoy your Custom Translations
 
 == Frequently Asked Questions ==
@@ -56,13 +56,13 @@ Automatic updates should work like a charm; as always though, ensure you backup 
 
 For help setting up and configuring WPT Custom Mo File please refer to our [dedicated plugin page](https://wp-translations.pro/plugins/wpt-custom-mo-file/)
 
-= Can I use .po files ? =
+= Can I use .po files? =
 
 No, not yet. Until we implement this feature, we recommend you to use any gettext editor to create your .mo files. E.g. [Poedit](https://make.wordpress.org/polyglots/handbook/tools/poedit/)
 
 = Where can I get support or talk to other users? =
 
-If you get stuck, you can ask for help in the [WPT Custom Mo File Plugin Forum](https://wordpress.org/support/plugin/wpt-custom-mo-file).
+If you get stuck, you can ask for help in the [WPT Custom Mo File plugin Forum](https://wordpress.org/support/plugin/wpt-custom-mo-file).
 
 = Will WPT Custom Mo File work with my theme and plugins? =
 
