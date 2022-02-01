@@ -154,9 +154,10 @@ add_action( 'wpmu_new_blog', 'wpt_customofile_new_blog', 10, 6 );
  */
 function wpt_customofile_overwrite_domains() {
 
-	global $wp_version;
 	$options = get_option( 'wpt_customofile_options' );
-	$locale  = ( $wp_version >= 4.7 ) ? get_user_locale() : get_locale();
+
+	// Since WP 4.7 use get_user_locale().
+	$locale = get_user_locale();
 
 	if ( isset( $options['rules'][ $locale ] ) && ! empty( $options['rules'][ $locale ] ) ) {
 		foreach ( $options['rules'][ $locale ] as $rule ) {
