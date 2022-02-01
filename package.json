@@ -24,7 +24,7 @@
 	"devDependencies": {
 		"@wordpress/scripts": "^20.0.2",
 		"datatables.net-dt": "^1.11.4",
-		"node-sass": "^6.0.1",
+		"node-sass": "^7.0.1",
 		"sass-lint": "^1.13.1",
 		"scss": "^0.2.4",
 		"tablesorter": "^2.31.3",
