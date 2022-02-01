@@ -35,19 +35,19 @@
     max-width: 33%;
 }
 
-a.wpt-transifex-link {
-  padding: .5em 1em;
-  background: rgba(0, 0, 0, 0.1);
-  color: #fff;
-  border: 2px solid #fff;
-  font-weight: bold;
-  font-size: 1.3rem;
-  text-decoration: none;
+a.wpt-calltoaction-link {
+	padding: 0.5em 1em;
+	background: rgba(0, 0, 0, 0.1);
+	color: #fff;
+	border: 2px solid #fff;
+	font-weight: bold;
+	font-size: 1.3rem;
+	text-decoration: none;
 }
 
-a.wpt-transifex-link:hover {
-  color: #13B09D;
-  border-color: #13B09D;
+a.wpt-calltoaction-link:hover {
+	color: #13b09d;
+	border-color: #13b09d;
 }
 
 

@@ -28,7 +28,24 @@ function wpt_customofile_tools_page() {
 		<header class="wpt-header">
 			<div>
 				<img src="<?php echo esc_url( WPT_CUSTOMOFILE_IMG_URL . 'wpt-logo.svg' ); ?>" />
-				<a href="https://www.transifex.com/wp-translations/" class="wpt-transifex-link alignright"><?php esc_html_e( 'Join us on transifex', 'wpt-custom-mo-file' ); ?></a>
+
+				<?php
+				/**
+				 * Call to Action button in Header.
+				 * Only shows if both keys are filled.
+				 */
+				$call_to_action = array(
+					'url'  => '',
+					'text' => esc_html__( 'Join us', 'wpt-custom-mo-file' ),
+				);
+
+				if ( $call_to_action['url'] && $call_to_action['text'] )  {
+					?>
+					<a href="<?php echo esc_url( $call_to_action['url'] ); ?>" target="_blank" class="wpt-calltoaction-link alignright"><?php esc_html_e( $call_to_action['text'] ); ?></a>
+					<?php
+				}
+				?>
+
 			</div>
 			<p><strong><?php echo esc_html( WPT_CUSTOMOFILE_NICE_NAME ); ?></strong> - <?php esc_html_e( 'Create, activate, desactivate your own set of rules to get full control of any translations in your WordPress installation.', 'wpt-custom-mo-file' ); ?></p>
 		</header>
