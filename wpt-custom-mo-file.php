@@ -8,20 +8,20 @@
  * @license     GPL-2.0-or-later
  *
  * @wordpress-plugin
- * Plugin Name: WPT Custom Mo File
- * Plugin URI:  https://wordpress.org/plugins/wpt-custom-mo-file/
- * Description: A powerful WordPress plugin that let you use your own translation .mo files. Simple as that.
- * Version:     1.1.0
+ * Plugin Name:       WPT Custom Mo File
+ * Plugin URI:        https://wordpress.org/plugins/wpt-custom-mo-file/
+ * Description:       A powerful WordPress plugin that let you use your own translation .mo files. Simple as that.
+ * Version:           1.1.0
  * Requires at least: 5.3
  * Tested up to:      5.9
  * Requires PHP:      7.3
- * Author:      WP-Translations Team
- * Author URI:  https://wp-translations.pro/
- * Text Domain: wpt-custom-mo-file
- * Domain Path: /languages
- * License:     GPL v2 or later
- * License URI: https://www.gnu.org/licenses/gpl-2.0.html
- * Copyright:   2022 WP-Translations Team
+ * Author:            WP-Translations Team
+ * Author URI:        https://wp-translations.pro/
+ * Text Domain:       wpt-custom-mo-file
+ * Domain Path:       /languages
+ * License:           GPL v2 or later
+ * License URI:       https://www.gnu.org/licenses/gpl-2.0.html
+ * Copyright:         2022 WP-Translations Team
  */
 
 defined( 'ABSPATH' ) or die( 'Cheatin&#8217; uh?' );
