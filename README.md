@@ -6,7 +6,6 @@ WPT Custom Mo File is a powerful translation plugin that helps you use your own 
 [![WordPress Plugin Rating](https://img.shields.io/wordpress/plugin/stars/wpt-custom-mo-file?label=Plugin%20Rating&logo=wordpress)](https://wordpress.org/support/plugin/wpt-custom-mo-file/reviews/)
 [![WordPress Plugin Downloads](https://img.shields.io/wordpress/plugin/dt/wpt-custom-mo-file.svg?label=Downloads&logo=wordpress)](https://wordpress.org/plugins/wpt-custom-mo-file/advanced/)
 
-[![WordPress Plugin Required PHP Version](https://img.shields.io/wordpress/plugin/required-php/wpt-custom-mo-file?label=PHP%20Required&logo=php&logoColor=white)](https://wordpress.org/plugins/wpt-custom-mo-file/)
 [![WordPress Plugin: Required WP Version](https://img.shields.io/wordpress/plugin/wp-version/wpt-custom-mo-file?label=WordPress%20Required&logo=wordpress)](https://wordpress.org/plugins/wpt-custom-mo-file/)
 [![WordPress Plugin: Tested WP Version](https://img.shields.io/wordpress/plugin/tested/wpt-custom-mo-file.svg?label=WordPress%20Tested&logo=wordpress)](https://wordpress.org/plugins/wpt-custom-mo-file/)
 
