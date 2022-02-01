@@ -40,7 +40,7 @@ a.wpt-calltoaction-link {
 	background: rgba(0, 0, 0, 0.1);
 	color: #fff;
 	border: 2px solid #fff;
-	font-weight: bold;
+	font-weight: 700;
 	font-size: 1.3rem;
 	text-decoration: none;
 }
