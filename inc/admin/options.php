@@ -10,7 +10,10 @@
  * @subpackage WPT_Custom_Mo_File/inc/admin
  */
 
-defined( 'ABSPATH' ) || die( 'Cheatin&#8217; uh?' );
+// Exit if accessed directly.
+if ( ! defined( 'ABSPATH' ) ) {
+	exit;
+}
 
 
 /**
@@ -172,6 +175,8 @@ function wpt_customofile_add_rule_validate( $input ) {
 
 				$action     = ( isset( $input['action_top'] ) ) ? $input['bulk_action_top'] : $input['bulk_action_bottom'];
 				$count_task = count( $input['mo'] );
+				$message    = null;
+				$type       = null;
 
 				switch ( $action ) {
 					case 'activate':
