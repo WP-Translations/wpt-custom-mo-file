@@ -52,10 +52,6 @@ Automatic updates should work like a charm; as always though, ensure you backup 
 
 == Frequently Asked Questions ==
 
-= Where can I find WPT Custom Mo File documentation and user guides? =
-
-For help setting up and configuring WPT Custom Mo File please refer to our [dedicated plugin page](https://wp-translations.pro/plugins/wpt-custom-mo-file/)
-
 = Can I use .po files? =
 
 No, not yet. Until we implement this feature, we recommend you to use any gettext editor to create your .mo files. E.g. [Poedit](https://make.wordpress.org/polyglots/handbook/tools/poedit/)
