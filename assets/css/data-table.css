@@ -35,41 +35,39 @@ table.dataTable tfoot td {
 table.dataTable thead .sorting,
 table.dataTable thead .sorting_asc,
 table.dataTable thead .sorting_desc {
-		cursor: pointer;
-		*cursor: hand;
+	cursor: pointer;
 }
 
-table.dataTable thead .sorting:before,
-table.dataTable thead .sorting_asc:before,
-table.dataTable thead .sorting_desc:before {
+table.dataTable thead .sorting::before,
+table.dataTable thead .sorting_asc::before,
+table.dataTable thead .sorting_desc::before {
 	display: inline-block;
 	vertical-align: middle;
 	padding: 0 1em 3px 0;
-	font-family: "dashicons";
-	font-size:20px;
+	font-family: dashicons;
+	font-size: 20px;
 }
 
-table.dataTable thead .sorting_asc:before,
-table.dataTable thead .sorting_desc:before {
+table.dataTable thead .sorting_asc::before,
+table.dataTable thead .sorting_desc::before {
 	color: #0073aa;
 }
 
-table.dataTable thead .sorting:before {
+table.dataTable thead .sorting::before {
 	content: "\f156";
 }
 
-table.dataTable thead .sorting_asc:before {
+table.dataTable thead .sorting_asc::before {
 	content: "\f142";
 }
 
-table.dataTable thead .sorting_desc:before {
+table.dataTable thead .sorting_desc::before {
 	content: "\f140";
 }
 
 .dataTables_wrapper {
 	position: relative;
 	clear: both;
-	*zoom: 1;
 	zoom: 1;
 }
 
@@ -118,7 +116,7 @@ table.dataTable thead .sorting_desc:before {
 }
 
 .dataTables_wrapper .dataTables_paginate .paginate_button.current:hover,
-.dataTables_wrapper .dataTables_paginate .paginate_button:hover  {
+.dataTables_wrapper .dataTables_paginate .paginate_button:hover {
 	background: #0073aa;
 	border-color: #5b9dd9;
 	color: #e5e5e5 !important;
@@ -154,7 +152,7 @@ table.dataTable thead .sorting_desc:before {
 	padding-top: 20px;
 	text-align: center;
 	font-size: 1.2em;
-	background-color: white;
+	background-color: #fff;
 }
 
 .dataTables_wrapper .dataTables_length,
@@ -168,6 +166,7 @@ table.dataTable thead .sorting_desc:before {
 .dataTables_wrapper .dataTables_scroll {
 	clear: both;
 }
+
 .dataTables_wrapper .dataTables_scroll div.dataTables_scrollBody {
 	*margin-top: -1px;
 	-webkit-overflow-scrolling: touch;
@@ -194,7 +193,8 @@ table.dataTable thead .sorting_desc:before {
 .dataTables_wrapper.no-footer div.dataTables_scrollBody table {
 	border-bottom: none;
 }
-.dataTables_wrapper:after {
+
+.dataTables_wrapper::after {
 	visibility: hidden;
 	display: block;
 	content: "";
