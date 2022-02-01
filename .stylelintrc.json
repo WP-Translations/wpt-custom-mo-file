@@ -9,6 +9,7 @@
 				"ignoreFontFamilies": [ "dashicons" ]
 			}
 		],
+		"no-descending-specificity": null,
 		"selector-class-pattern": null
 	}
 }
