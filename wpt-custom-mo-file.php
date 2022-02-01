@@ -4,11 +4,8 @@
  *
  * @package     WPT_Custom_Mo_File
  * @author      WP-Translations Team
- * @link        https://github.com/WP-Translations/wpt-custom-mo-file
- * @version     1.1.0
- *
- * @copyright   2016 WP-Translations Team
- * @license     https://creativecommons.org/licenses/GPL/2.0/ GNU General Public License, version 2 or higher.
+ * @copyright   2022 WP-Translations Team
+ * @license     GPL-2.0-or-later
  *
  * @wordpress-plugin
  * Plugin Name: WPT Custom Mo File
