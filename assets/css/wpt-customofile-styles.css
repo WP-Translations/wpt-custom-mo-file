@@ -97,12 +97,12 @@ a.wpt-calltoaction-link:hover {
 }
 
 /* == @section Buttons ==================== */
-.wpt-customofile-button:before {
-  display: inline-block;
-  vertical-align: middle;
-  padding-bottom: 3px;
-  font-family: "dashicons";
-  font-size: 20px;
+.wpt-customofile-button::before {
+	display: inline-block;
+	vertical-align: middle;
+	padding-bottom: 3px;
+	font-family: dashicons;
+	font-size: 20px;
 }
 
 .wpt-customofile-button-deactivate:before {
