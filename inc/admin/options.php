@@ -10,12 +10,15 @@
  * @subpackage WPT_Custom_Mo_File/inc/admin
  */
 
-defined( 'ABSPATH' ) or die( 'Cheatin&#8217; uh?' );
+defined( 'ABSPATH' ) || die( 'Cheatin&#8217; uh?' );
+
 
 /**
- * Register options menu page
+ * Register options menu page.
  *
  * @since 1.0.0
+ *
+ * @return void
  */
 function wpt_customofile_admin_menu() {
 	add_management_page(
@@ -28,10 +31,13 @@ function wpt_customofile_admin_menu() {
 }
 add_action( 'admin_menu', 'wpt_customofile_admin_menu' );
 
+
 /**
- * Register section and settings
+ * Register section and settings.
  *
  * @since 1.0.0
+ *
+ * @return void
  */
 function wpt_customofile_initialize_options() {
 	$rules = get_option( 'wpt_customofile_options' );
@@ -45,7 +51,7 @@ function wpt_customofile_initialize_options() {
 
 	add_settings_field(
 		'wpt_customofile_select_textdomain',
-		__( 'Select a text domain', 'wpt-custom-mo-file' ),
+		__( 'Text domain', 'wpt-custom-mo-file' ),
 		'wpt_customofile_select_textdomain_field',
 		'wpt_customofile_rules',
 		'wpt_customofile_section_rules'
@@ -53,7 +59,7 @@ function wpt_customofile_initialize_options() {
 
 	add_settings_field(
 		'wpt_customofile_select_languages',
-		__( 'Select a language', 'wpt-custom-mo-file' ),
+		__( 'Language', 'wpt-custom-mo-file' ),
 		'wpt_customofile_select_language_field',
 		'wpt_customofile_rules',
 		'wpt_customofile_section_rules'
@@ -61,7 +67,7 @@ function wpt_customofile_initialize_options() {
 
 	add_settings_field(
 		'wpt_customofile_upload_mo_file',
-		__( 'Upload a custom .mo file', 'wpt-custom-mo-file' ),
+		__( 'Custom language file', 'wpt-custom-mo-file' ),
 		'wpt_customofile_upload_mo_file_field',
 		'wpt_customofile_rules',
 		'wpt_customofile_section_rules'
@@ -90,41 +96,44 @@ function wpt_customofile_initialize_options() {
 }
 add_action( 'admin_init', 'wpt_customofile_initialize_options' );
 
+
 /**
- * Validate and save settings
+ * Validate and save settings.
  *
- * @param  array $input 	Get all settings admin page.
- * @return array $options Return validated values.
  * @since 1.0.0
+ *
+ * @param array $input   Get all settings admin page.
+ *
+ * @return array   Return validated values.
  */
 function wpt_customofile_add_rule_validate( $input ) {
 	$options = get_option( 'wpt_customofile_options' );
 
 	if ( ! function_exists( 'wp_handle_upload' ) ) {
-			 require_once( ABSPATH . 'wp-admin/includes/file.php' );
+		require_once ABSPATH . 'wp-admin/includes/file.php';
 	}
 
 	if ( isset( $input['wpt-customofile-add-rule'] ) ) {
 
 		add_filter( 'upload_dir', 'wpt_customofile_filter_upload_dir' );
 		$mo_file = wp_handle_upload(
-									$_FILES['wpt_customofile_mo_file'], // Input var okay.
-									array(
-										'test_form' => false,
-										'mimes' => array( 'mo' => 'application/octet-stream' ),
-								 )
-							);
+			$_FILES['wpt_customofile_mo_file'], // Input var okay.
+			array(
+				'test_form' => false,
+				'mimes'     => array( 'mo' => 'application/octet-stream' ),
+			)
+		);
 		remove_filter( 'upload_dir', 'wpt_customofile_filter_upload_dir' );
 
 		$input['language'] = ( empty( $input['language'] ) ) ? 'en_US' : $input['language'];
 
 		if ( $mo_file && empty( $mo_file['error'] ) ) {
 			$new_rules = array(
-				'filename' => $_FILES['wpt_customofile_mo_file']['name'], // Input var okay.
-				'mo_path' => $mo_file['file'],
+				'filename'    => $_FILES['wpt_customofile_mo_file']['name'], // Input var okay.
+				'mo_path'     => $mo_file['file'],
 				'text_domain' => $input['text_domain'],
-				'activate' => 1,
-				'language' => $input['language'],
+				'activate'    => 1,
+				'language'    => $input['language'],
 			);
 			$options['rules'][ $input['language'] ][ $input['text_domain'] ] = $new_rules;
 			add_settings_error( 'wpt_customofile_options', 'wpt-customofile-file-uploaded', esc_html__( 'Rule saved!', 'wpt-custom-mo-file' ), 'updated' );
@@ -161,37 +170,73 @@ function wpt_customofile_add_rule_validate( $input ) {
 
 			if ( ! empty( $input['mo'] ) ) {
 
-				$action = ( isset( $input['action_top'] ) ) ? $input['bulk_action_top'] : $input['bulk_action_bottom'];
+				$action     = ( isset( $input['action_top'] ) ) ? $input['bulk_action_top'] : $input['bulk_action_bottom'];
 				$count_task = count( $input['mo'] );
 
 				switch ( $action ) {
 					case 'activate':
-						foreach ( $input['mo'] as $key => $mo ) {
+						foreach ( $input['mo'] as $mo ) {
 							$data = wpt_customofile_extract_textdomain_locale( $mo );
 							$options['rules'][ $data['locale'] ][ $data['text_domain'] ]['activate'] = 1;
 						}
-						$message = sprintf( esc_html( _n( '%d rule successfully activated.', '%d rules successfully activated.', $count_task, 'wpt-custom-mo-file' ) ), $count_task );
+						$message = sprintf(
+							esc_html(
+								/* translators: %d: Rules count. */
+								_n(
+									'%d rule successfully activated.',
+									'%d rules successfully activated.',
+									$count_task,
+									'wpt-custom-mo-file'
+								)
+							),
+							$count_task
+						);
+
 						$type = 'updated';
 						break;
 
 					case 'deactivate':
-						foreach ( $input['mo'] as $key => $mo ) {
+						foreach ( $input['mo'] as $mo ) {
 							$data = wpt_customofile_extract_textdomain_locale( $mo );
 							$options['rules'][ $data['locale'] ][ $data['text_domain'] ]['activate'] = 0;
 						}
-						$message = sprintf( esc_html( _n( '%d rule successfully deactivated.', '%d rules successfully deactivated.', $count_task, 'wpt-custom-mo-file' ) ), $count_task );
+						$message = sprintf(
+							esc_html(
+								/* translators: %d: Rules count. */
+								_n(
+									'%d rule successfully deactivated.',
+									'%d rules successfully deactivated.',
+									$count_task,
+									'wpt-custom-mo-file'
+								)
+							),
+							$count_task
+						);
+
 						$type = 'error';
 						break;
 
 					case 'delete':
-						foreach ( $input['mo'] as $key => $mo ) {
+						foreach ( $input['mo'] as $mo ) {
 							$data = wpt_customofile_extract_textdomain_locale( $mo );
 							// @codingStandardsIgnoreStart
 							unlink( $options['rules'][ $data['locale'] ][ $data['text_domain'] ]['mo_path'] );
 							// @codingStandardsIgnoreEnd
 							unset( $options['rules'][ $data['locale'] ][ $data['text_domain'] ] );
 						}
-						$message = sprintf( esc_html( _n( '%d rule successfully deleted.', '%d rules successfully deleted.', $count_task, 'wpt-custom-mo-file' ) ), $count_task );
+						$message = sprintf(
+							esc_html(
+								/* translators: %d: Rules count. */
+								_n(
+									'%d rule successfully deleted.',
+									'%d rules successfully deleted.',
+									$count_task,
+									'wpt-custom-mo-file'
+								)
+							),
+							$count_task
+						);
+
 						$type = 'error';
 						break;
 				}
