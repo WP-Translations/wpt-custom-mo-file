@@ -1,5 +1,5 @@
 === WPT Custom Mo File ===
-Contributors: wptranslationsteam, g3ronim0, fxbenard
+Contributors: wptranslationsteam, g3ronim0, fxbenard, pedromendonca
 Tags: language, textdomain, translation, localization, internationalization
 Donate link: https://paypal.me/wptranslations
 Requires at least: 4.0
