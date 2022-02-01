@@ -1,0 +1,69 @@
+{
+	"name": "wp-translations/wpt-custom-mo-file",
+	"description": "WPT Custom Mo File is a powerful translation plugin that helps you use your own translation .mo files. Simple as that.",
+	"type": "wordpress-plugin",
+	"license": "GPL-2.0-or-later",
+	"authors": [
+		{
+			"name": "WP-Translations",
+			"email": "wpt@wp-translations.pro",
+			"homepage": "https://wp-translations.pro/"
+		}
+	],
+	"require": {
+		"php": ">=7.2"
+	},
+	"require-dev": {
+		"dealerdirect/phpcodesniffer-composer-installer": "^0.7.1",
+		"wp-coding-standards/wpcs": "^2.3.0",
+		"phpcompatibility/phpcompatibility-wp": "^2.1.2",
+		"phpmd/phpmd": "^2.11.1",
+		"szepeviktor/phpstan-wordpress": "^1.0.2",
+		"sirbrillig/phpcs-variable-analysis": "^2.11.2"
+	},
+	"config": {
+		"optimize-autoloader": true
+	},
+	"scripts": {
+		"lint": [
+			"@lint:php",
+			"@compat:php",
+			"@lint:phpstan",
+			"@lint:css",
+			"@lint:js",
+			"@lint:md:docs",
+			"@lint:pkg-json"
+		],
+		"zip": [
+			"composer install --no-dev",
+			"composer archive --file=wpt-custom-mo-file --format=zip",
+			"composer install"
+		],
+		"phpcs-i": "phpcs -i",
+		"lint:php": "phpcs -v --standard=phpcs.xml",
+		"format:php": "phpcbf -v --standard=phpcs.xml",
+		"compat:php": "phpcs -v --standard=phpcompat.xml",
+		"lint:phpstan": "phpstan analyse -c phpstan.neon --memory-limit=1G",
+		"lint:phpmd": "phpmd . text phpmd.xml",
+		"lint:css": "npm run lint:css",
+		"lint:js": "npm run lint:js",
+		"lint:md:docs": "npm run lint:md:docs",
+		"lint:pkg-json": "npm run lint:pkg-json",
+		"scripts-list": "composer run-script --list"
+	},
+	"scripts-descriptions": {
+		"lint": "Runs all available code linting (PHP_CodeSniffer, PHPStan, CSS, JS and MD lint).",
+		"phpcs-i": "Log PHPCS debug information.",
+		"lint:php": "Runs the PHP code sniffer.",
+		"format:php": "Runs the PHP code sniffer and automatically fix errors.",
+		"compat:php": "Runs the PHPCompatibilityWP code sniffer.",
+		"lint:phpstan": "Runs the PHPStan code static analysis.",
+		"lint:phpmd": "Runs the PHPMD code static analysis.",
+		"lint:css": "Run npm CSS linter.",
+		"lint:js": "Run npm JS linter.",
+		"lint:md:docs": "Run npm MD linter.",
+		"lint:pkg-json": "Run npm package.json linter.",
+		"scripts-list": "List all Composer scripts.",
+		"zip": "Build production zip archive."
+	}
+}

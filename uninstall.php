@@ -3,7 +3,7 @@
  * Fired when the plugin is uninstalled.
  *
  * @author     WP-Translations Team
- * @link       https:wp-translations.org
+ * @link       https:wp-translations.pro
  * @since      1.0.0
  *
  * @package    WPT_Custom_Mo_File

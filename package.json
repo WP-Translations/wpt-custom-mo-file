@@ -1,0 +1,42 @@
+{
+	"requires": true,
+	"lockfileVersion": 1,
+	"name": "wpt-custom-mo-file",
+	"version": "1.1.0",
+	"description": "WPT Custom Mo File is a powerful translation plugin that helps you use your own translation .mo files. Simple as that.",
+	"author": "WP-Translations",
+	"license": "GPL-2.0-or-later",
+	"keywords": [
+		"WordPress",
+		"i18n",
+		"l10n",
+		"GlotPress",
+		"variants"
+	],
+	"homepage": "https://github.com/WP-Translations/wpt-custom-mo-file#readme",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/WP-Translations/wpt-custom-mo-file"
+	},
+	"bugs": {
+		"url": "https://github.com/WP-Translations/wpt-custom-mo-file/issues"
+	},
+	"devDependencies": {
+		"@wordpress/scripts": "^20.0.1",
+		"datatables.net-dt": "^1.11.4",
+		"node-sass": "^6.0.1",
+		"sass-lint": "^1.13.1",
+		"scss": "^0.2.4",
+		"tablesorter": "^2.31.3",
+		"uglify-js": "^3.14.3"
+	},
+	"scripts": {
+		"compile:js": "npm run compile:js:wpt-customfile-scripts",
+		"compile:js:wpt-customfile-scripts": "uglifyjs assets/js/wpt-customofile-scripts.js --compress drop_console=true -o assets/js/wpt-customofile-scripts.min.js",
+		"compile:css": "node-sass assets/css/ -o assets/css/ && stylelint assets/css/*.css --fix",
+		"lint:css": "wp-scripts lint-style",
+		"lint:js": "wp-scripts lint-js",
+		"lint:md:docs": "wp-scripts lint-md-docs",
+		"lint:pkg-json": "wp-scripts lint-pkg-json"
+	}
+}
