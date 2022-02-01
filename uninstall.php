@@ -16,8 +16,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 
 // Delete WPT_CUSTOMOFILE options.
-// @phpstan-ignore-next-line.
-if ( is_multisite() && $network_wide ) { // phpcs:ignore
+if ( is_multisite() ) {
 
 	global $wpdb;
 	// @codingStandardsIgnoreStart
