@@ -24,27 +24,27 @@ if ( ! defined( 'ABSPATH' ) ) {
  * @return void
  */
 function wpt_customofile_load_admin_assets() {
-	$screen  = get_current_screen();
-	$css_ext = ( defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ) ? '.css' : '.min.css';
-	$js_ext  = ( defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ) ? '.js' : '.min.js';
+	$screen = get_current_screen();
+	// Set assets minify sufix if debug mode is activated.
+	$suffix = defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ? '' : '.min';
 
 	wp_register_style(
 		'wpt-customofile-admin-styles',
-		WPT_CUSTOMOFILE_CSS_URL . 'admin' . $css_ext,
+		WPT_CUSTOMOFILE_CSS_URL . 'admin' . $suffix . '.css',
 		array(),
 		WPT_CUSTOMOFILE_VERSION
 	);
 
 	wp_register_style(
 		'data-tables-styles',
-		WPT_CUSTOMOFILE_CSS_URL . 'data-table' . $css_ext,
+		WPT_CUSTOMOFILE_CSS_URL . 'data-table' . $suffix . '.css',
 		array(),
 		'1.10.12'
 	);
 
 	wp_register_script(
 		'data-tables-scripts',
-		WPT_CUSTOMOFILE_LIB_URL . 'datatables/jquery.dataTables' . $js_ext,
+		WPT_CUSTOMOFILE_LIB_URL . 'datatables/jquery.dataTables' . $suffix . '.js',
 		array( 'jquery' ),
 		'1.10.12',
 		true
@@ -52,7 +52,7 @@ function wpt_customofile_load_admin_assets() {
 
 	wp_register_script(
 		'wpt-customofile-admin-scripts',
-		WPT_CUSTOMOFILE_JS_URL . 'admin' . $js_ext,
+		WPT_CUSTOMOFILE_JS_URL . 'admin' . $suffix . '.js',
 		array( 'jquery' ),
 		WPT_CUSTOMOFILE_VERSION,
 		true
