@@ -10,7 +10,10 @@
  * @subpackage WPT_Custom_Mo_File/inc/admin
  */
 
-defined( 'ABSPATH' ) || die( 'Cheatin&#8217; uh?' );
+// Exit if accessed directly.
+if ( ! defined( 'ABSPATH' ) ) {
+	exit;
+}
 
 
 /**
@@ -113,11 +116,11 @@ function wpt_customofile_add_rule_validate( $input ) {
 		require_once ABSPATH . 'wp-admin/includes/file.php';
 	}
 
-	if ( isset( $input['wpt-customofile-add-rule'] ) ) {
+	if ( isset( $input['wpt-customofile-add-rule'] ) && isset( $_FILES['wpt_customofile_mo_file']['name'] ) ) {
 
 		add_filter( 'upload_dir', 'wpt_customofile_filter_upload_dir' );
 		$mo_file = wp_handle_upload(
-			$_FILES['wpt_customofile_mo_file'], // Input var okay.
+			$_FILES['wpt_customofile_mo_file'], // phpcs:ignore
 			array(
 				'test_form' => false,
 				'mimes'     => array( 'mo' => 'application/octet-stream' ),
@@ -129,7 +132,7 @@ function wpt_customofile_add_rule_validate( $input ) {
 
 		if ( $mo_file && empty( $mo_file['error'] ) ) {
 			$new_rules = array(
-				'filename'    => $_FILES['wpt_customofile_mo_file']['name'], // Input var okay.
+				'filename'    => $_FILES['wpt_customofile_mo_file']['name'], // phpcs:ignore
 				'mo_path'     => $mo_file['file'],
 				'text_domain' => $input['text_domain'],
 				'activate'    => 1,
@@ -172,6 +175,8 @@ function wpt_customofile_add_rule_validate( $input ) {
 
 				$action     = ( isset( $input['action_top'] ) ) ? $input['bulk_action_top'] : $input['bulk_action_bottom'];
 				$count_task = count( $input['mo'] );
+				$message    = null;
+				$type       = null;
 
 				switch ( $action ) {
 					case 'activate':

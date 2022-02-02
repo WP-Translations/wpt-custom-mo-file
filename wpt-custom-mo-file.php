@@ -24,7 +24,10 @@
  * Copyright:         2022 WP-Translations Team
  */
 
-defined( 'ABSPATH' ) || die( 'Cheatin&#8217; uh?' );
+// Exit if accessed directly.
+if ( ! defined( 'ABSPATH' ) ) {
+	exit;
+}
 
 
 define( 'WPT_CUSTOMOFILE_VERSION', '1.1.0' );

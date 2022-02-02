@@ -10,7 +10,10 @@
  * @subpackage WPT_Custom_Mo_File/inc/functions
  */
 
-defined( 'ABSPATH' ) || die( 'Cheatin&#8217; uh?' );
+// Exit if accessed directly.
+if ( ! defined( 'ABSPATH' ) ) {
+	exit;
+}
 
 
 /**

@@ -1,10 +1,11 @@
 includes:
 	- vendor/szepeviktor/phpstan-wordpress/extension.neon
 parameters:
-	level: 9
+	level: 4
 	inferPrivatePropertyTypeFromConstructor: true
 	bootstrapFiles:
 		# PHPStan bootstrap file.
 		- wpt-custom-mo-file.php
 	paths:
 		- inc/
+		- uninstall.php

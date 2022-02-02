@@ -9,11 +9,14 @@
  * @package    WPT_Custom_Mo_File
  */
 
-defined( 'WP_UNINSTALL_PLUGIN' ) || die( 'Cheatin&#8217; uh?' );
+// Exit if accessed directly.
+if ( ! defined( 'ABSPATH' ) ) {
+	exit;
+}
 
 
 // Delete WPT_CUSTOMOFILE options.
-if ( is_multisite() && $network_wide ) {
+if ( is_multisite() ) {
 
 	global $wpdb;
 	// @codingStandardsIgnoreStart
