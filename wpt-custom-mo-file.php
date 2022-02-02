@@ -44,7 +44,7 @@ define( 'WPT_CUSTOMOFILE_ASSETS_URL', WPT_CUSTOMOFILE_URL . 'assets/' );
 define( 'WPT_CUSTOMOFILE_CSS_URL', WPT_CUSTOMOFILE_ASSETS_URL . 'css/' );
 define( 'WPT_CUSTOMOFILE_JS_URL', WPT_CUSTOMOFILE_ASSETS_URL . 'js/' );
 define( 'WPT_CUSTOMOFILE_IMG_URL', WPT_CUSTOMOFILE_ASSETS_URL . 'images/' );
-
+define( 'WPT_CUSTOMOFILE_LIB_URL', WPT_CUSTOMOFILE_ASSETS_URL . 'lib/' );
 
 /**
  * Tell WP what to do when plugin is loaded.

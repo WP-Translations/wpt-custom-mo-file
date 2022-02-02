@@ -44,7 +44,7 @@ function wpt_customofile_load_admin_assets() {
 
 	wp_register_script(
 		'data-tables-scripts',
-		WPT_CUSTOMOFILE_JS_URL . 'jquery.dataTables' . $js_ext,
+		WPT_CUSTOMOFILE_LIB_URL . 'datatables/jquery.dataTables' . $js_ext,
 		array( 'jquery' ),
 		'1.10.12',
 		true
