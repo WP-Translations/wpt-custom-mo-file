@@ -51,8 +51,8 @@ function wpt_customofile_load_admin_assets() {
 	);
 
 	wp_register_script(
-		'wpt-customofile-scripts',
-		WPT_CUSTOMOFILE_JS_URL . 'wpt-customofile-scripts' . $js_ext,
+		'wpt-customofile-admin-scripts',
+		WPT_CUSTOMOFILE_JS_URL . 'admin' . $js_ext,
 		array( 'jquery' ),
 		WPT_CUSTOMOFILE_VERSION,
 		true
@@ -81,11 +81,11 @@ function wpt_customofile_load_admin_assets() {
 		wp_enqueue_style( 'wpt-customofile-admin-styles' );
 		wp_enqueue_style( 'data-tables-styles' );
 
+		wp_enqueue_script( 'wpt-customofile-admin-scripts' );
 		wp_enqueue_script( 'data-tables-scripts' );
-		wp_enqueue_script( 'wpt-customofile-scripts' );
 
 		wp_localize_script(
-			'wpt-customofile-scripts',
+			'wpt-customofile-admin-scripts',
 			'wpt_customofile',
 			$translation_datatable
 		);
