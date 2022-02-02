@@ -24,8 +24,16 @@ if ( ! defined( 'ABSPATH' ) ) {
  * @return void
  */
 function wpt_customofile_load_admin_assets() {
-	$screen = get_current_screen();
-	// Set assets minify sufix if debug mode is activated.
+
+	// Check current screen.
+	$current_screen = get_current_screen();
+
+	// Only enqueue assets for WP-Custom-Mo-File tools page.
+	if ( 'tools_page_' . WPT_CUSTOMOFILE_SLUG !== $current_screen->base ) {
+		// Do nothing.
+		return;
+	}
+
 	$suffix = defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ? '' : '.min';
 
 	wp_register_style(
@@ -76,19 +84,20 @@ function wpt_customofile_load_admin_assets() {
 		'sSortDescending' => __( ': activate to sort column descending', 'wpt-custom-mo-file' ),
 	);
 
-	if ( 'tools_page_' . WPT_CUSTOMOFILE_SLUG === $screen->base ) {
+	// Enqueue styles.
+	wp_enqueue_style( 'wpt-customofile-admin-styles' );
+	wp_enqueue_style( 'data-tables-styles' );
 
-		wp_enqueue_style( 'wpt-customofile-admin-styles' );
-		wp_enqueue_style( 'data-tables-styles' );
+	// Enqueue scripts.
+	wp_enqueue_script( 'wpt-customofile-admin-scripts' );
+	wp_enqueue_script( 'data-tables-scripts' );
 
-		wp_enqueue_script( 'wpt-customofile-admin-scripts' );
-		wp_enqueue_script( 'data-tables-scripts' );
+	// Localize scripts.
+	wp_localize_script(
+		'wpt-customofile-admin-scripts',
+		'wpt_customofile',
+		$translation_datatable
+	);
 
-		wp_localize_script(
-			'wpt-customofile-admin-scripts',
-			'wpt_customofile',
-			$translation_datatable
-		);
-	}
 }
 add_action( 'admin_print_styles', 'wpt_customofile_load_admin_assets' );
