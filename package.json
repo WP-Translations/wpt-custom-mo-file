@@ -32,7 +32,7 @@
 		"build": "npm run build:js && npm run compile:css && npm run build:css",
 		"build:js": "npm run build:js:admin",
 		"build:js:admin": "uglifyjs assets/js/admin.js --compress drop_console=true -o assets/js/admin.min.js",
-		"compile:css": "sass assets/css:assets/css && stylelint assets/css/*.css --fix",
+		"compile:css": "sass --no-source-map assets/css:assets/css && stylelint assets/css/*.css --fix",
 		"build:css": "npm run build:css:admin && npm run build:css:datatable",
 		"build:css:admin": "postcss assets/css/admin.css > assets/css/admin.min.css",
 		"build:css:datatable": "postcss assets/css/data-table.css > assets/css/data-table.min.css",
