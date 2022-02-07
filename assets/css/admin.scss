@@ -9,10 +9,11 @@
  * @subpackage WPT_Custom_Mo_File/assets/css
  */
 
-/* ----------------------------- */
-/*             Summary           */
-/* ----------------------------- */
 /*
+-----------------------------
+             Summary
+-----------------------------
+
 	== Tools Page
 		== Page Header
 		== Form
@@ -24,10 +25,10 @@
 /* == @section Tools Page ==================== */
 .wpt-customofile-options-page {
 
-
 	.wpt-header { // Page Header
 		padding: 24px 12px;
 		background: #0d5264;
+
 		div {
 			display: flex;
 			justify-content: space-between;
@@ -39,6 +40,7 @@
 		}
 
 		a {
+
 			&.wpt-calltoaction-link {
 				padding: 0.5em 1em;
 				background: rgba(0, 0, 0, 0.1);
@@ -48,6 +50,7 @@
 				font-size: 1.3rem;
 				text-decoration: none;
 			}
+
 			&.wpt-calltoaction-link:hover {
 				color: #13b09d;
 				border-color: #13b09d;
@@ -58,6 +61,7 @@
 		p {
 			margin-bottom: 0;
 			color: #fff;
+
 			strong {
 				font-size: 1.2rem;
 			}
@@ -77,43 +81,52 @@
 	}
 
 	.wpt-rules { // Table
+
 		table {
+
 			&.form-table {
+
 				tbody {
+
 					tr {
+
 						th[scope="row"]:not(.check-column) {
 							display: none;
 						}
+
 						td {
+
 							.tablenav {
 								margin: 6px 0 5px;
 							}
+
 							#wpt-customofile-rules-table_wrapper {
+
 								input[type="search"] {
 									padding: 5px;
 								}
 
 								table {
+
 									&#wpt-customofile-rules-table {
+
 										&.widefat {
 											border: none;
 											border-top: 5px solid #f1f1f1;
 											box-shadow: none;
 										}
 									}
-									thead {
 
-									}
 									tbody {
-										tr {
-											th {
 
-											}
+										tr {
+
 											td {
 
 												button { // Row Buttons
 
 													&.wpt-customofile-button {
+
 														&::before {
 															display: inline-block;
 															vertical-align: middle;
