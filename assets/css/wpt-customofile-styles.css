@@ -10,29 +10,32 @@
  */
 
 /* ----------------------------- */
+
 /* Summary */
+
 /* ----------------------------- */
+
 /*
-  == Page Header
-  == Table
-  == Buttons
-  == Page footer
+	== Page Header
+	== Table
+	== Buttons
+	== Page footer
 */
 
 /* == @section Page Header ==================== */
 .wpt-header {
-    padding: 24px 12px;
-    background: #0d5264;
+	padding: 24px 12px;
+	background: #0d5264;
 }
 
 .wpt-header div {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
 }
 
 .wpt-header img {
-    max-width: 33%;
+	max-width: 33%;
 }
 
 a.wpt-calltoaction-link {
@@ -40,7 +43,7 @@ a.wpt-calltoaction-link {
 	background: rgba(0, 0, 0, 0.1);
 	color: #fff;
 	border: 2px solid #fff;
-	font-weight: bold;
+	font-weight: 700;
 	font-size: 1.3rem;
 	text-decoration: none;
 }
@@ -50,75 +53,74 @@ a.wpt-calltoaction-link:hover {
 	border-color: #13b09d;
 }
 
-
 .wpt-header p {
-  margin-bottom: 0;
-  color: #fff;
+	margin-bottom: 0;
+	color: #fff;
 }
 
 .wpt-header p strong {
-  font-size: 1.2rem;
+	font-size: 1.2rem;
 }
 
 .wpt-box {
-  margin-top: 1em;
+	margin-top: 1em;
 }
 
 .wpt-customofile-options-page .postbox h2 {
-  font-size: 14px;
-  line-height: 1.4;
-  margin: 0;
-  padding: 8px 12px;
-  border-bottom: 1px solid #eee;
+	font-size: 14px;
+	line-height: 1.4;
+	margin: 0;
+	padding: 8px 12px;
+	border-bottom: 1px solid #eee;
 }
 
 /* == @section Table ==================== */
 .tools_page_wpt-custom-mo-file .wpt-rules .form-table th[scope="row"]:not(.check-column) {
-  display: none;
+	display: none;
 }
 
 .tools_page_wpt-custom-mo-file .widefat {
-  border: none;
-  border-top: 5px solid #f1f1f1;
-  box-shadow: none;
+	border: none;
+	border-top: 5px solid #f1f1f1;
+	box-shadow: none;
 }
 
 .tools_page_wpt-custom-mo-file .tablenav {
-  margin: 6px 0 5px;
+	margin: 6px 0 5px;
 }
 
 .tools_page_wpt-custom-mo-file input[type="search"] {
-  padding: 5px;
+	padding: 5px;
 }
 
 .wpt-customofile-table-row-actions td {
-  padding: 0;
-  background: #f1f1f1;
+	padding: 0;
+	background: #f1f1f1;
 }
 
 /* == @section Buttons ==================== */
-.wpt-customofile-button:before {
-  display: inline-block;
-  vertical-align: middle;
-  padding-bottom: 3px;
-  font-family: "dashicons";
-  font-size: 20px;
+.wpt-customofile-button::before {
+	display: inline-block;
+	vertical-align: middle;
+	padding-bottom: 3px;
+	font-family: dashicons;
+	font-size: 20px;
 }
 
-.wpt-customofile-button-deactivate:before {
-  content: "\f523";
+.wpt-customofile-button-deactivate::before {
+	content: "\f523";
 }
 
-.wpt-customofile-button-activate:before {
-  content: "\f522";
+.wpt-customofile-button-activate::before {
+	content: "\f522";
 }
 
-.wpt-customofile-button-delete:before {
-  content: "\f182";
+.wpt-customofile-button-delete::before {
+	content: "\f182";
 }
 
 /* == @section Page Footer ==================== */
 .wpt-customofile-footer-link {
-  margin-right:10px;
-  text-decoration: none;
+	margin-right: 10px;
+	text-decoration: none;
 }

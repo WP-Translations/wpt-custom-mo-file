@@ -1,5 +1,15 @@
 {
 	"extends": [
 		"@wordpress/stylelint-config/scss"
-	]
+	],
+	"rules": {
+		"font-family-no-missing-generic-family-keyword": [
+			true,
+			{
+				"ignoreFontFamilies": [ "dashicons" ]
+			}
+		],
+		"no-descending-specificity": null,
+		"selector-class-pattern": null
+	}
 }
