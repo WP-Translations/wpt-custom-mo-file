@@ -29,8 +29,8 @@ function wpt_customofile_load_admin_assets() {
 	$js_ext  = ( defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ) ? '.js' : '.min.js';
 
 	wp_register_style(
-		'wpt-customofile-styles',
-		WPT_CUSTOMOFILE_CSS_URL . 'wpt-customofile-styles' . $css_ext,
+		'wpt-customofile-admin-styles',
+		WPT_CUSTOMOFILE_CSS_URL . 'admin' . $css_ext,
 		array(),
 		WPT_CUSTOMOFILE_VERSION
 	);
@@ -78,7 +78,7 @@ function wpt_customofile_load_admin_assets() {
 
 	if ( 'tools_page_' . WPT_CUSTOMOFILE_SLUG === $screen->base ) {
 
-		wp_enqueue_style( 'wpt-customofile-styles' );
+		wp_enqueue_style( 'wpt-customofile-admin-styles' );
 		wp_enqueue_style( 'data-tables-styles' );
 
 		wp_enqueue_script( 'data-tables-scripts' );
