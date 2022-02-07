@@ -95,7 +95,7 @@ function wpt_customofile_load_admin_assets() {
 	// Localize scripts.
 	wp_localize_script(
 		'wpt-customofile-admin-scripts',
-		'wpt_customofile',
+		'wptCustomMoFile',
 		$translation_datatable
 	);
 

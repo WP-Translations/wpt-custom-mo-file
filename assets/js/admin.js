@@ -1,5 +1,5 @@
 /**
- * JavaScript code for dataTable
+ * JavaScript code for dataTable.
  *
  * @author     WP-Translations Team
  * @link       https://wp-translations.pro
@@ -9,40 +9,48 @@
  * @subpackage WPT_Custom_Mo_File/assets/js
  */
 
-/* global validateForm */
+/* global document wptCustomMoFile */
 
 jQuery( document ).ready( function( $ ) {
-
 	'use strict';
 
-	$('#wpt-customofile-rules-table').DataTable( {
-			"columnDefs": [
-			 { "orderable": false, "targets": 0 },
-			 { "orderable": false, "targets": 4 }
-		 ],
-			"order": [[ 1, "asc" ]],
-
-			"language": {
-				"sProcessing":     wpt_customofile.sProcessing,
-				"sSearch":         wpt_customofile.sSearch,
-				"sLengthMenu":     wpt_customofile.sLengthMenu,
-				"sInfo":           wpt_customofile.sInfo,
-				"sInfoEmpty":      wpt_customofile.sInfoEmpty,
-				"sInfoFiltered":   wpt_customofile.sInfoFiltered,
-				"sLoadingRecords": wpt_customofile.sLoadingRecords,
-				"sZeroRecords":    wpt_customofile.sZeroRecords,
-				"sEmptyTable":     wpt_customofile.sEmptyTable,
-				"oPaginate": {
-						"sFirst":      wpt_customofile.sFirst,
-						"sPrevious":   wpt_customofile.sPrevious,
-						"sNext":       wpt_customofile.sNext,
-						"sLast":       wpt_customofile.sLast,
-				},
-				"oAria": {
-						"sSortAscending":  wpt_customofile.sSortAscending,
-						"sSortDescending": wpt_customofile.sSortDescending,
-				}
-			}
+	$( '#wpt-customofile-rules-table' ).DataTable( {
+		columnDefs: [
+			{
+				orderable: false,
+				targets: 0,
+			},
+			{
+				orderable: false,
+				targets: 4,
+			},
+		],
+		order: [
+			[
+				1,
+				'asc',
+			],
+		],
+		language: {
+			sProcessing: wptCustomMoFile.sProcessing,
+			sSearch: wptCustomMoFile.sSearch,
+			sLengthMenu: wptCustomMoFile.sLengthMenu,
+			sInfo: wptCustomMoFile.sInfo,
+			sInfoEmpty: wptCustomMoFile.sInfoEmpty,
+			sInfoFiltered: wptCustomMoFile.sInfoFiltered,
+			sLoadingRecords: wptCustomMoFile.sLoadingRecords,
+			sZeroRecords: wptCustomMoFile.sZeroRecords,
+			sEmptyTable: wptCustomMoFile.sEmptyTable,
+			oPaginate: {
+				sFirst: wptCustomMoFile.sFirst,
+				sPrevious: wptCustomMoFile.sPrevious,
+				sNext: wptCustomMoFile.sNext,
+				sLast: wptCustomMoFile.sLast,
+			},
+			oAria: {
+				sSortAscending: wptCustomMoFile.sSortAscending,
+				sSortDescending: wptCustomMoFile.sSortDescending,
+			},
+		},
 	} );
-
 } );
