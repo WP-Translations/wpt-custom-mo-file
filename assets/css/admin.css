@@ -11,34 +11,36 @@
 
 /* ----------------------------- */
 
-/* Summary */
+/*             Summary           */
 
 /* ----------------------------- */
 
 /*
-	== Page Header
-	== Table
-	== Buttons
-	== Page footer
+	== Tools Page
+		== Page Header
+		== Form
+		== Table
+			== Row Buttons
+	== Page Footer
 */
 
-/* == @section Page Header ==================== */
-.wpt-header {
+/* == @section Tools Page ==================== */
+.wpt-customofile-options-page .wpt-header {
 	padding: 24px 12px;
 	background: #0d5264;
 }
 
-.wpt-header div {
+.wpt-customofile-options-page .wpt-header div {
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
 }
 
-.wpt-header img {
+.wpt-customofile-options-page .wpt-header img {
 	max-width: 33%;
 }
 
-a.wpt-calltoaction-link {
+.wpt-customofile-options-page .wpt-header a.wpt-calltoaction-link {
 	padding: 0.5em 1em;
 	background: rgba(0, 0, 0, 0.1);
 	color: #fff;
@@ -48,25 +50,25 @@ a.wpt-calltoaction-link {
 	text-decoration: none;
 }
 
-a.wpt-calltoaction-link:hover {
+.wpt-customofile-options-page .wpt-header a.wpt-calltoaction-link:hover {
 	color: #13b09d;
 	border-color: #13b09d;
 }
 
-.wpt-header p {
+.wpt-customofile-options-page .wpt-header p {
 	margin-bottom: 0;
 	color: #fff;
 }
 
-.wpt-header p strong {
+.wpt-customofile-options-page .wpt-header p strong {
 	font-size: 1.2rem;
 }
 
-.wpt-box {
+.wpt-customofile-options-page .wpt-box.postbox {
 	margin-top: 1em;
 }
 
-.wpt-customofile-options-page .postbox h2 {
+.wpt-customofile-options-page .wpt-box.postbox h2 {
 	font-size: 14px;
 	line-height: 1.4;
 	margin: 0;
@@ -74,32 +76,25 @@ a.wpt-calltoaction-link:hover {
 	border-bottom: 1px solid #eee;
 }
 
-/* == @section Table ==================== */
-.tools_page_wpt-custom-mo-file .wpt-rules .form-table th[scope="row"]:not(.check-column) {
+.wpt-customofile-options-page .wpt-rules table.form-table tbody tr th[scope="row"]:not(.check-column) {
 	display: none;
 }
 
-.tools_page_wpt-custom-mo-file .widefat {
+.wpt-customofile-options-page .wpt-rules table.form-table tbody tr td .tablenav {
+	margin: 6px 0 5px;
+}
+
+.wpt-customofile-options-page .wpt-rules table.form-table tbody tr td #wpt-customofile-rules-table_wrapper input[type="search"] {
+	padding: 5px;
+}
+
+.wpt-customofile-options-page .wpt-rules table.form-table tbody tr td #wpt-customofile-rules-table_wrapper table#wpt-customofile-rules-table.widefat {
 	border: none;
 	border-top: 5px solid #f1f1f1;
 	box-shadow: none;
 }
 
-.tools_page_wpt-custom-mo-file .tablenav {
-	margin: 6px 0 5px;
-}
-
-.tools_page_wpt-custom-mo-file input[type="search"] {
-	padding: 5px;
-}
-
-.wpt-customofile-table-row-actions td {
-	padding: 0;
-	background: #f1f1f1;
-}
-
-/* == @section Buttons ==================== */
-.wpt-customofile-button::before {
+.wpt-customofile-options-page .wpt-rules table.form-table tbody tr td #wpt-customofile-rules-table_wrapper table tbody tr td button.wpt-customofile-button::before {
 	display: inline-block;
 	vertical-align: middle;
 	padding-bottom: 3px;
@@ -107,15 +102,15 @@ a.wpt-calltoaction-link:hover {
 	font-size: 20px;
 }
 
-.wpt-customofile-button-deactivate::before {
+.wpt-customofile-options-page .wpt-rules table.form-table tbody tr td #wpt-customofile-rules-table_wrapper table tbody tr td button.wpt-customofile-button.wpt-customofile-button-deactivate::before {
 	content: "\f523";
 }
 
-.wpt-customofile-button-activate::before {
+.wpt-customofile-options-page .wpt-rules table.form-table tbody tr td #wpt-customofile-rules-table_wrapper table tbody tr td button.wpt-customofile-button.wpt-customofile-button-activate::before {
 	content: "\f522";
 }
 
-.wpt-customofile-button-delete::before {
+.wpt-customofile-options-page .wpt-rules table.form-table tbody tr td #wpt-customofile-rules-table_wrapper table tbody tr td button.wpt-customofile-button.wpt-customofile-button-delete::before {
 	content: "\f182";
 }
 

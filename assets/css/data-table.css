@@ -22,14 +22,14 @@ table.dataTable thead td {
 	border-bottom: 1px solid #e5e5e5;
 }
 
-table.dataTable thead th:active,
-table.dataTable thead td:active {
-	outline: none;
-}
-
 table.dataTable tfoot th,
 table.dataTable tfoot td {
 	border-top: 1px solid #e5e5e5;
+}
+
+table.dataTable thead th:active,
+table.dataTable thead td:active {
+	outline: none;
 }
 
 table.dataTable thead .sorting,
