@@ -165,7 +165,7 @@ jobs:
       - name: Run JavaScript Lint
         run: npm run lint:js
 
-  # Runs the CSS/SCSS coding standards checks.
+  # Runs the SCSS/CSS coding standards checks.
   #
   # CSS violations are not currently reported inline with annotations.
   #
@@ -176,7 +176,7 @@ jobs:
   # - Installs NPM dependencies using install-changed to hash the `package.json` file.
   # - Run the WordPress Stylelint checks.
   css-cs:
-    name: CSS/SCSS coding standards
+    name: SCSS/CSS coding standards
     runs-on: ubuntu-latest
 
     steps:
@@ -197,7 +197,7 @@ jobs:
       - name: Install Dependencies
         run: npm ci
 
-      - name: Run CSS/SCSS Lint
+      - name: Run SCSS/CSS Lint
         run: npm run lint:css
 
   # Runs the Markdown coding standards checks.
