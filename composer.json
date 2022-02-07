@@ -49,6 +49,7 @@
 		"lint:js": "npm run lint:js",
 		"lint:md:docs": "npm run lint:md:docs",
 		"lint:pkg-json": "npm run lint:pkg-json",
+		"build": "npm run build",
 		"scripts-list": "composer run-script --list"
 	},
 	"scripts-descriptions": {
@@ -63,6 +64,7 @@
 		"lint:js": "Run npm JS linter.",
 		"lint:md:docs": "Run npm MD linter.",
 		"lint:pkg-json": "Run npm package.json linter.",
+		"build": "Build CSS and JS with npm run build",
 		"scripts-list": "List all Composer scripts.",
 		"zip": "Build production zip archive."
 	}

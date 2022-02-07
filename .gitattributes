@@ -6,6 +6,7 @@
 /tests/                export-ignore
 
 # Exclude files from export
+/assets/css/*.scss     export-ignore
 /.distignore           export-ignore
 /.editorconfig         export-ignore
 /.eslintignore         export-ignore
