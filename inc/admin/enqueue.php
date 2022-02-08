@@ -24,35 +24,43 @@ if ( ! defined( 'ABSPATH' ) ) {
  * @return void
  */
 function wpt_customofile_load_admin_assets() {
-	$screen  = get_current_screen();
-	$css_ext = ( defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ) ? '.css' : '.min.css';
-	$js_ext  = ( defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ) ? '.js' : '.min.js';
+
+	// Check current screen.
+	$current_screen = get_current_screen();
+
+	// Only enqueue assets for WP-Custom-Mo-File tools page.
+	if ( 'tools_page_' . WPT_CUSTOMOFILE_SLUG !== $current_screen->base ) {
+		// Do nothing.
+		return;
+	}
+
+	$suffix = defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ? '' : '.min';
 
 	wp_register_style(
-		'wpt-customofile-styles',
-		WPT_CUSTOMOFILE_CSS_URL . 'wpt-customofile-styles' . $css_ext,
+		'wpt-customofile-admin-styles',
+		WPT_CUSTOMOFILE_CSS_URL . 'admin' . $suffix . '.css',
 		array(),
 		WPT_CUSTOMOFILE_VERSION
 	);
 
 	wp_register_style(
 		'data-tables-styles',
-		WPT_CUSTOMOFILE_CSS_URL . 'data-table' . $css_ext,
+		WPT_CUSTOMOFILE_CSS_URL . 'data-table' . $suffix . '.css',
 		array(),
 		'1.10.12'
 	);
 
 	wp_register_script(
 		'data-tables-scripts',
-		WPT_CUSTOMOFILE_JS_URL . 'jquery.dataTables' . $js_ext,
+		WPT_CUSTOMOFILE_LIB_URL . 'datatables/jquery.dataTables' . $suffix . '.js',
 		array( 'jquery' ),
 		'1.10.12',
 		true
 	);
 
 	wp_register_script(
-		'wpt-customofile-scripts',
-		WPT_CUSTOMOFILE_JS_URL . 'wpt-customofile-scripts' . $js_ext,
+		'wpt-customofile-admin-scripts',
+		WPT_CUSTOMOFILE_JS_URL . 'admin' . $suffix . '.js',
 		array( 'jquery' ),
 		WPT_CUSTOMOFILE_VERSION,
 		true
@@ -76,19 +84,20 @@ function wpt_customofile_load_admin_assets() {
 		'sSortDescending' => __( ': activate to sort column descending', 'wpt-custom-mo-file' ),
 	);
 
-	if ( 'tools_page_' . WPT_CUSTOMOFILE_SLUG === $screen->base ) {
+	// Enqueue styles.
+	wp_enqueue_style( 'wpt-customofile-admin-styles' );
+	wp_enqueue_style( 'data-tables-styles' );
 
-		wp_enqueue_style( 'wpt-customofile-styles' );
-		wp_enqueue_style( 'data-tables-styles' );
+	// Enqueue scripts.
+	wp_enqueue_script( 'wpt-customofile-admin-scripts' );
+	wp_enqueue_script( 'data-tables-scripts' );
 
-		wp_enqueue_script( 'data-tables-scripts' );
-		wp_enqueue_script( 'wpt-customofile-scripts' );
+	// Localize scripts.
+	wp_localize_script(
+		'wpt-customofile-admin-scripts',
+		'wptCustomMoFile',
+		$translation_datatable
+	);
 
-		wp_localize_script(
-			'wpt-customofile-scripts',
-			'wpt_customofile',
-			$translation_datatable
-		);
-	}
 }
 add_action( 'admin_print_styles', 'wpt_customofile_load_admin_assets' );
