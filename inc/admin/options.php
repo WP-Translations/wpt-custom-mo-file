@@ -25,8 +25,8 @@ if ( ! defined( 'ABSPATH' ) ) {
  */
 function wpt_customofile_admin_menu() {
 	add_management_page(
-		WPT_CUSTOMOFILE_NICE_NAME,
-		WPT_CUSTOMOFILE_NICE_NAME,
+		WPT_CUSTOMOFILE_PLUGIN_NAME,
+		WPT_CUSTOMOFILE_PLUGIN_NAME,
 		'manage_options',
 		WPT_CUSTOMOFILE_SLUG,
 		'wpt_customofile_tools_page'

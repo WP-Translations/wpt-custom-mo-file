@@ -30,9 +30,26 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 
-define( 'WPT_CUSTOMOFILE_VERSION', '1.1.0' );
+// Check if get_plugin_data() function exists.
+if ( ! function_exists( 'get_plugin_data' ) ) {
+	require_once ABSPATH . 'wp-admin/includes/plugin.php';
+}
+
+// Get plugin headers data.
+$wpt_customofile_data = get_plugin_data( __FILE__, false, false );
+
+// Set plugin version.
+if ( ! defined( 'WPT_CUSTOMOFILE_VERSION' ) ) {
+	define( 'WPT_CUSTOMOFILE_VERSION', $wpt_customofile_data['Version'] );
+}
+
+// Set plugin name.
+if ( ! defined( 'WPT_CUSTOMOFILE_PLUGIN_NAME' ) ) {
+	define( 'WPT_CUSTOMOFILE_PLUGIN_NAME', $wpt_customofile_data['Name'] );
+}
+
+
 define( 'WPT_CUSTOMOFILE_SLUG', 'wpt-custom-mo-file' );
-define( 'WPT_CUSTOMOFILE_NICE_NAME', 'WPT Custom Mo File' );
 define( 'WPT_CUSTOMOFILE_FILE', __FILE__ );
 define( 'WPT_CUSTOMOFILE_URL', plugin_dir_url( WPT_CUSTOMOFILE_FILE ) );
 define( 'WPT_CUSTOMOFILE_PATH', realpath( plugin_dir_path( WPT_CUSTOMOFILE_FILE ) ) . '/' );
