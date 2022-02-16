@@ -28,6 +28,7 @@
 	.wpt-header { // Page Header
 		padding: 24px 12px;
 		background: #0d5264;
+		color: #fff;
 
 		div {
 			display: flex;
@@ -44,7 +45,6 @@
 			&.wpt-calltoaction-link {
 				padding: 0.5em 1em;
 				background: rgba(0, 0, 0, 0.1);
-				color: #fff;
 				border: 2px solid #fff;
 				font-weight: 700;
 				font-size: 1.3rem;
@@ -60,7 +60,6 @@
 
 		p {
 			margin-bottom: 0;
-			color: #fff;
 
 			strong {
 				font-size: 1.2rem;
