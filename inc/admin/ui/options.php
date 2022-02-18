@@ -98,8 +98,9 @@ function wpt_customofile_tools_page() {
  * @return void
  */
 function wpt_customofile_section_rules_text() {
-	?>
-	<?php
+	/**
+	 * Intentionally left blank.
+	 */
 }
 
 

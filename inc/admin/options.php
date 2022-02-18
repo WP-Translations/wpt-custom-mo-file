@@ -75,14 +75,21 @@ function wpt_customofile_initialize_options() {
 		'wpt_customofile_rules',
 		'wpt_customofile_section_rules'
 	);
-	register_setting( 'wpt_customofile_options', 'wpt_customofile_options', 'wpt_customofile_add_rule_validate' );
+
+	register_setting(
+		'wpt_customofile_options',
+		'wpt_customofile_options',
+		array(
+			'sanitize_callback' => 'wpt_customofile_add_rule_validate',
+		)
+	);
 
 	if ( isset( $rules['rules'] ) && ! empty( $rules['rules'] ) ) {
 
 		add_settings_section(
 			'wpt_customofile_section_table',
 			'',
-			'',
+			'wpt_customofile_section_rules_text',
 			'wpt_customofile_rules_actions'
 		);
 
