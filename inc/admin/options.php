@@ -112,9 +112,9 @@ add_action( 'admin_init', 'wpt_customofile_initialize_options' );
  *
  * @since 1.0.0
  *
- * @param array $input   Get all settings admin page.
+ * @param array<mixed> $input   Get all settings admin page.
  *
- * @return array   Return validated values.
+ * @return array<mixed>   Return validated values.
  */
 function wpt_customofile_add_rule_validate( $input ) {
 	$options = get_option( 'wpt_customofile_options' );

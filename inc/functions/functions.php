@@ -21,9 +21,9 @@ if ( ! defined( 'ABSPATH' ) ) {
  *
  * @since 1.0.0
  *
- * @param array $upload_dir   Get upload_dir params.
+ * @param array<mixed> $upload_dir   Get upload_dir params.
  *
- * @return array   New directory subdir/path/url.
+ * @return array<mixed>   New directory subdir/path/url.
  */
 function wpt_customofile_filter_upload_dir( $upload_dir ) {
 	$upload_dir['subdir'] = '/wpt-custom-mo-file';
@@ -41,7 +41,7 @@ function wpt_customofile_filter_upload_dir( $upload_dir ) {
  *
  * @param string $value   Get concat value from button.
  *
- * @return array   Array text_domain/locale.
+ * @return array<mixed>   Array text_domain/locale.
  */
 function wpt_customofile_extract_textdomain_locale( $value ) {
 	list( $domain, $locale ) = explode( '|', $value );
