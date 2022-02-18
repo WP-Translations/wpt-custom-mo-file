@@ -6,6 +6,7 @@ WPT Custom Mo File is a powerful translation plugin that helps you use your own 
 [![WordPress Plugin Rating](https://img.shields.io/wordpress/plugin/stars/wpt-custom-mo-file?label=Plugin%20Rating&logo=wordpress)](https://wordpress.org/support/plugin/wpt-custom-mo-file/reviews/)
 [![WordPress Plugin Downloads](https://img.shields.io/wordpress/plugin/dt/wpt-custom-mo-file.svg?label=Downloads&logo=wordpress)](https://wordpress.org/plugins/wpt-custom-mo-file/advanced/)
 
+[![WordPress Plugin Required PHP Version](https://img.shields.io/wordpress/plugin/required-php/wpt-custom-mo-file?label=PHP%20Required&logo=php&logoColor=white)](https://wordpress.org/plugins/wpt-custom-mo-file/)
 [![WordPress Plugin: Required WP Version](https://img.shields.io/wordpress/plugin/wp-version/wpt-custom-mo-file?label=WordPress%20Required&logo=wordpress)](https://wordpress.org/plugins/wpt-custom-mo-file/)
 [![WordPress Plugin: Tested WP Version](https://img.shields.io/wordpress/plugin/tested/wpt-custom-mo-file.svg?label=WordPress%20Tested&logo=wordpress)](https://wordpress.org/plugins/wpt-custom-mo-file/)
 
@@ -28,7 +29,7 @@ Thanks to [Pixabay](https://pixabay.com/en/wood-cube-abc-cube-letters-473703/) f
 
 * PHP version 7.2 or greater (PHP 7.3 or greater is recommended)
 * MySQL version 5.0 or greater (MySQL 5.6 or greater is recommended)
-* WPT Custom Mo File 1.1 requires WordPress 5.3 or greater
+* WPT Custom Mo File 1.2 requires WordPress 5.3 or greater
 
 ### Automatic installation
 
@@ -79,7 +80,7 @@ Yes you can! Join in on our [GitHub repository](https://github.com/WP-Translatio
 
 ## Changelog
 
-### Unreleased
+### 1.2.0 - 18 Feb 2022
 
 * Tested up to WP 5.9
 * Minimum requirement: WP 5.3 and PHP 7.2
