@@ -121,10 +121,8 @@ function wpt_customofile_activation( $network_wide ) {
 
 	if ( is_multisite() && $network_wide ) {
 		global $wpdb;
-		// @codingStandardsIgnoreStart
-		foreach ( $wpdb->get_col( "SELECT blog_id FROM $wpdb->blogs" ) as $blog_id ) {
+		foreach ( $wpdb->get_col( "SELECT blog_id FROM $wpdb->blogs" ) as $blog_id ) { // phpcs:ignore WordPress.DB.DirectDatabaseQuery.DirectQuery,WordPress.DB.DirectDatabaseQuery.NoCaching
 			switch_to_blog( $blog_id );
-			// @codingStandardsIgnoreEnd
 			add_option( 'wpt_customofile_options', array() );
 			restore_current_blog();
 		}
@@ -156,9 +154,7 @@ function wpt_customofile_new_blog( $blog_id, $user_id, $domain, $path, $site_id,
 	unset( $user_id, $domain, $path, $site_id, $meta );
 
 	if ( is_plugin_active_for_network( WPT_CUSTOMOFILE_SLUG . '/' . WPT_CUSTOMOFILE_SLUG . '.php' ) ) {
-		// @codingStandardsIgnoreStart
 		switch_to_blog( $blog_id );
-		// @codingStandardsIgnoreEnd
 		add_option( 'wpt_customofile_options', '' );
 		restore_current_blog();
 	}

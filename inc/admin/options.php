@@ -160,9 +160,7 @@ function wpt_customofile_add_rule_validate( $input ) {
 
 	if ( isset( $input['delete_rule'] ) ) {
 		$data = wpt_customofile_extract_textdomain_locale( $input['delete_rule'] );
-		// @codingStandardsIgnoreStart
 		unlink( $options['rules'][ $data['locale'] ][ $data['text_domain'] ]['mo_path'] );
-		// @codingStandardsIgnoreEnd
 		unset( $options['rules'][ $data['locale'] ][ $data['text_domain'] ] );
 		add_settings_error( 'wpt_customofile_options', 'wpt-customofile-delete-rule', __( 'Rule successfull deleted', 'wpt-custom-mo-file' ), 'error' );
 	}
@@ -224,9 +222,7 @@ function wpt_customofile_add_rule_validate( $input ) {
 					case 'delete':
 						foreach ( $input['mo'] as $mo ) {
 							$data = wpt_customofile_extract_textdomain_locale( $mo );
-							// @codingStandardsIgnoreStart
 							unlink( $options['rules'][ $data['locale'] ][ $data['text_domain'] ]['mo_path'] );
-							// @codingStandardsIgnoreEnd
 							unset( $options['rules'][ $data['locale'] ][ $data['text_domain'] ] );
 						}
 						$message = sprintf(
