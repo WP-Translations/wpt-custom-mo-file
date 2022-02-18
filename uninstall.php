@@ -19,7 +19,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 if ( is_multisite() ) {
 
 	global $wpdb;
-	foreach ( $wpdb->get_col( "SELECT blog_id FROM $wpdb->blogs" ) as $blog_id ) { // phpcs:ignore WordPress.DB.DirectDatabaseQuery.DirectQuery,WordPress.DB.DirectDatabaseQuery.NoCaching
+	foreach ( $wpdb->get_col( "SELECT blog_id FROM $wpdb->blogs" ) as $blog_id ) { // phpcs:ignore WordPress.DB.DirectDatabaseQuery.DirectQuery,WordPress.DB.DirectDatabaseQuery.NoCaching,WordPress.WP.GlobalVariablesOverride.Prohibited
 		switch_to_blog( $blog_id );
 		delete_option( 'wpt_customofile_options' );
 		restore_current_blog();
@@ -58,8 +58,8 @@ function wpt_customofile_rrmdir( $dir ) {
 }
 
 
-$upload_dir = wp_upload_dir();
+$wpt_customofile_upload_dir = wp_upload_dir();
 
-$wpt_customofile_upload_dir = $upload_dir['basedir'] . '/wpt-custom-mo-file';
+$wpt_customofile_upload_dir = $wpt_customofile_upload_dir['basedir'] . '/wpt-custom-mo-file';
 
 wpt_customofile_rrmdir( $wpt_customofile_upload_dir );
