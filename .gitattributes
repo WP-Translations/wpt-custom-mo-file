@@ -10,7 +10,7 @@
 /.distignore           export-ignore
 /.editorconfig         export-ignore
 /.eslintignore         export-ignore
-/.eslint.json          export-ignore
+/.eslintrc.json        export-ignore
 /.gitattributes        export-ignore
 /.gitignore            export-ignore
 /.markdownlint.json    export-ignore

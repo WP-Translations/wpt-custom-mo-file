@@ -10,7 +10,7 @@ tests
 .distignore
 .editorconfig
 .eslintignore
-.eslint.json
+.eslintrc.json
 .gitattributes
 .gitignore
 .markdownlint.json
