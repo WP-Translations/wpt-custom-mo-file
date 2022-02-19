@@ -180,8 +180,8 @@ function wpt_customofile_add_rule_validate( $input ) {
 
 				$action     = ( isset( $input['action_top'] ) ) ? $input['bulk_action_top'] : $input['bulk_action_bottom'];
 				$count_task = count( $input['mo'] );
-				$message    = null;
-				$type       = null;
+				$message    = '';
+				$type       = '';
 
 				switch ( $action ) {
 					case 'activate':

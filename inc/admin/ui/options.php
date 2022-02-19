@@ -300,9 +300,11 @@ function wpt_customofile_rules_table_field() {
  */
 function wpt_customofile_filter_admin_footer_text( $text ) {
 
-	$screen = get_current_screen();
+	// Check current screen.
+	$current_screen = get_current_screen();
 
-	if ( 'tools_page_' . WPT_CUSTOMOFILE_SLUG !== $screen->base ) {
+	// Only filter footer text left for WP-Custom-Mo-File tools page.
+	if ( ! isset( $current_screen->base ) || 'tools_page_' . WPT_CUSTOMOFILE_SLUG !== $current_screen->base ) {
 		return $text;
 	} else {
 		$link_1 = '<a href="https://wp-translations.pro/" target="_blank">WP-Translations</a>';
@@ -348,9 +350,11 @@ add_filter( 'admin_footer_text', 'wpt_customofile_filter_admin_footer_text' );
  */
 function wpt_customofile_filter_update_footer( $text ) {
 
-	$screen = get_current_screen();
+	// Check current screen.
+	$current_screen = get_current_screen();
 
-	if ( 'tools_page_' . WPT_CUSTOMOFILE_SLUG !== $screen->base ) {
+	// Only filter footer text right for WP-Custom-Mo-File tools page.
+	if ( ! isset( $current_screen->base ) || 'tools_page_' . WPT_CUSTOMOFILE_SLUG !== $current_screen->base ) {
 		return $text;
 	} else {
 		$translate = sprintf( '<a class="wpt-customofile-footer-link" href="https://translate.wordpress.org/projects/wp-plugins/wpt-custom-mo-file" title="%s"><span class="dashicons dashicons-translation"></span></a>', esc_html__( 'Help us with Translations', 'wpt-custom-mo-file' ) );

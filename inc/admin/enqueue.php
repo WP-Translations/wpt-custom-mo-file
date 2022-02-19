@@ -29,7 +29,7 @@ function wpt_customofile_load_admin_assets() {
 	$current_screen = get_current_screen();
 
 	// Only enqueue assets for WP-Custom-Mo-File tools page.
-	if ( 'tools_page_' . WPT_CUSTOMOFILE_SLUG !== $current_screen->base ) {
+	if ( ! isset( $current_screen->base ) || 'tools_page_' . WPT_CUSTOMOFILE_SLUG !== $current_screen->base ) {
 		// Do nothing.
 		return;
 	}
