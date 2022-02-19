@@ -355,6 +355,7 @@ function wpt_customofile_filter_update_footer( $text ) {
 	} else {
 		$translate = sprintf( '<a class="wpt-customofile-footer-link" href="https://translate.wordpress.org/projects/wp-plugins/wpt-custom-mo-file" title="%s"><span class="dashicons dashicons-translation"></span></a>', esc_html__( 'Help us with Translations', 'wpt-custom-mo-file' ) );
 		$version   = sprintf(
+			/* translators: %s: Version number. */
 			esc_html__( 'Version:&nbsp;%s', 'wpt-custom-mo-file' ),
 			WPT_CUSTOMOFILE_VERSION
 		);
