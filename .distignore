@@ -10,7 +10,7 @@ tests
 .distignore
 .editorconfig
 .eslintignore
-.eslint.json
+.eslintrc.json
 .gitattributes
 .gitignore
 .markdownlint.json
@@ -25,4 +25,5 @@ phpcompat.xml
 phpcs.xml
 phpmd.xml
 phpstan.neon
+postcss.config.js
 README.md

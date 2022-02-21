@@ -19,10 +19,8 @@ if ( ! defined( 'ABSPATH' ) ) {
 if ( is_multisite() ) {
 
 	global $wpdb;
-	// @codingStandardsIgnoreStart
-	foreach ( $wpdb->get_col( "SELECT blog_id FROM $wpdb->blogs" ) as $blog_id ) {
+	foreach ( $wpdb->get_col( "SELECT blog_id FROM $wpdb->blogs" ) as $blog_id ) { // phpcs:ignore WordPress.DB.DirectDatabaseQuery.DirectQuery,WordPress.DB.DirectDatabaseQuery.NoCaching,WordPress.WP.GlobalVariablesOverride.Prohibited
 		switch_to_blog( $blog_id );
-		// @codingStandardsIgnoreEnd
 		delete_option( 'wpt_customofile_options' );
 		restore_current_blog();
 	}
@@ -42,9 +40,7 @@ if ( is_multisite() ) {
 function wpt_customofile_rrmdir( $dir ) {
 
 	if ( ! is_dir( $dir ) ) {
-		// @codingStandardsIgnoreStart
 		unlink( $dir );
-		// @codingStandardsIgnoreEnd
 		return;
 	}
 
@@ -52,22 +48,18 @@ function wpt_customofile_rrmdir( $dir ) {
 
 	if ( $globs ) {
 		foreach ( $globs as $file ) {
-			// @codingStandardsIgnoreStart
 			is_dir( $file ) ? wpt_customofile_rrmdir( $file ) : unlink( $file );
-			// @codingStandardsIgnoreEnd
 		}
 
 		// Unset unused variable.
 		unset( $globs );
 	}
-	// @codingStandardsIgnoreStart
 	rmdir( $dir );
-	// @codingStandardsIgnoreStart
 }
 
 
-$upload_dir = wp_upload_dir();
+$wpt_customofile_upload_dir = wp_upload_dir();
 
-$wpt_customofile_upload_dir = $upload_dir['basedir'] . '/wpt-custom-mo-file';
+$wpt_customofile_upload_dir = $wpt_customofile_upload_dir['basedir'] . '/wpt-custom-mo-file';
 
 wpt_customofile_rrmdir( $wpt_customofile_upload_dir );

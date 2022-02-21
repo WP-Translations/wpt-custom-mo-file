@@ -25,8 +25,8 @@ if ( ! defined( 'ABSPATH' ) ) {
  */
 function wpt_customofile_admin_menu() {
 	add_management_page(
-		WPT_CUSTOMOFILE_NICE_NAME,
-		WPT_CUSTOMOFILE_NICE_NAME,
+		WPT_CUSTOMOFILE_PLUGIN_NAME,
+		WPT_CUSTOMOFILE_PLUGIN_NAME,
 		'manage_options',
 		WPT_CUSTOMOFILE_SLUG,
 		'wpt_customofile_tools_page'
@@ -75,14 +75,21 @@ function wpt_customofile_initialize_options() {
 		'wpt_customofile_rules',
 		'wpt_customofile_section_rules'
 	);
-	register_setting( 'wpt_customofile_options', 'wpt_customofile_options', 'wpt_customofile_add_rule_validate' );
+
+	register_setting(
+		'wpt_customofile_options',
+		'wpt_customofile_options',
+		array(
+			'sanitize_callback' => 'wpt_customofile_add_rule_validate',
+		)
+	);
 
 	if ( isset( $rules['rules'] ) && ! empty( $rules['rules'] ) ) {
 
 		add_settings_section(
 			'wpt_customofile_section_table',
 			'',
-			'',
+			'wpt_customofile_section_rules_text',
 			'wpt_customofile_rules_actions'
 		);
 
@@ -105,9 +112,9 @@ add_action( 'admin_init', 'wpt_customofile_initialize_options' );
  *
  * @since 1.0.0
  *
- * @param array $input   Get all settings admin page.
+ * @param array<mixed> $input   Get all settings admin page.
  *
- * @return array   Return validated values.
+ * @return array<mixed>   Return validated values.
  */
 function wpt_customofile_add_rule_validate( $input ) {
 	$options = get_option( 'wpt_customofile_options' );
@@ -160,9 +167,7 @@ function wpt_customofile_add_rule_validate( $input ) {
 
 	if ( isset( $input['delete_rule'] ) ) {
 		$data = wpt_customofile_extract_textdomain_locale( $input['delete_rule'] );
-		// @codingStandardsIgnoreStart
 		unlink( $options['rules'][ $data['locale'] ][ $data['text_domain'] ]['mo_path'] );
-		// @codingStandardsIgnoreEnd
 		unset( $options['rules'][ $data['locale'] ][ $data['text_domain'] ] );
 		add_settings_error( 'wpt_customofile_options', 'wpt-customofile-delete-rule', __( 'Rule successfull deleted', 'wpt-custom-mo-file' ), 'error' );
 	}
@@ -175,8 +180,8 @@ function wpt_customofile_add_rule_validate( $input ) {
 
 				$action     = ( isset( $input['action_top'] ) ) ? $input['bulk_action_top'] : $input['bulk_action_bottom'];
 				$count_task = count( $input['mo'] );
-				$message    = null;
-				$type       = null;
+				$message    = '';
+				$type       = '';
 
 				switch ( $action ) {
 					case 'activate':
@@ -224,9 +229,7 @@ function wpt_customofile_add_rule_validate( $input ) {
 					case 'delete':
 						foreach ( $input['mo'] as $mo ) {
 							$data = wpt_customofile_extract_textdomain_locale( $mo );
-							// @codingStandardsIgnoreStart
 							unlink( $options['rules'][ $data['locale'] ][ $data['text_domain'] ]['mo_path'] );
-							// @codingStandardsIgnoreEnd
 							unset( $options['rules'][ $data['locale'] ][ $data['text_domain'] ] );
 						}
 						$message = sprintf(

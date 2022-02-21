@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: WPT Custom Mo File\n"
-"POT-Creation-Date: 2016-11-29 09:41+0000\n"
-"PO-Revision-Date: 2016-11-29 09:41+0000\n"
+"POT-Creation-Date: 2022-02-19 10:10+0000\n"
+"PO-Revision-Date: 2022-02-19 10:10+0000\n"
 "Last-Translator: Pedro Mendonça <ped.gaspar@gmail.com>\n"
 "Language-Team: Pedro Mendonça <ped.gaspar@gmail.com>\n"
 "Language: pt_PT\n"
@@ -10,231 +10,234 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 1.8.11\n"
+"X-Generator: Poedit 2.4.2\n"
 "X-Poedit-Basepath: ..\n"
 "X-Poedit-WPHeader: wpt-custom-mo-file.php\n"
 "X-Poedit-SourceCharset: UTF-8\n"
-"X-Poedit-KeywordsList: __;_e;_n:1,2;_x:1,2c;_ex:1,2c;_nx:4c,1,2;esc_attr__;"
-"esc_attr_e;esc_attr_x:1,2c;esc_html__;esc_html_e;esc_html_x:1,2c;_n_noop:1,2;"
-"_nx_noop:3c,1,2;__ngettext_noop:1,2\n"
+"X-Poedit-KeywordsList: __;_e;_n:1,2;_x:1,2c;_ex:1,2c;_nx:4c,1,2;esc_attr__;esc_attr_e;esc_attr_x:1,2c;esc_html__;esc_html_e;esc_html_x:1,2c;_n_noop:1,2;_nx_noop:3c,1,2;__ngettext_noop:1,2\n"
 "X-Poedit-SearchPath-0: .\n"
 "X-Poedit-SearchPathExcluded-0: *.js\n"
 
-#: inc/admin/enqueue.php:56
+#: inc/admin/enqueue.php:70
 msgid "No data available in table"
 msgstr "Sem dados disponíveis na tabela"
 
-#: inc/admin/enqueue.php:57
-msgctxt "Please don't translate: _START_ _END_ _TOTAL_"
+#: inc/admin/enqueue.php:71
+msgctxt "Please do not translate: _START_ _END_ _TOTAL_"
 msgid "Showing _START_ to _END_ of _TOTAL_ entries"
-msgstr "A mostrar de _START_ a _END_ de _TOTAL_ entradas"
+msgstr "A mostrar _START_ a _END_ do total de _TOTAL_ entradas"
 
-#: inc/admin/enqueue.php:58
+#: inc/admin/enqueue.php:72
 msgid "Showing 0 to 0 of 0 entries"
 msgstr "A mostrar de 0 a 0 de 0 entradas"
 
-#: inc/admin/enqueue.php:59
-msgctxt "Please don't translate: _MAX_"
+#: inc/admin/enqueue.php:73
+msgctxt "Please do not translate: _MAX_"
 msgid "filtered from _MAX_ total entries"
 msgstr "filtradas de um total de _MAX_ entradas"
 
-#: inc/admin/enqueue.php:60
-msgctxt "Please don't translate: _MENU_"
+#: inc/admin/enqueue.php:74
+msgctxt "Please do not translate: _MENU_"
 msgid "Show _MENU_ entries"
-msgstr "Mostrar _MENU_ entradas"
+msgstr "Mostrar entradas de _MENU_"
 
-#: inc/admin/enqueue.php:61
+#: inc/admin/enqueue.php:75
 msgid "Loading..."
 msgstr "A carregar..."
 
-#: inc/admin/enqueue.php:62
+#: inc/admin/enqueue.php:76
 msgid "Processing..."
 msgstr "A processar..."
 
-#: inc/admin/enqueue.php:63
+#: inc/admin/enqueue.php:77
 msgid "Search:"
 msgstr "Procurar:"
 
-#: inc/admin/enqueue.php:64
+#: inc/admin/enqueue.php:78
 msgid "No matching records found"
 msgstr "Não foram encontrados registos correspondentes"
 
-#: inc/admin/enqueue.php:65
+#: inc/admin/enqueue.php:79
 msgid "First"
 msgstr "Primeira"
 
-#: inc/admin/enqueue.php:66
+#: inc/admin/enqueue.php:80
 msgid "Last"
 msgstr "Última"
 
-#: inc/admin/enqueue.php:67
+#: inc/admin/enqueue.php:81
 msgid "Next"
 msgstr "Seguinte"
 
-#: inc/admin/enqueue.php:68
+#: inc/admin/enqueue.php:82
 msgid "Previous"
 msgstr "Anterior"
 
-#: inc/admin/enqueue.php:69
+#: inc/admin/enqueue.php:83
 msgid ": activate to sort column ascending"
 msgstr ": activar para ordenar a coluna em modo ascendente"
 
-#: inc/admin/enqueue.php:70
+#: inc/admin/enqueue.php:84
 msgid ": activate to sort column descending"
 msgstr ": activar para ordenar a coluna em modo descendente"
 
-#: inc/admin/options.php:48
-msgid "Select a text domain"
-msgstr "Seleccione um text domain"
+#: inc/admin/options.php:57 inc/admin/ui/options.php:218
+#: inc/admin/ui/options.php:265
+msgid "Text domain"
+msgstr "Text domain"
 
-#: inc/admin/options.php:56
-msgid "Select a language"
-msgstr "Seleccione um idioma"
+#: inc/admin/options.php:65 inc/admin/ui/options.php:219
+#: inc/admin/ui/options.php:266
+msgid "Language"
+msgstr "Idioma"
 
-#: inc/admin/options.php:64
-msgid "Upload a custom .mo file"
-msgstr "Carregue um ficheiro .mo personalizado"
+#: inc/admin/options.php:73
+msgid "Custom language file"
+msgstr "Ficheiro de idioma personalizado"
 
-#: inc/admin/options.php:82
+#: inc/admin/options.php:98
 msgid "Rules"
 msgstr "Regras"
 
-#: inc/admin/options.php:130
+#: inc/admin/options.php:149
 msgid "Rule saved!"
 msgstr "Regra guardada!"
 
-#: inc/admin/options.php:140
+#: inc/admin/options.php:159
 msgid "Rule successfull deactivated"
 msgstr "Regra desactivada com sucesso"
 
-#: inc/admin/options.php:146
+#: inc/admin/options.php:165
 msgid "Rule successfull activated"
 msgstr "Regra activada com sucesso"
 
-#: inc/admin/options.php:155
+#: inc/admin/options.php:172
 msgid "Rule successfull deleted"
 msgstr "Regra eliminada com sucesso"
 
-#: inc/admin/options.php:173
+#: inc/admin/options.php:196
 #, php-format
 msgid "%d rule successfully activated."
 msgid_plural "%d rules successfully activated."
 msgstr[0] "%d regra activada com sucesso."
 msgstr[1] "%d regras activadas com sucesso."
 
-#: inc/admin/options.php:182
+#: inc/admin/options.php:217
 #, php-format
 msgid "%d rule successfully deactivated."
 msgid_plural "%d rules successfully deactivated."
 msgstr[0] "%d regra desactivada com sucesso."
 msgstr[1] "%d regras desactivadas com sucesso."
 
-#: inc/admin/options.php:194
+#: inc/admin/options.php:239
 #, php-format
 msgid "%d rule successfully deleted."
 msgid_plural "%d rules successfully deleted."
 msgstr[0] "%d regra eliminada com sucesso."
 msgstr[1] "%d regras eliminadas com sucesso."
 
-#: inc/admin/options.php:201
+#: inc/admin/options.php:254
 msgid "Please select a rule before running bulk action"
 msgstr "Por favor, seleccione uma regra antes de executar acções por lotes"
 
-#: inc/admin/options.php:204
+#: inc/admin/options.php:257
 msgid "Please select a action before"
 msgstr "Por favor, seleccione primeiro uma acção"
 
-#: inc/admin/ui/options.php:30
+#: inc/admin/ui/options.php:42
+msgid "Join us"
+msgstr "Junta-te à nós"
+
+#: inc/admin/ui/options.php:55
+msgid "Create, activate, desactivate your own set of rules to get full control of any translations in your WordPress installation."
+msgstr "Criar, activar, desactivar o seu próprio conjunto de regras para ter controlo completo sobre quaisquer traduções na sua instalação WordPress."
+
+#: inc/admin/ui/options.php:58
+msgctxt "Company name, don't translate"
+msgid "WP-Translations"
+msgstr "WP-Translations"
+
+#: inc/admin/ui/options.php:67 inc/admin/ui/options.php:70
 msgid "Add new rule"
 msgstr "Adicionar nova regra"
 
-#: inc/admin/ui/options.php:32
+#: inc/admin/ui/options.php:77
 msgid "There is no available textdomain."
 msgstr "Não há nenhum text domain disponível."
 
-#: inc/admin/ui/options.php:48
-msgid ""
-"Create, activate, desactivate your own set of rules to get full control of "
-"any translations in your WordPress installation."
-msgstr ""
-"Criar, activar, desactivar o seu próprio conjunto de regras para ter "
-"controlo completo sobre quaisquer traduções na sua instalação WordPress."
+#: inc/admin/ui/options.php:122
+#, php-format
+msgid "Please upload a binary language file for this rule. For example %s."
+msgstr "Carregue um ficheiro binário de idioma para esta regra. Por exemplo, %s."
 
-#: inc/admin/ui/options.php:110 inc/admin/ui/options.php:173
+#: inc/admin/ui/options.php:126
+msgid "my-custom-language-file.mo"
+msgstr "meu-ficheiro-idioma-personalizado.mo"
+
+#: inc/admin/ui/options.php:200 inc/admin/ui/options.php:275
 msgid "Select bulk action"
 msgstr "Seleccionar acção por lotes"
 
-#: inc/admin/ui/options.php:112 inc/admin/ui/options.php:175
+#: inc/admin/ui/options.php:202 inc/admin/ui/options.php:277
 msgid "Bulk actions"
 msgstr "Acções por lotes"
 
-#: inc/admin/ui/options.php:113 inc/admin/ui/options.php:149
-#: inc/admin/ui/options.php:176
+#: inc/admin/ui/options.php:203 inc/admin/ui/options.php:246
+#: inc/admin/ui/options.php:278
 msgid "Activate"
 msgstr "Activar"
 
-#: inc/admin/ui/options.php:114 inc/admin/ui/options.php:147
-#: inc/admin/ui/options.php:177
+#: inc/admin/ui/options.php:204 inc/admin/ui/options.php:242
+#: inc/admin/ui/options.php:279
 msgid "Deactivate"
 msgstr "Desactivar"
 
-#: inc/admin/ui/options.php:115 inc/admin/ui/options.php:178
+#: inc/admin/ui/options.php:205 inc/admin/ui/options.php:280
 msgid "Delete"
 msgstr "Eliminar"
 
-#: inc/admin/ui/options.php:117 inc/admin/ui/options.php:180
+#: inc/admin/ui/options.php:207 inc/admin/ui/options.php:282
 msgid "Apply"
 msgstr "Aplicar"
 
-#: inc/admin/ui/options.php:125
+#: inc/admin/ui/options.php:215 inc/admin/ui/options.php:262
 msgid "Select All"
 msgstr "Seleccionar tudo"
 
-#: inc/admin/ui/options.php:128 inc/admin/ui/options.php:163
-msgid "Text domain"
-msgstr "Text domain"
-
-#: inc/admin/ui/options.php:129 inc/admin/ui/options.php:164
-msgid "Language"
-msgstr "Idioma"
-
-#: inc/admin/ui/options.php:130 inc/admin/ui/options.php:165
+#: inc/admin/ui/options.php:220 inc/admin/ui/options.php:267
 msgid "Filename"
 msgstr "Nome do ficheiro"
 
-#: inc/admin/ui/options.php:131 inc/admin/ui/options.php:166
+#: inc/admin/ui/options.php:221 inc/admin/ui/options.php:268
 msgid "Actions"
 msgstr "Acções"
 
-#: inc/admin/ui/options.php:137
-msgid "active"
-msgstr "activa"
-
-#: inc/admin/ui/options.php:139
+#: inc/admin/ui/options.php:232
 msgid "Select&nbsp;"
 msgstr "Seleccionar&nbsp;"
 
-#: inc/admin/ui/options.php:151
+#: inc/admin/ui/options.php:250
 msgid "Delete rule"
 msgstr "Eliminar regra"
 
-#: inc/admin/ui/options.php:205
+#: inc/admin/ui/options.php:321
 msgctxt "Please do not translate [stars] and [wp.org]"
 msgid "Add your [stars] on [wp.org] to spread the love."
 msgstr "Adicione as suas [stars] em [wp.org] para espalhar a palavra."
 
-#: inc/admin/ui/options.php:207
+#: inc/admin/ui/options.php:329
 #, php-format
 msgid "Visit %1$s Community website | %2$sContact Support%3$s | %4$s"
 msgstr "Visite o site da comunidade %1$s | %2$sContacte o suporte%3$s | %4$s"
 
-#: inc/admin/ui/options.php:224
+#: inc/admin/ui/options.php:356
 msgid "Help us with Translations"
 msgstr "Ajude-nos com as traduções"
 
-#: inc/admin/ui/options.php:225
-msgid "Version:&nbsp;"
-msgstr "Versão:&nbsp;"
+#: inc/admin/ui/options.php:358
+#, php-format
+msgid "Version:&nbsp;%s"
+msgstr "Versão:&nbsp;%s"
 
 #. Plugin Name of the plugin/theme
 msgid "WPT Custom Mo File"
@@ -245,16 +248,12 @@ msgid "https://wordpress.org/plugins/wpt-custom-mo-file/"
 msgstr "https://wordpress.org/plugins/wpt-custom-mo-file/"
 
 #. Description of the plugin/theme
-msgid ""
-"A powerful WordPress plugin that let you use your own translation .mo files. "
-"Simple as that."
-msgstr ""
-"Um plugin poderoso para WordPress que lhe permite usar os seus próprios "
-"ficheiros .mo de tradução. Tão simples quanto isto."
+msgid "A powerful WordPress plugin that let you use your own translation .mo files. Simple as that."
+msgstr "Um plugin poderoso para WordPress que lhe permite usar os seus próprios ficheiros .mo de tradução. Tão simples quanto isto."
 
 #. Author of the plugin/theme
 msgid "WP-Translations Team"
-msgstr "WP-Translations Team"
+msgstr "Equipa WP-Translations"
 
 #. Author URI of the plugin/theme
 msgid "https://wp-translations.pro/"

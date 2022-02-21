@@ -50,7 +50,10 @@ function wpt_customofile_tools_page() {
 				?>
 
 			</div>
-			<p><strong><?php echo esc_html( WPT_CUSTOMOFILE_NICE_NAME ); ?></strong> - <?php esc_html_e( 'Create, activate, desactivate your own set of rules to get full control of any translations in your WordPress installation.', 'wpt-custom-mo-file' ); ?></p>
+			<p>
+				<strong><?php echo esc_html( WPT_CUSTOMOFILE_PLUGIN_NAME ); ?></strong><br>
+				<?php esc_html_e( 'Create, activate, desactivate your own set of rules to get full control of any translations in your WordPress installation.', 'wpt-custom-mo-file' ); ?>
+			</p>
 		</header>
 		<h2 class="screen-reader-text" style="margin:0;"><?php echo esc_html_x( 'WP-Translations', 'Company name, don\'t translate', 'wpt-custom-mo-file' ); ?></h2>
 		<?php settings_errors(); ?>
@@ -95,8 +98,9 @@ function wpt_customofile_tools_page() {
  * @return void
  */
 function wpt_customofile_section_rules_text() {
-	?>
-	<?php
+	/**
+	 * Intentionally left blank.
+	 */
 }
 
 
@@ -296,9 +300,11 @@ function wpt_customofile_rules_table_field() {
  */
 function wpt_customofile_filter_admin_footer_text( $text ) {
 
-	$screen = get_current_screen();
+	// Check current screen.
+	$current_screen = get_current_screen();
 
-	if ( 'tools_page_' . WPT_CUSTOMOFILE_SLUG !== $screen->base ) {
+	// Only filter footer text left for WP-Custom-Mo-File tools page.
+	if ( ! isset( $current_screen->base ) || 'tools_page_' . WPT_CUSTOMOFILE_SLUG !== $current_screen->base ) {
 		return $text;
 	} else {
 		$link_1 = '<a href="https://wp-translations.pro/" target="_blank">WP-Translations</a>';
@@ -344,13 +350,19 @@ add_filter( 'admin_footer_text', 'wpt_customofile_filter_admin_footer_text' );
  */
 function wpt_customofile_filter_update_footer( $text ) {
 
-	$screen = get_current_screen();
+	// Check current screen.
+	$current_screen = get_current_screen();
 
-	if ( 'tools_page_' . WPT_CUSTOMOFILE_SLUG !== $screen->base ) {
+	// Only filter footer text right for WP-Custom-Mo-File tools page.
+	if ( ! isset( $current_screen->base ) || 'tools_page_' . WPT_CUSTOMOFILE_SLUG !== $current_screen->base ) {
 		return $text;
 	} else {
 		$translate = sprintf( '<a class="wpt-customofile-footer-link" href="https://translate.wordpress.org/projects/wp-plugins/wpt-custom-mo-file" title="%s"><span class="dashicons dashicons-translation"></span></a>', esc_html__( 'Help us with Translations', 'wpt-custom-mo-file' ) );
-		$version   = esc_html__( 'Version:&nbsp;', 'wpt-custom-mo-file' ) . WPT_CUSTOMOFILE_VERSION;
+		$version   = sprintf(
+			/* translators: %s: Version number. */
+			esc_html__( 'Version:&nbsp;%s', 'wpt-custom-mo-file' ),
+			WPT_CUSTOMOFILE_VERSION
+		);
 		return $translate . $version;
 	}
 }

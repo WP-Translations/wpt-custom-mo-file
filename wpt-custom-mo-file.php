@@ -11,7 +11,7 @@
  * Plugin Name:       WPT Custom Mo File
  * Plugin URI:        https://wordpress.org/plugins/wpt-custom-mo-file/
  * Description:       A powerful WordPress plugin that let you use your own translation .mo files. Simple as that.
- * Version:           1.1.0
+ * Version:           1.2.0
  * Requires at least: 5.3
  * Tested up to:      5.9
  * Requires PHP:      7.2
@@ -30,9 +30,26 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 
-define( 'WPT_CUSTOMOFILE_VERSION', '1.1.0' );
+// Check if get_plugin_data() function exists.
+if ( ! function_exists( 'get_plugin_data' ) ) {
+	require_once ABSPATH . 'wp-admin/includes/plugin.php';
+}
+
+// Get plugin headers data.
+$wpt_customofile_data = get_plugin_data( __FILE__, false, false );
+
+// Set plugin version.
+if ( ! defined( 'WPT_CUSTOMOFILE_VERSION' ) ) {
+	define( 'WPT_CUSTOMOFILE_VERSION', $wpt_customofile_data['Version'] );
+}
+
+// Set plugin name.
+if ( ! defined( 'WPT_CUSTOMOFILE_PLUGIN_NAME' ) ) {
+	define( 'WPT_CUSTOMOFILE_PLUGIN_NAME', $wpt_customofile_data['Name'] );
+}
+
+
 define( 'WPT_CUSTOMOFILE_SLUG', 'wpt-custom-mo-file' );
-define( 'WPT_CUSTOMOFILE_NICE_NAME', 'WPT Custom Mo File' );
 define( 'WPT_CUSTOMOFILE_FILE', __FILE__ );
 define( 'WPT_CUSTOMOFILE_URL', plugin_dir_url( WPT_CUSTOMOFILE_FILE ) );
 define( 'WPT_CUSTOMOFILE_PATH', realpath( plugin_dir_path( WPT_CUSTOMOFILE_FILE ) ) . '/' );
@@ -104,10 +121,8 @@ function wpt_customofile_activation( $network_wide ) {
 
 	if ( is_multisite() && $network_wide ) {
 		global $wpdb;
-		// @codingStandardsIgnoreStart
-		foreach ( $wpdb->get_col( "SELECT blog_id FROM $wpdb->blogs" ) as $blog_id ) {
+		foreach ( $wpdb->get_col( "SELECT blog_id FROM $wpdb->blogs" ) as $blog_id ) { // phpcs:ignore WordPress.DB.DirectDatabaseQuery.DirectQuery,WordPress.DB.DirectDatabaseQuery.NoCaching
 			switch_to_blog( $blog_id );
-			// @codingStandardsIgnoreEnd
 			add_option( 'wpt_customofile_options', array() );
 			restore_current_blog();
 		}
@@ -139,9 +154,7 @@ function wpt_customofile_new_blog( $blog_id, $user_id, $domain, $path, $site_id,
 	unset( $user_id, $domain, $path, $site_id, $meta );
 
 	if ( is_plugin_active_for_network( WPT_CUSTOMOFILE_SLUG . '/' . WPT_CUSTOMOFILE_SLUG . '.php' ) ) {
-		// @codingStandardsIgnoreStart
 		switch_to_blog( $blog_id );
-		// @codingStandardsIgnoreEnd
 		add_option( 'wpt_customofile_options', '' );
 		restore_current_blog();
 	}

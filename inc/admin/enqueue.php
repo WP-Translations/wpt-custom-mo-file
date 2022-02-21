@@ -29,7 +29,7 @@ function wpt_customofile_load_admin_assets() {
 	$current_screen = get_current_screen();
 
 	// Only enqueue assets for WP-Custom-Mo-File tools page.
-	if ( 'tools_page_' . WPT_CUSTOMOFILE_SLUG !== $current_screen->base ) {
+	if ( ! isset( $current_screen->base ) || 'tools_page_' . WPT_CUSTOMOFILE_SLUG !== $current_screen->base ) {
 		// Do nothing.
 		return;
 	}
@@ -51,18 +51,18 @@ function wpt_customofile_load_admin_assets() {
 	);
 
 	wp_register_script(
-		'data-tables-scripts',
-		WPT_CUSTOMOFILE_LIB_URL . 'datatables/jquery.dataTables' . $suffix . '.js',
-		array( 'jquery' ),
-		'1.10.12',
-		true
-	);
-
-	wp_register_script(
 		'wpt-customofile-admin-scripts',
 		WPT_CUSTOMOFILE_JS_URL . 'admin' . $suffix . '.js',
 		array( 'jquery' ),
 		WPT_CUSTOMOFILE_VERSION,
+		true
+	);
+
+	wp_register_script(
+		'data-tables-scripts',
+		WPT_CUSTOMOFILE_LIB_URL . 'datatables/jquery.dataTables' . $suffix . '.js',
+		array( 'jquery' ),
+		'1.10.12',
 		true
 	);
 
