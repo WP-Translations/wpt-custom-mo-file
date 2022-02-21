@@ -29,6 +29,7 @@
 		padding: 24px 12px;
 		background: #0d5264;
 		color: #fff;
+		margin-bottom: 1em;
 
 		div {
 			display: flex;
@@ -67,15 +68,17 @@
 		}
 	}
 
-	.wpt-box.postbox { // Form
-		margin-top: 1em;
+	form {
 
-		h2 {
-			font-size: 14px;
-			line-height: 1.4;
-			margin: 0;
-			padding: 8px 12px;
-			border-bottom: 1px solid #eee;
+		.wpt-box.postbox { // Form
+
+			h2 {
+				font-size: 14px;
+				line-height: 1.4;
+				margin: 0;
+				padding: 8px 12px;
+				border-bottom: 1px solid #eee;
+			}
 		}
 	}
 
