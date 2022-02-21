@@ -27,6 +27,7 @@
 	padding: 24px 12px;
 	background: #0d5264;
 	color: #fff;
+	margin-bottom: 1em;
 }
 
 .wpt-customofile-options-page .wpt-header div {
@@ -61,11 +62,7 @@
 	font-size: 1.2rem;
 }
 
-.wpt-customofile-options-page .wpt-box.postbox {
-	margin-top: 1em;
-}
-
-.wpt-customofile-options-page .wpt-box.postbox h2 {
+.wpt-customofile-options-page form .wpt-box.postbox h2 {
 	font-size: 14px;
 	line-height: 1.4;
 	margin: 0;
