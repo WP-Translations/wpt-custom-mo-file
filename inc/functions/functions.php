@@ -76,12 +76,18 @@ function wpt_customofile_upload_dir_prepare( $upload_dir_path ) {
  *
  * @param string $value   Get concat value from button.
  *
- * @return array<mixed>   Array text_domain/locale.
+ * @return array{
+ *             text_domain: string,
+ *             locale: string,
+ *         }   Array text_domain/locale.
  */
 function wpt_customofile_extract_textdomain_locale( $value ) {
+
 	list( $domain, $locale ) = explode( '|', $value );
+
 	return array(
 		'text_domain' => $domain,
 		'locale'      => $locale,
 	);
+
 }

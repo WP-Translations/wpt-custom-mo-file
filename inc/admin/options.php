@@ -43,6 +43,7 @@ add_action( 'admin_menu', 'wpt_customofile_admin_menu' );
  * @return void
  */
 function wpt_customofile_initialize_options() {
+
 	$rules = get_option( 'wpt_customofile_options' );
 
 	add_settings_section(
@@ -84,7 +85,7 @@ function wpt_customofile_initialize_options() {
 		)
 	);
 
-	if ( isset( $rules['rules'] ) && ! empty( $rules['rules'] ) ) {
+	if ( is_array( $rules ) && isset( $rules['rules'] ) && ! empty( $rules['rules'] ) ) {
 
 		add_settings_section(
 			'wpt_customofile_section_table',
@@ -117,13 +118,32 @@ add_action( 'admin_init', 'wpt_customofile_initialize_options' );
  * @return array<mixed>   Return validated values.
  */
 function wpt_customofile_add_rule_validate( $input ) {
+
+	// Check all input keys.
+	$input['text_domain']              = isset( $input['text_domain'] ) ? $input['text_domain'] : null;
+	$input['language']                 = empty( $input['language'] ) ? 'en_US' : $input['language'];
+	$input['wpt-customofile-add-rule'] = isset( $input['wpt-customofile-add-rule'] ) ? $input['wpt-customofile-add-rule'] : null;
+	$input['bulk_action_top']          = isset( $input['bulk_action_top'] ) ? $input['bulk_action_top'] : null;
+	$input['bulk_action_bottom']       = isset( $input['bulk_action_bottom'] ) ? $input['bulk_action_bottom'] : null;
+	$input['action_top']               = isset( $input['action_top'] ) ? true : false;
+	$input['action_bottom']            = isset( $input['action_bottom'] ) ? true : false;
+	$input['deactivate_rule']          = isset( $input['deactivate_rule'] ) ? $input['deactivate_rule'] : null;
+	$input['activate_rule']            = isset( $input['activate_rule'] ) ? $input['activate_rule'] : null;
+	$input['delete_rule']              = isset( $input['delete_rule'] ) ? $input['delete_rule'] : null;
+	$input['mo']                       = is_array( $input['mo'] ) ? $input['mo'] : array();
+
 	$options = get_option( 'wpt_customofile_options' );
+
+	// Check if plugin setting exist and is array.
+	if ( ! is_array( $options ) ) {
+		$options = array();
+	}
 
 	if ( ! function_exists( 'wp_handle_upload' ) ) {
 		require_once ABSPATH . 'wp-admin/includes/file.php';
 	}
 
-	if ( isset( $input['wpt-customofile-add-rule'] ) && isset( $_FILES['wpt_customofile_mo_file']['name'] ) ) {
+	if ( $input['wpt-customofile-add-rule'] && isset( $_FILES['wpt_customofile_mo_file']['name'] ) ) {
 
 		add_filter( 'upload_dir', 'wpt_customofile_filter_upload_dir' );
 		$mo_file = wp_handle_upload(
@@ -134,8 +154,6 @@ function wpt_customofile_add_rule_validate( $input ) {
 			)
 		);
 		remove_filter( 'upload_dir', 'wpt_customofile_filter_upload_dir' );
-
-		$input['language'] = ( empty( $input['language'] ) ) ? 'en_US' : $input['language'];
 
 		if ( $mo_file && empty( $mo_file['error'] ) ) {
 			$new_rules = array(
@@ -153,32 +171,32 @@ function wpt_customofile_add_rule_validate( $input ) {
 		}
 	}
 
-	if ( isset( $input['deactivate_rule'] ) ) {
-		$data = wpt_customofile_extract_textdomain_locale( $input['deactivate_rule'] );
+	if ( $input['deactivate_rule'] ) {
+		$data = wpt_customofile_extract_textdomain_locale( strval( $input['deactivate_rule'] ) );
 		$options['rules'][ $data['locale'] ][ $data['text_domain'] ]['activate'] = 0;
 		add_settings_error( 'wpt_customofile_options', 'wpt-customofile-deactivate-rule', __( 'Rule successfull deactivated', 'wpt-custom-mo-file' ), 'updated' );
 	}
 
-	if ( isset( $input['activate_rule'] ) ) {
-		$data = wpt_customofile_extract_textdomain_locale( $input['activate_rule'] );
+	if ( $input['activate_rule'] ) {
+		$data = wpt_customofile_extract_textdomain_locale( strval( $input['activate_rule'] ) );
 		$options['rules'][ $data['locale'] ][ $data['text_domain'] ]['activate'] = 1;
 		add_settings_error( 'wpt_customofile_options', 'wpt-customofile-activate-rule', __( 'Rule successfull activated', 'wpt-custom-mo-file' ), 'updated' );
 	}
 
-	if ( isset( $input['delete_rule'] ) ) {
-		$data = wpt_customofile_extract_textdomain_locale( $input['delete_rule'] );
+	if ( $input['delete_rule'] ) {
+		$data = wpt_customofile_extract_textdomain_locale( strval( $input['delete_rule'] ) );
 		unlink( $options['rules'][ $data['locale'] ][ $data['text_domain'] ]['mo_path'] );
 		unset( $options['rules'][ $data['locale'] ][ $data['text_domain'] ] );
 		add_settings_error( 'wpt_customofile_options', 'wpt-customofile-delete-rule', __( 'Rule successfull deleted', 'wpt-custom-mo-file' ), 'error' );
 	}
 
-	if ( isset( $input['action_top'] ) || isset( $input['action_bottom'] ) ) {
+	if ( $input['action_top'] || $input['action_bottom'] ) {
 
 		if ( '-1' !== $input['bulk_action_top'] || '-1' !== $input['bulk_action_bottom'] ) {
 
 			if ( ! empty( $input['mo'] ) ) {
 
-				$action     = ( isset( $input['action_top'] ) ) ? $input['bulk_action_top'] : $input['bulk_action_bottom'];
+				$action     = ( $input['action_top'] ) ? $input['bulk_action_top'] : $input['bulk_action_bottom'];
 				$count_task = count( $input['mo'] );
 				$message    = '';
 				$type       = '';
