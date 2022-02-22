@@ -82,7 +82,7 @@ Yes you can! Join in on our [GitHub repository](https://github.com/WP-Translatio
 
 == Changelog ==
 
-= 1.2.0 - 18 Feb 2022 =
+= 1.2.0 - 22 Feb 2022 =
 * Tested up to WP 5.9
 * Minimum requirement: WP 5.3 and PHP 7.2
 * Update assets
