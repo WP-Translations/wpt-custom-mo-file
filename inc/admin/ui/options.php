@@ -113,7 +113,7 @@ function wpt_customofile_section_rules_text() {
  */
 function wpt_customofile_upload_mo_file_field() {
 	?>
-	<input id="wpt_customofile_upload_mo_file" name="wpt_customofile_mo_file" type="file">
+	<input id="wpt_customofile_upload_mo_file" name="wpt_customofile_mo_file" type="file" accept=".mo">
 	<p class="description">
 		<?php
 		echo wp_kses_post(
