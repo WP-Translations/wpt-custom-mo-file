@@ -1,6 +1,6 @@
 <?php
 /**
- * PHPStan bootstrap file
+ * PHPStan bootstrap file.
  *
  * @package WPT_Custom_Mo_File
  */
