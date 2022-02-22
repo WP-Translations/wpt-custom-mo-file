@@ -32,7 +32,7 @@ function wpt_customofile_filter_upload_dir( $upload_dir ) {
 	$upload_dir['url']    = $upload_dir['baseurl'] . '/' . WPT_CUSTOMOFILE_SLUG;
 
 	// Prepare uploads folder.
-	wpt_customofile_upload_dir_prepare( $upload_dir );
+	wpt_customofile_upload_dir_prepare( strval( $upload_dir['path'] ) );
 
 	return $upload_dir;
 }
@@ -44,25 +44,25 @@ function wpt_customofile_filter_upload_dir( $upload_dir ) {
  *
  * @since 1.2.0
  *
- * @param array<mixed> $upload_dir   Upload folder data.
+ * @param string $upload_dir_path   Upload folder data.
  *
  * @return void
  */
-function wpt_customofile_upload_dir_prepare( $upload_dir ) {
+function wpt_customofile_upload_dir_prepare( $upload_dir_path ) {
 
 	// Checks if the content folder exists.
-	if ( ! is_dir( $upload_dir['path'] ) ) {
+	if ( ! is_dir( $upload_dir_path ) ) {
 
 		// Create the content folder.
-		mkdir( $upload_dir['path'], 0755, true );
+		mkdir( $upload_dir_path, 0755, true );
 
 	}
 
 	// Checks if index exists.
-	if ( ! is_file( $upload_dir['path'] . '/index.php' ) ) {
+	if ( ! is_file( $upload_dir_path . '/index.php' ) ) {
 
 		// Add empty index file.
-		copy( WPT_CUSTOMOFILE_PATH . 'index.php', $upload_dir['path'] . '/index.php' );
+		copy( WPT_CUSTOMOFILE_PATH . 'index.php', $upload_dir_path . '/index.php' );
 
 	}
 
@@ -76,12 +76,18 @@ function wpt_customofile_upload_dir_prepare( $upload_dir ) {
  *
  * @param string $value   Get concat value from button.
  *
- * @return array<mixed>   Array text_domain/locale.
+ * @return array{
+ *             text_domain: string,
+ *             locale: string,
+ *         }   Array text_domain/locale.
  */
 function wpt_customofile_extract_textdomain_locale( $value ) {
+
 	list( $domain, $locale ) = explode( '|', $value );
+
 	return array(
 		'text_domain' => $domain,
 		'locale'      => $locale,
 	);
+
 }

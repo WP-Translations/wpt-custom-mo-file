@@ -192,6 +192,11 @@ function wpt_customofile_rules_table_field() {
 
 	$rules = get_option( 'wpt_customofile_options' );
 
+	// Check if plugin setting exist and is array.
+	if ( ! is_array( $rules ) ) {
+		$rules = array();
+	}
+
 	if ( isset( $rules['rules'] ) && ! empty( $rules['rules'] ) ) {
 		?>
 
