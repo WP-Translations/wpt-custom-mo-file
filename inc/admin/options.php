@@ -130,7 +130,7 @@ function wpt_customofile_add_rule_validate( $input ) {
 	$input['deactivate_rule']          = isset( $input['deactivate_rule'] ) ? $input['deactivate_rule'] : null;
 	$input['activate_rule']            = isset( $input['activate_rule'] ) ? $input['activate_rule'] : null;
 	$input['delete_rule']              = isset( $input['delete_rule'] ) ? $input['delete_rule'] : null;
-	$input['mo']                       = is_array( $input['mo'] ) ? $input['mo'] : array();
+	$input['mo']                       = isset( $input['mo'] ) && is_array( $input['mo'] ) ? $input['mo'] : array();
 
 	$options = get_option( 'wpt_customofile_options' );
 
@@ -146,13 +146,15 @@ function wpt_customofile_add_rule_validate( $input ) {
 	if ( $input['wpt-customofile-add-rule'] && isset( $_FILES['wpt_customofile_mo_file']['name'] ) ) {
 
 		add_filter( 'upload_dir', 'wpt_customofile_filter_upload_dir' );
+		add_filter( 'upload_mimes', 'wpt_customofile_filter_upload_mimes' );
 		$mo_file = wp_handle_upload(
 			$_FILES['wpt_customofile_mo_file'], // phpcs:ignore
 			array(
 				'test_form' => false,
-				'mimes'     => array( 'mo' => 'application/octet-stream' ),
+				'mimes'     => array( 'mo' => 'application/x-gettext-translation' ),
 			)
 		);
+		remove_filter( 'upload_mimes', 'wpt_customofile_filter_upload_mimes' );
 		remove_filter( 'upload_dir', 'wpt_customofile_filter_upload_dir' );
 
 		if ( $mo_file && empty( $mo_file['error'] ) ) {

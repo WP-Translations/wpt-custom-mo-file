@@ -39,6 +39,24 @@ function wpt_customofile_filter_upload_dir( $upload_dir ) {
 
 
 /**
+ * Filter for upload mime types.
+ *
+ * @since 1.2.1
+ *
+ * @param array<mixed> $wp_get_mime_types   Get upload mime types.
+ *
+ * @return array<mixed>   Filtered array of upload mime types.
+ */
+function wpt_customofile_filter_upload_mimes( $wp_get_mime_types ) {
+
+	// Add 'mo' mime type.
+	$wp_get_mime_types['mo'] = 'application/x-gettext-translation';
+
+	return $wp_get_mime_types;
+}
+
+
+/**
  * Prepare uploads folder.
  * Check if folder exist and has empty index, create both if don't exist.
  *
