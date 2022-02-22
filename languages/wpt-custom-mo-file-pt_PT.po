@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: WPT Custom Mo File\n"
 "POT-Creation-Date: 2022-02-19 10:10+0000\n"
-"PO-Revision-Date: 2022-02-19 10:10+0000\n"
+"PO-Revision-Date: 2022-02-22 11:55+0000\n"
 "Last-Translator: Pedro Mendonça <ped.gaspar@gmail.com>\n"
 "Language-Team: Pedro Mendonça <ped.gaspar@gmail.com>\n"
 "Language: pt_PT\n"
@@ -10,7 +10,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 2.4.2\n"
+"X-Generator: Poedit 3.0.1\n"
 "X-Poedit-Basepath: ..\n"
 "X-Poedit-WPHeader: wpt-custom-mo-file.php\n"
 "X-Poedit-SourceCharset: UTF-8\n"
@@ -25,7 +25,7 @@ msgstr "Sem dados disponíveis na tabela"
 #: inc/admin/enqueue.php:71
 msgctxt "Please do not translate: _START_ _END_ _TOTAL_"
 msgid "Showing _START_ to _END_ of _TOTAL_ entries"
-msgstr "A mostrar _START_ a _END_ do total de _TOTAL_ entradas"
+msgstr "A mostrar de _START_ a _END_ de _TOTAL_ entradas"
 
 #: inc/admin/enqueue.php:72
 msgid "Showing 0 to 0 of 0 entries"
@@ -39,7 +39,7 @@ msgstr "filtradas de um total de _MAX_ entradas"
 #: inc/admin/enqueue.php:74
 msgctxt "Please do not translate: _MENU_"
 msgid "Show _MENU_ entries"
-msgstr "Mostrar entradas de _MENU_"
+msgstr "Mostrar _MENU_ entradas"
 
 #: inc/admin/enqueue.php:75
 msgid "Loading..."
@@ -146,11 +146,11 @@ msgstr "Por favor, seleccione primeiro uma acção"
 
 #: inc/admin/ui/options.php:42
 msgid "Join us"
-msgstr "Junta-te à nós"
+msgstr "Junte-se a nós"
 
 #: inc/admin/ui/options.php:55
 msgid "Create, activate, desactivate your own set of rules to get full control of any translations in your WordPress installation."
-msgstr "Criar, activar, desactivar o seu próprio conjunto de regras para ter controlo completo sobre quaisquer traduções na sua instalação WordPress."
+msgstr "Crie, active ou desactive o seu próprio conjunto de regras para ter controlo completo sobre quaisquer traduções na sua instalação WordPress."
 
 #: inc/admin/ui/options.php:58
 msgctxt "Company name, don't translate"
@@ -163,7 +163,7 @@ msgstr "Adicionar nova regra"
 
 #: inc/admin/ui/options.php:77
 msgid "There is no available textdomain."
-msgstr "Não há nenhum text domain disponível."
+msgstr "Não há nenhum textdomain disponível."
 
 #: inc/admin/ui/options.php:122
 #, php-format

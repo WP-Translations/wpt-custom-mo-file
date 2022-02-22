@@ -5,7 +5,7 @@ Donate link: https://paypal.me/wptranslations
 Requires at least: 5.3
 Tested up to: 5.9
 Requires PHP: 7.2
-Stable tag: 1.2.0
+Stable tag: 1.2.1
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -81,6 +81,9 @@ Yes you can! Join in on our [GitHub repository](https://github.com/WP-Translatio
 1. The slick but efficient WPT Custom Mo File settings panel.
 
 == Changelog ==
+
+= 1.2.1 - 22 Feb 2022 =
+* Fix mime type according to WordPress core fileinfo mime type check.
 
 = 1.2.0 - 22 Feb 2022 =
 * Tested up to WP 5.9
