@@ -130,7 +130,7 @@ function wpt_customofile_add_rule_validate( $input ) {
 	$input['deactivate_rule']          = isset( $input['deactivate_rule'] ) ? $input['deactivate_rule'] : null;
 	$input['activate_rule']            = isset( $input['activate_rule'] ) ? $input['activate_rule'] : null;
 	$input['delete_rule']              = isset( $input['delete_rule'] ) ? $input['delete_rule'] : null;
-	$input['mo']                       = isset( $input['mo'] ) && is_array( $input['mo'] ) ? $input['mo'] : array();
+	$input['mo']                       = is_array( $input['mo'] ) ? $input['mo'] : array();
 
 	$options = get_option( 'wpt_customofile_options' );
 
