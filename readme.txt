@@ -54,7 +54,7 @@ Automatic updates should work like a charm; as always though, ensure you backup 
 
 = Can I use .po files? =
 
-No, not yet. Until we implement this feature, we recommend you to use any gettext editor to create your .mo files. E.g. [Poedit](https://make.wordpress.org/polyglots/handbook/tools/poedit/)
+No, not yet. Until we implement this feature, we recommend you to use any gettext editor to create your .mo files. E.g. [Poedit](https://make.wordpress.org/polyglots/handbook/translating/glotpress-translate-wordpress-org/poedit/)
 
 = Where can I get support or talk to other users? =
 
@@ -62,11 +62,11 @@ If you get stuck, you can ask for help in the [WPT Custom Mo File plugin Forum](
 
 = Will WPT Custom Mo File work with my theme and plugins? =
 
-Yes, WPT Custom Mo File wih any WordPress theme and plugins.
+Yes, WPT Custom Mo File work with any WordPress theme and plugins.
 
 = Will WPT Custom Mo File work with any languages? =
 
-Yes, WPT Custom Mo File wih any WordPress supported languages.
+Yes, WPT Custom Mo File work with any WordPress supported languages.
 
 = Where can I request new features, report bugs or contribute to the project? =
 
