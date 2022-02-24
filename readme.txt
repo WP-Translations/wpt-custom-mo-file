@@ -82,8 +82,12 @@ Yes you can! Join in on our [GitHub repository](https://github.com/WP-Translatio
 
 == Changelog ==
 
+= Unreleased
+* Search only .mo files on upload file field
+* Fix PHP notice on new v1.2.1 install
+
 = 1.2.1 - 22 Feb 2022 =
-* Fix mime type according to WordPress core fileinfo mime type check.
+* Fix mime type according to WordPress core fileinfo mime type check
 
 = 1.2.0 - 22 Feb 2022 =
 * Tested up to WP 5.9
