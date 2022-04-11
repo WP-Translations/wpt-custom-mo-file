@@ -22,7 +22,7 @@
 		"url": "https://github.com/WP-Translations/wpt-custom-mo-file/issues"
 	},
 	"devDependencies": {
-		"@wordpress/scripts": "^22.0.1",
+		"@wordpress/scripts": "^22.4.0",
 		"datatables.net-dt": "^1.11.4",
 		"postcss-cli": "^9.1.0",
 		"tablesorter": "^2.31.3",
