@@ -82,6 +82,7 @@ Yes you can! Join in on our [GitHub repository](https://github.com/WP-Translatio
 
 ### Unreleased
 
+* Tested up to WP 6.0
 * Search only .mo files on upload file field
 * Fix PHP notice on new v1.2.1 install
 
