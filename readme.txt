@@ -3,7 +3,7 @@ Contributors: wptranslationsteam, g3ronim0, fxbenard, pedromendonca
 Tags: language, textdomain, translation, localization, internationalization
 Donate link: https://paypal.me/wptranslations
 Requires at least: 5.3
-Tested up to: 5.9
+Tested up to: 6.0
 Requires PHP: 7.2
 Stable tag: 1.2.1
 License: GPLv2 or later
@@ -83,6 +83,7 @@ Yes you can! Join in on our [GitHub repository](https://github.com/WP-Translatio
 == Changelog ==
 
 = Unreleased
+* Tested up to WP 6.0
 * Search only .mo files on upload file field
 * Fix PHP notice on new v1.2.1 install
 
