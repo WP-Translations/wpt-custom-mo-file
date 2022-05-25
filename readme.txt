@@ -5,7 +5,7 @@ Donate link: https://paypal.me/wptranslations
 Requires at least: 5.3
 Tested up to: 6.0
 Requires PHP: 7.2
-Stable tag: 1.2.1
+Stable tag: 1.2.2
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -82,7 +82,8 @@ Yes you can! Join in on our [GitHub repository](https://github.com/WP-Translatio
 
 == Changelog ==
 
-= Unreleased
+= 1.2.2 - 25 May 2022 =
+
 * Tested up to WP 6.0
 * Search only .mo files on upload file field
 * Fix PHP notice on new v1.2.1 install
