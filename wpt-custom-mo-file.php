@@ -178,7 +178,7 @@ function wpt_customofile_overwrite_domains() {
 
 	if ( isset( $options['rules'][ $locale ] ) && ! empty( $options['rules'][ $locale ] ) ) {
 		foreach ( $options['rules'][ $locale ] as $rule ) {
-			if ( 1 === $rule['activate'] && $locale === $rule['language'] ) {
+			if ( $rule['activate'] === 1 && $locale === $rule['language'] ) {
 				unload_textdomain( $rule['text_domain'] );
 				load_textdomain( $rule['text_domain'], $rule['mo_path'] );
 			}

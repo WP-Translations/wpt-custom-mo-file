@@ -61,7 +61,7 @@ function wpt_customofile_tools_page() {
 		<form action="options.php" method="post" enctype="multipart/form-data">
 			<?php settings_fields( 'wpt_customofile_options' ); ?>
 			<?php
-			if ( 0 < $count_domains ) {
+			if ( $count_domains > 0 ) {
 				?>
 				<div class="wpt-box postbox">
 					<h2><?php esc_html_e( 'Add new rule', 'wpt-custom-mo-file' ); ?></h2>
@@ -232,7 +232,7 @@ function wpt_customofile_rules_table_field() {
 				foreach ( $rules['rules'] as $lang ) {
 					foreach ( $lang as $rule ) {
 						?>
-						<tr class="<?php echo esc_attr( 1 === $rule['activate'] ? 'active' : '' ); ?> ">
+						<tr class="<?php echo esc_attr( $rule['activate'] === 1 ? 'active' : '' ); ?> ">
 							<th scope="row" class="check-column">
 								<label class="screen-reader-text" for="cb-select-<?php echo esc_attr( $rule['text_domain'] . '-' . $rule['language'] ); ?>"><?php esc_html_e( 'Select&nbsp;', 'wpt-custom-mo-file' ); ?><?php echo esc_html( $rule['text_domain'] ); ?></label>
 								<input name="wpt_customofile_options[mo][]" id="cb-select-<?php echo esc_attr( $rule['text_domain'] . '-' . $rule['language'] ); ?>" value="<?php echo esc_attr( $rule['text_domain'] . '|' . $rule['language'] ); ?>" type="checkbox">
@@ -242,7 +242,7 @@ function wpt_customofile_rules_table_field() {
 							<td><?php echo esc_attr( $rule['filename'] ); ?></td>
 							<td>
 								<?php
-								if ( 1 === $rule['activate'] ) {
+								if ( $rule['activate'] === 1 ) {
 									?>
 									<button class="button wpt-customofile-button wpt-customofile-button-deactivate" type="submit" name="wpt_customofile_options[deactivate_rule]" value="<?php echo esc_attr( $rule['text_domain'] . '|' . $rule['language'] ); ?>"><?php esc_html_e( 'Deactivate', 'wpt-custom-mo-file' ); ?></button>
 									<?php
