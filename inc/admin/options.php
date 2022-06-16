@@ -194,7 +194,7 @@ function wpt_customofile_add_rule_validate( $input ) {
 
 	if ( $input['action_top'] || $input['action_bottom'] ) {
 
-		if ( '-1' !== $input['bulk_action_top'] || '-1' !== $input['bulk_action_bottom'] ) {
+		if ( $input['bulk_action_top'] !== '-1' || $input['bulk_action_bottom'] !== '-1' ) {
 
 			if ( ! empty( $input['mo'] ) ) {
 

@@ -31,7 +31,13 @@
 	<arg name="colors"/>
 
 	<!-- Include the WordPress Coding Standards. -->
-	<rule ref="WordPress"/>
+	<rule ref="WordPress">
+		<!-- Temporarily exclude rule Yoda conditions in codebase. -->
+		<exclude name="WordPress.PHP.YodaConditions.NotYoda"/>
+	</rule>
+
+	<!-- Disallow Yoda conditions in codebase. -->
+	<rule ref="Generic.ControlStructures.DisallowYodaConditions"/>
 
 	<rule ref="WordPress.WP.DeprecatedFunctions">
 		<properties>
