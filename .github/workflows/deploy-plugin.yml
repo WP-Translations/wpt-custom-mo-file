@@ -12,10 +12,10 @@ jobs:
 
     steps:
     - name: Checkout repository
-      uses: actions/checkout@v3.0.2
+      uses: actions/checkout@v3.1.0
 
     - name: WordPress.org Plugin Deploy
-      uses: 10up/action-wordpress-plugin-deploy@2.1.0
+      uses: 10up/action-wordpress-plugin-deploy@2.1.1
       env:
         SVN_PASSWORD: ${{ secrets.SVN_PASSWORD }}
         SVN_USERNAME: ${{ secrets.SVN_USERNAME }}
