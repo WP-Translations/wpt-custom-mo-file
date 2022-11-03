@@ -80,6 +80,10 @@ Yes you can! Join in on our [GitHub repository](https://github.com/WP-Translatio
 
 ## Changelog
 
+### Unreleased
+
+* Tested up to WP 6.1
+
 ### 1.2.2 - 25 May 2022
 
 * Tested up to WP 6.0

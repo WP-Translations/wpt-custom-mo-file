@@ -3,7 +3,7 @@ Contributors: wptranslationsteam, g3ronim0, fxbenard, pedromendonca
 Tags: language, textdomain, translation, localization, internationalization
 Donate link: https://paypal.me/wptranslations
 Requires at least: 5.3
-Tested up to: 6.0
+Tested up to: 6.1
 Requires PHP: 7.2
 Stable tag: 1.2.2
 License: GPLv2 or later
@@ -81,6 +81,9 @@ Yes you can! Join in on our [GitHub repository](https://github.com/WP-Translatio
 1. The slick but efficient WPT Custom Mo File settings panel.
 
 == Changelog ==
+
+= Unreleased =
+* Tested up to WP 6.1
 
 = 1.2.2 - 25 May 2022 =
 
